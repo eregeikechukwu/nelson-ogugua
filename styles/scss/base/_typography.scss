@@ -1,0 +1,13 @@
+@use "../abstracts/functions" as *;
+
+@for $i from 1 through 20 {
+  .text-#{$i} {
+    font-size: toRem($i);
+  }
+}
+
+// ==============================
+//FOR ANOTHER DEV WORKING ON THIS PROJECT
+// ==============================
+// / GO THROUGH THE SCSS FOLDER AND SEE THE PROPERTIES THAT ARE BEEN CONVERTED TO rem. Therefore, the styles you see are using the toRem function from the functions.scss file to convert px values to rem values and not normal tailwind css values.
+// / FOR EXAMPLE, in the sizes.scss and spaces.scss files, you will see height, width, padding, margin, gap values been converted using the toRem function.

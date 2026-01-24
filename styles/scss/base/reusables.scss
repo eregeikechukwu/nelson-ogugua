@@ -1,0 +1,116 @@
+@use "../abstracts/functions" as *;
+
+.gradient {
+  background: linear-gradient(
+    179deg,
+    var(--color-white) -106%,
+    var(--color-light-gray) 43%,
+    var(--color-black) 100%
+  );
+}
+
+// gardient plus shimmer
+.shimmerGradient {
+  position: relative;
+  /* base gradient */
+  @extend .gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shimmerGradient::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+
+  /* shimmer layer */
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 60%
+  );
+
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite 0.5s;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  pointer-events: none;
+}
+
+.largeText {
+  @extend .shimmerGradient;
+  font-size: toRem(100);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.mediumText {
+  @extend .shimmerGradient;
+  font-size: toRem(60);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.gradient-text {
+  @extend .gradient;
+  background-clip: text;
+  font-weight: bold;
+  -webkit-background-clip: text;
+  color: transparent;
+  will-change: transform;
+}
+
+// NO scrollbar
+.no-scrollbar {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow: auto;
+}
+
+.container {
+  @extend .no-scrollbar;
+  max-width: var(--container-width);
+  padding-block: toRem(100);
+  margin: 0 auto;
+}
+
+.link,
+.link:visited {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+//stagger reveal text
+.stagger-reveal-container {
+  display: inline-block;
+  overflow: hidden;
+  span {
+    display: inline-block !important;
+    overflow: hidden;
+    line-height: 1;
+
+    span {
+      display: inline-block;
+      // transform: translateY(100%);
+      will-change: transform;
+    }
+  }
+}
+
+.border-gray {
+  border: solid 2px var(--color-medium-gray);
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

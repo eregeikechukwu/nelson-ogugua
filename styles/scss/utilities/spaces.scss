@@ -1,0 +1,80 @@
+@use "../abstracts/functions" as *;
+
+// 1️⃣ Padding
+@for $i from 1 through 200 {
+  .p-#{$i} {
+    padding: toRem($i);
+  }
+  .pt-#{$i} {
+    padding-top: toRem($i);
+  }
+  .pr-#{$i} {
+    padding-right: toRem($i);
+  }
+  .pb-#{$i} {
+    padding-bottom: toRem($i);
+  }
+  .pl-#{$i} {
+    padding-left: toRem($i);
+  }
+  .px-#{$i} {
+    padding-left: toRem($i);
+    padding-right: toRem($i);
+  }
+  .py-#{$i} {
+    padding-top: toRem($i);
+    padding-bottom: toRem($i);
+  }
+}
+
+// 2️⃣ Margin
+@for $i from 1 through 200 {
+  .m-#{$i} {
+    margin: toRem($i);
+  }
+  .mt-#{$i} {
+    margin-top: toRem($i);
+  }
+  .mr-#{$i} {
+    margin-right: toRem($i);
+  }
+  .mb-#{$i} {
+    margin-bottom: toRem($i);
+  }
+  .ml-#{$i} {
+    margin-left: toRem($i);
+  }
+  .mx-#{$i} {
+    margin-left: toRem($i);
+    margin-right: toRem($i);
+  }
+  .my-#{$i} {
+    margin-top: toRem($i);
+    margin-bottom: toRem($i);
+  }
+}
+
+// 3️⃣ Gap (for flex/grid)
+@for $i from 1 through 200 {
+  .gap-#{$i} {
+    gap: toRem($i);
+  }
+  .gap-x-#{$i} {
+    column-gap: toRem($i);
+  }
+  .gap-y-#{$i} {
+    row-gap: toRem($i);
+  }
+}
+
+// 4️⃣ Width & Height (optional)
+@for $i from 1 through 500 {
+  .w-#{$i} {
+    width: toRem($i);
+  }
+  .h-#{$i} {
+    height: toRem($i);
+  }
+}
+
+// ✅ Now you can write in HTML/JSX:

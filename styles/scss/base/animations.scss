@@ -1,0 +1,49 @@
+.animate-fill {
+  animation: fill 0.4s ease-in-out forwards;
+}
+
+@keyframes fill {
+  0% {
+    color: var(--color-white);
+  }
+
+  100% {
+    color: transparent;
+  }
+}
+
+.blinking-fill {
+  animation: blinkingFill 1.2s infinite;
+  -webkit-text-stroke: 0 !important;
+  -moz-text-stroke: 0 !important;
+}
+
+@keyframes blinkingFill {
+  0%,
+  100% {
+    color: var(--color-yellow);
+  }
+
+  50% {
+    color: transparent;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 120% 0;
+  }
+  100% {
+    background-position: -80% 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

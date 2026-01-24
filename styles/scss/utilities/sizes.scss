@@ -1,0 +1,10 @@
+@use "../abstracts/functions" as *;
+
+@for $i from 1 through 200 {
+  .h-#{$i} {
+    height: toRem($i);
+  }
+  .w-#{$i} {
+    width: toRem($i);
+  }
+}

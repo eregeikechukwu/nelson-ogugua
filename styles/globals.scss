@@ -1,0 +1,71 @@
+@use "tailwindcss" as *;
+
+@use "scss/base/reusables.scss" as *;
+@use "scss/base/animations.scss" as *;
+
+@use "scss/abstracts/functions.scss" as *;
+@use "scss/abstracts/variables.scss" as *;
+
+@use "scss/utilities/sizes.scss" as *;
+@use "scss/utilities/spaces.scss" as *;
+@use "scss/utilities/utilities.scss" as *;
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --font-axiforma: "Axiforma", sans-serif;
+  --color-yellow: #fdbd1a;
+  --color-text-gray: #c2c2c2;
+  --color-light-gray: #858585;
+  --color-medium-gray: #272727;
+  --color-dark-gray: #151515;
+  --color-icon-gray: #616161;
+
+  --color-gray-transparent: #ffffff26;
+  --container-width: 1072px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-axiforma: var(--font-axiforma);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-axiforma), sans-serif;
+  position: relative;
+
+  //Main defaults
+  margin: 0 auto;
+  line-height: 1;
+  overflow-x: hidden;
+}
+
+html {
+  line-height: normal;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 112.5%; /* 18px */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  // outline: 1px solid red !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}

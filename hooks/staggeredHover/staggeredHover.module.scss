@@ -1,0 +1,64 @@
+@use "../../styles/scss/abstracts/mixins" as mixins;
+
+.staggeredText {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  cursor: pointer;
+
+  &__container {
+    position: relative;
+    display: inline-block;
+  }
+
+  &__line {
+    white-space: nowrap;
+    display: flex;
+
+    // Second line is positioned absolutely below the first
+    &:nth-child(2) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }
+
+  &__letter {
+    display: inline-block;
+    line-height: 1;
+    // Prevent layout shift from inline-block whitespace
+    vertical-align: top;
+  }
+}
+
+// @use "../../styles/scss/abstracts/mixins" as mixins;
+
+// .staggeredText {
+//   overflow: hidden;
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   // gap: 2.2rem;
+//   @include mixins.respond-to-abs(medium) {
+//     height: 2rem;
+//   }
+
+//   &__container {
+//     position: relative;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     // bottom: 0;
+
+//     & div {
+//       position: absolute;
+//     }
+//   }
+//   &__letter {
+//     display: inline-block;
+//     line-height: 1;
+//     @include mixins.respond-to-abs(medium) {
+//       // line-height: 0.5;
+//     }
+//   }
+// }
