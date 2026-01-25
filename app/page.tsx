@@ -1,8 +1,14 @@
 "use client";
 
-import { About } from "@/components/sections/landing/about";
-import { Hero } from "@/components/sections/landing/hero";
-import ParallaxSlider from "@/components/sections/landing/parallaxSlider";
+import {
+  Testimonial,
+  About,
+  Expertise,
+  Hero,
+  ParallaxSlider,
+  Projects,
+  Services,
+} from "@/components/sections/landing";
 import { useReconGsap } from "@/hooks/gsap";
 
 export default function Home() {
@@ -13,6 +19,10 @@ export default function Home() {
       <Hero />
       <ParallaxSlider />
       <About />
+      <Expertise />
+      <Services />
+      <Projects />
+      <Testimonial />
     </main>
   );
 }

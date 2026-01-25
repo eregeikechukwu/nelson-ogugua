@@ -46,13 +46,14 @@
 }
 
 .circleText {
-  font-size: 0.7rem;
+  font-size: 0.77rem;
   fill: var(--color-text-gray) !important ;
-  letter-spacing: 4.5px;
+  letter-spacing: 4.8px;
 }
 
 // Hide GSAP elements
 .line,
+// .line-delayed,
 .word {
   opacity: 0;
 }
@@ -78,5 +79,21 @@
   &:hover::after {
     transform: scale(2);
     opacity: 0;
+  }
+}
+
+.cursorShape {
+  color: white;
+  width: 7.6rem;
+  height: 7.6rem;
+  border-radius: 100vmax;
+  font-size: 1.275rem;
+  line-height: 1.25rem;
+  position: fixed;
+  z-index: 2;
+  pointer-events: none;
+
+  @media screen and (width <= 720px) {
+    display: none;
   }
 }

@@ -2,7 +2,13 @@ export function RotatingSVG() {
   return (
     <svg viewBox="0 0 200 200" className="w-full h-full">
       {/* <!-- Center image --> */}
-      <image href="/profile.png" x="50" y="50" width="100" height="100" />
+      <image
+        href="/images/profile.png"
+        x="50"
+        y="50"
+        width="100"
+        height="100"
+      />
 
       {/* <!-- Rotating text --> */}
       <g className="rotatingText">

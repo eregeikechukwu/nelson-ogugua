@@ -8,7 +8,7 @@ const paragrapgh =
 
 export function About() {
   return (
-    <section className="container flex justify-between">
+    <section id="about" className="container flex justify-between">
       <div className="flex flex-col gap-60">
         <div className="flex flex-col gap-20">
           <Title>About me</Title>
@@ -25,7 +25,7 @@ export function About() {
 
         {/* SOcials */}
         <div className="flex flex-col  gap-18 items-start">
-          <p className="text-[var(--color-text-gray)] text-[0.922rem]">
+          <p className="text-[var(--color-text-gray)] text-[1.0375rem]">
             Let&apos;s connect
           </p>
 
@@ -49,8 +49,8 @@ export function About() {
       </div>
 
       {/* Text & CTA */}
-      <div className="max-w-[23rem] flex flex-col gap-40">
-        <div className="stagger-reveal-container leading-[1.78]">
+      <div className="max-w-[24.625rem] flex flex-col gap-40">
+        <div className="stagger-reveal-container leading-[1.78] text-18">
           {paragrapgh.split(" ").map((item, i) => {
             return (
               <span key={`div-${i}`} className="text-[var(--color-text-gray)]">

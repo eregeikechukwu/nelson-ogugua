@@ -1,6 +1,6 @@
 @use "../abstracts/functions" as *;
 
-@for $i from 1 through 20 {
+@for $i from 1 through 30 {
   .text-#{$i} {
     font-size: toRem($i);
   }

@@ -25,7 +25,7 @@
 
   &__letter {
     display: inline-block;
-    line-height: 1;
+    line-height: normal;
     // Prevent layout shift from inline-block whitespace
     vertical-align: top;
   }

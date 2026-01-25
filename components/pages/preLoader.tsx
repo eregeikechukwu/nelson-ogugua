@@ -46,14 +46,19 @@ export default function PreLoader({
 
     gsap.set(dot, {
       scale: 0,
-      rotation: -180,
+      rotationY: -180,
+      transformPerspective: 1000,
     });
     gsap.set(loaderWrapper, {
       top: "100vh",
     });
 
     const tl = gsap.timeline({
-      onComplete: () => setIsLoading(false),
+      onComplete: () => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 100);
+      },
     });
 
     tl
@@ -76,6 +81,7 @@ export default function PreLoader({
         {
           scale: 1,
           rotation: 0,
+          rotationY: 0,
           duration: 0.8,
           ease: "back.out(2)",
         },
@@ -108,7 +114,7 @@ export default function PreLoader({
       )
 
       // Hold the moment
-      .to({}, { duration: 0.5 })
+      .to({}, { duration: 0.3 })
 
       .to(
         portfolio,
@@ -154,7 +160,7 @@ export default function PreLoader({
       // wrapper scroll up
       .to(loaderWrapper, {
         top: "-100vh",
-        duration: 2,
+        duration: 1.5,
         ease: "0.03,1.19,0,0.97",
       });
 

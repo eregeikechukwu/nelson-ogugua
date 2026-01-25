@@ -13,9 +13,9 @@ export function Button({
   return (
     <Link href={link} className="cursor-pointer">
       <button
-        className={`flex items-center rounded-[0.222rem] gap-12 px-12 h-48 font-bold cursor-pointer ${variant === "light" ? "bg-white text-black" : "bg-black text-white border-gray"}`}
+        className={`animated-button flex items-center rounded-[0.222rem] gap-12 px-12 h-48 font-bold cursor-pointer ${variant === "light" ? "bg-white text-black" : "bg-black text-white border-gray"}`}
       >
-        <span className="text-[0.777rem] uppercase tracking-[2px] leading-[1.75] pt-4">
+        <span className="text-14 uppercase tracking-[2px] leading-[1.75] pt-4">
           {children}
         </span>
         <span className="arrow inline-block w-20 h-20">

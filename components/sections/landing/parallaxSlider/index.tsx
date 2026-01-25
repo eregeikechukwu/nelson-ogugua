@@ -1,4 +1,5 @@
-import { useEffect, useRef, memo } from "react";
+/* eslint-disable react/jsx-key */
+import { useEffect, useRef, memo, useCallback } from "react";
 import gsap from "gsap";
 import {
   Airplane,
@@ -43,62 +44,122 @@ const IconItem = memo(function IconItem({
   );
 });
 
-export default function ParallaxSlider() {
+export function ParallaxSlider() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const isInitializedRef = useRef(false);
 
-  useEffect(() => {
-    if (!trackRef.current) return;
+  const initAnimation = useCallback(() => {
+    if (!trackRef.current || isInitializedRef.current) return;
 
     const track = trackRef.current;
     const firstSet = track.children[0] as HTMLElement;
-    const setWidth = firstSet.offsetWidth;
 
-    gsap.set(track, { x: 0 });
+    // Wait for layout to settle
+    rafRef.current = requestAnimationFrame(() => {
+      const setWidth = firstSet.offsetWidth;
 
-    tweenRef.current = gsap.to(track, {
-      x: -setWidth,
-      duration: 25,
-      ease: "none",
-      repeat: -1,
-    });
+      if (setWidth === 0) {
+        isInitializedRef.current = false;
+        return;
+      }
 
-    const handleResize = () => {
-      tweenRef.current?.kill();
-      const newWidth = firstSet.offsetWidth;
+      // Kill existing animation
+      if (tweenRef.current) {
+        tweenRef.current.kill();
+      }
 
+      // Reset position
+      gsap.set(track, { x: 0 });
+
+      // Create seamless infinite loop
       tweenRef.current = gsap.to(track, {
-        x: -newWidth,
-        duration: 15,
+        x: -setWidth,
+        duration: 25,
         ease: "none",
         repeat: -1,
+        modifiers: {
+          x: gsap.utils.unitize((x) => parseFloat(x) % setWidth),
+        },
       });
-    };
 
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      tweenRef.current?.kill();
-      window.removeEventListener("resize", handleResize);
-    };
+      isInitializedRef.current = true;
+    });
   }, []);
 
-  const pause = () => tweenRef.current?.timeScale(0);
-  const play = () => tweenRef.current?.timeScale(1);
+  useEffect(() => {
+    initAnimation();
+
+    const handleResize = () => {
+      isInitializedRef.current = false;
+      initAnimation();
+    };
+
+    // Debounced resize handler
+    let resizeTimeout: NodeJS.Timeout;
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(handleResize, 150);
+    };
+
+    window.addEventListener("resize", debouncedResize);
+
+    return () => {
+      if (tweenRef.current) {
+        tweenRef.current.kill();
+      }
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      window.removeEventListener("resize", debouncedResize);
+      clearTimeout(resizeTimeout);
+    };
+  }, [initAnimation]);
+
+  const pause = useCallback(() => {
+    if (tweenRef.current) {
+      gsap.to(tweenRef.current, {
+        timeScale: 0,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  }, []);
+
+  const play = useCallback(() => {
+    if (tweenRef.current) {
+      gsap.to(tweenRef.current, {
+        timeScale: 1,
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    }
+  }, []);
 
   return (
     <div className="py-22 overflow-hidden lg:mx-auto" ref={containerRef}>
-      <div className="h-[7.94rem]" onMouseEnter={pause} onMouseLeave={play}>
+      <div className="h-134" onMouseEnter={pause} onMouseLeave={play}>
         <div ref={trackRef} className="flex w-max h-full !ml-auto">
           {[0, 1].map((_, setIndex) => (
             <div key={setIndex} className="flex h-full">
-              {icons.map((Icon, index) => (
+              {/* {icons.map((Icon, index) => (
                 <IconItem
                   key={`${setIndex}-${index}`}
                   Icon={Icon}
                   index={index}
                 />
+              ))} */}
+              {Array.from({ length: 10 }).map((_, index) => (
+                <div key={index} className="px-65 h-full center-content flex-shrink-0 border-gray !border-r-0">
+                  <p
+                    
+                    className="text-[#616161] leading-[1.71] text-[1.9rem] font-[900]"
+                  >
+                    LOGO
+                  </p>
+                </div>
               ))}
             </div>
           ))}

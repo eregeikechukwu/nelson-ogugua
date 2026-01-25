@@ -1,6 +1,7 @@
 @use "tailwindcss" as *;
 
 @use "scss/base/reusables.scss" as *;
+@use "scss/base/typography.scss" as *;
 @use "scss/base/animations.scss" as *;
 
 @use "scss/abstracts/functions.scss" as *;
@@ -24,6 +25,7 @@
   --color-icon-gray: #616161;
 
   --color-gray-transparent: #ffffff26;
+  --color-gray-transparent2: #ffffff33;
   --container-width: 1072px;
 }
 
@@ -50,7 +52,7 @@ body {
 
   //Main defaults
   margin: 0 auto;
-  line-height: 1;
+  // line-height: 1;
   overflow-x: hidden;
 }
 
@@ -58,7 +60,7 @@ html {
   line-height: normal;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-size: 112.5%; /* 18px */
+  font-size: 100%; /* 18px */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
