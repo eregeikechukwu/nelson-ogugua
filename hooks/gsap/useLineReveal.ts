@@ -21,7 +21,7 @@ export function useRevealLine() {
 
           gsap.fromTo(
             items,
-            { yPercent: 110, autoAlpha: 0, opacity: 0 },
+            { yPercent: 140, autoAlpha: 0, opacity: 0 },
             {
               yPercent: 0,
               opacity: 1,
