@@ -25,7 +25,7 @@ export function Footer() {
     <footer className="container pb-30 flex flex-col gap-50">
       {/* Name */}
       <div className="flex flex-col gap-100 relative">
-        <div className="w-[17.35rem] absolute -top-[20%] right-[20%]">
+        <div className="w-[17.35rem] absolute -top-[15%] right-[20%]">
           <RotatingSVG />
         </div>
 
