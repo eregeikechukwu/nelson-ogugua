@@ -29,6 +29,10 @@
   --container-width: 1072px;
 }
 
+@utility text-fill-yellow {
+  -webkit-text-fill-color: var(--color-yellow);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -63,6 +67,7 @@ html {
   font-size: 100%; /* 18px */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 
   @media (max-width: 1010px) {
     font-size: 70%;

@@ -19,11 +19,11 @@ export const footerLinksPages = [
 
 export const footerLinksSocials = [
   {
-    name: "LinkdIn",
+    name: "Linkedin",
     href: "https://t.me/palmpay",
   },
   {
-    name: "Benance",
+    name: "Behance",
     href: "https://facebook.com/palmpay",
   },
   {

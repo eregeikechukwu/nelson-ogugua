@@ -18,9 +18,9 @@ export function Hero() {
   });
 
   return (
-    <section className="container flex flex-col gap-50">
+    <section id="hero" className="container flex flex-col gap-34 ">
       {/* h1's and image */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center mb-16">
         <div className="text-left line-reveal-container">
           <Greetings />
           <h1 data-text="I'm Nelson" className="largeText  line">
@@ -31,7 +31,7 @@ export function Hero() {
           </h1>
         </div>
 
-        <div className=" w-[23.6rem] h-auto" ref={slowScrollRef}>
+        <div className=" w-[17.6875rem] h-auto popOut">
           <RotatingSVG />
         </div>
       </div>

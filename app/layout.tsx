@@ -35,7 +35,7 @@ export default function RootLayout({
         <title>Home | Nelson Ogugua</title>
       </head>
 
-      <body className={`${axiforma.variable} font-axiform antialiased`}>
+      <body className={`${axiforma.variable} font-axiforma antialiased`}>
         {isLoading ? (
           <PreLoader setIsLoading={setIsLoading} />
         ) : (

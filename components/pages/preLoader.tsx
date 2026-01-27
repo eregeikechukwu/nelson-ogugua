@@ -114,7 +114,7 @@ export default function PreLoader({
       )
 
       // Hold the moment
-      .to({}, { duration: 0.3 })
+      .to({}, { duration: 0.5 })
 
       .to(
         portfolio,
@@ -175,15 +175,17 @@ export default function PreLoader({
         ref={containerRef}
         className="fixed inset-0  z-[9999] bg-black  flex-col will-change-transform hidden"
       >
-        <div className="text-[5.6rem]  ml-20 mt-30 ">
+        <div className="text-[7rem]  ml-20 mt-30 leading-[1]">
           <span className="outliner portfolio">
             Portfolio<span className="blinking-fill">.</span>
           </span>
         </div>
-        <div className="text-[10rem] !mt-auto ml-auto text-end leading-[1] w-full">
-          <span className="gradient-text inline-block name1">Nelson</span>
+        <div className="text-[13rem] !mt-auto ml-auto text-end leading-[1] w-full">
+          <span className="gradient-text inline-block name1 translate-y-[4rem]">
+            Nelson
+          </span>
           <br />
-          <span className="gradient-text inline-block name2">Ogugua</span>
+          <span className="gradient-text inline-block name2 mr-40">Ogugua</span>
         </div>
       </div>
 

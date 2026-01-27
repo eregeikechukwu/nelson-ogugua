@@ -1,6 +1,6 @@
 export function RotatingSVG() {
   return (
-    <svg viewBox="0 0 200 200" className="w-full h-full">
+    <svg viewBox="30 30 140 140" className="w-full h-full">
       {/* <!-- Center image --> */}
       <image
         href="/images/profile.png"

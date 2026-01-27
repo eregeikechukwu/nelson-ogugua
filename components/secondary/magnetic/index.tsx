@@ -44,7 +44,7 @@ ThumbnailCursorCircle.displayName = "ThumbnailCursorCircle";
 export const ThumbnailCursorLabel = forwardRef<
   HTMLDivElement,
   ThumbnailCursorProps
->(({ variants, active, className = "", ...props }, ref) => {
+>(({ variants, active, className = "text-black", ...props }, ref) => {
   return (
     <MotionComponent
       ref={ref}

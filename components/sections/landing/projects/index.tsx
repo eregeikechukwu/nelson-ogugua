@@ -57,7 +57,7 @@ export function Projects() {
               handlePointerLeave(i);
               moveItems(clientX, clientY);
             }}
-            className="p-24 border-gray flex flex-col gap-28 cursor-pointer"
+            className="p-24 border-gray flex flex-col gap-28 cursor-pointer projectHover"
             key={i}
           >
             {/* Banner */}
@@ -70,7 +70,7 @@ export function Projects() {
                 className="w-full h-full object-cover tilt-element"
               />
 
-              <div className="absolute left-[1.125rem] bottom-[1.125rem] px-12 py-10 bg-[var(--color-gray-transparent2)] text-16 text-white leading-[1.5] border-light backdrop-blur-[3px]">
+              <div className="absolute left-[1.125rem] bottom-[1.125rem] px-12 py-10 bg-[var(--color-gray-transparent2)] text-16 text-black leading-[1.5] border-light backdrop-blur-[3px]">
                 {work.name}
               </div>
             </div>
@@ -86,7 +86,12 @@ export function Projects() {
 
       {/* Cursor and label */}
       <ThumbnailCursorCircle ref={cursor} variants={scaleUp} active={active} />
-      <ThumbnailCursorLabel ref={label} variants={scaleUp} active={active}>
+      <ThumbnailCursorLabel
+        ref={label}
+        variants={scaleUp}
+        active={active}
+        className="text-black"
+      >
         View
       </ThumbnailCursorLabel>
     </section>

@@ -1,4 +1,4 @@
-import { Instagram, Whatsapp, Windows } from "iconsax-react";
+import { Call, Instagram, Whatsapp, Windows } from "iconsax-react";
 import { Linkedin, Twitter } from "lucide-react";
 
 export const socials = [
@@ -25,6 +25,6 @@ export const socials = [
   {
     name: "Bessence",
     link: "https://facebook.com/palmpay",
-    icon: Windows,
+    icon: Call,
   },
 ];

@@ -40,7 +40,7 @@
 }
 
 .rotatingText {
-  transform-origin: 50% 50%;
+  transform-origin: 100px 100px;
   animation: rotate 10s linear infinite;
   color: var(--color-white);
 }
@@ -83,7 +83,7 @@
 }
 
 .cursorShape {
-  color: white;
+  color: black;
   width: 7.6rem;
   height: 7.6rem;
   border-radius: 100vmax;
@@ -95,5 +95,72 @@
 
   @media screen and (width <= 720px) {
     display: none;
+  }
+}
+
+.sticky {
+  // position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.5s;
+  transform: translateY(calc(-1 * 80));
+}
+
+.sticky-down {
+  transform: translateY(0);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(7px);
+}
+
+.fadedEdges {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    z-index: 20;
+    position: absolute;
+    width: 10rem;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+  }
+
+  &::before {
+    left: 0;
+
+    background: linear-gradient(
+      90deg,
+      var(--color-background) 0%,
+      var(--color-background) 5%,
+      transparent 100%
+    );
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(
+      270deg,
+      var(--color-background) 0%,
+      var(--color-background) 5%,
+      transparent 100%
+    );
+  }
+}
+
+.projectHover {
+  position: relative;
+  z-index: 2;
+  background: var(--color-background);
+  transition: all 0.3s;
+  &:hover {
+    border-color: var(--color-light-gray);
+    box-shadow: 0 0 20px #ffffffaf;
+    &::after {
+      transform: scale(1.5);
+      opacity: 0;
+    }
   }
 }

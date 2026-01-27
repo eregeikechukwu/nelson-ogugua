@@ -11,7 +11,8 @@ export function Testimonial() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const buttonStyles =
-    "w-48 h-48 p-12 rounded-[4px] cursor-pointer flex items-center justify-center";
+    "group w-48 h-48 p-12 rounded-[4px] cursor-pointer flex items-center justify-center";
+  const iconStyles = "group-hover:animate-pulse";
 
   const scrollToIndex = (index: number) => {
     if (!containerRef.current) return;
@@ -54,6 +55,7 @@ export function Testimonial() {
                 width={24}
                 height={24}
                 color={activeIndex === 0 ? "white" : "black"}
+                className={iconStyles}
               />
             </button>
 
@@ -68,6 +70,7 @@ export function Testimonial() {
                 color={
                   activeIndex === testimonials.length - 1 ? "white" : "black"
                 }
+                className={iconStyles}
               />
             </button>
           </div>

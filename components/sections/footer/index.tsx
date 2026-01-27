@@ -1,7 +1,14 @@
+"use client";
+
+import { NameSVG } from "@/components/secondary/nameSVG";
 import { RotatingSVG } from "@/components/secondary/rotatingSVG";
 import { PassiveText } from "@/components/typography/passiveText";
+import { useParallaxSlider } from "@/hooks/gsap/useParallaxSLider";
+import { useSlowScroll } from "@/hooks/gsap/useSlowScroll";
 import { footerLinksPages, footerLinksSocials } from "@/utils/Links";
+import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { useRef } from "react";
 
 const FooterList = ({ list }: { list: { name: string; href: string }[] }) => {
   return (
@@ -21,18 +28,53 @@ const FooterList = ({ list }: { list: { name: string; href: string }[] }) => {
 };
 
 export function Footer() {
+  const imageRef = useRef<HTMLDivElement | null>(null);
+  const { containerRef, trackRef, pause, play } = useParallaxSlider();
+
+  useSlowScroll(imageRef, { transformY: 0, duration: 1, initialY: -300 });
+
   return (
-    <footer className="container pb-30 flex flex-col gap-50">
+    <footer className=" container pb-30 flex flex-col gap-50">
       {/* Name */}
-      <div className="flex flex-col gap-100 relative">
-        <div className="w-[17.35rem] absolute -top-[15%] right-[20%]">
+      <div className="flex flex-col gap-32 ">
+        <div className="flex-col flex items-center gap-32">
+          {/* Rotating SVG */}
+          <div ref={imageRef} className="w-[11rem] ">
+            <RotatingSVG />
+          </div>
+
+          {/* SLiding name */}
+          <div className="py-22 overflow-hidden lg:mx-auto" ref={containerRef}>
+            <div className="h-auto" onMouseEnter={pause} onMouseLeave={play}>
+              <div ref={trackRef} className="flex w-max h-full !ml-auto">
+                {[0, 1].map((_, setIndex) => (
+                  <div key={setIndex} className="flex h-full">
+                    {Array.from({ length: 4 }).map((_, index) => (
+                      <div
+                        key={index}
+                        className="h-full center-content flex-shrink-0 text-[14rem]"
+                      >
+                        <NameSVG>Nelson&nbsp;Ogugua</NameSVG>
+                        <span className=" leading-[1] text-[var(--color-yellow)] ">
+                          &nbsp;.&nbsp;
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <div className="w-[17.35rem] absolute -top-[15%] right-[20%]">
           <RotatingSVG />
         </div>
 
         <div className="">
           <h1 className="extralargeText">Nelson</h1>
           <h1 className="extralargeText">Ogugua</h1>
-        </div>
+        </div> */}
 
         {/* Links */}
 
@@ -49,9 +91,14 @@ export function Footer() {
         </PassiveText>
         <Link
           href={"https://nelson-erege-portfolio.vercel.app"}
-          className="underline"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex gap-5  hover:animate-pulse items-center"
         >
-          <PassiveText>BUILT BY NELSON EREGE</PassiveText>
+          <PassiveText>BUILT BY NELSON EREGE</PassiveText>{" "}
+          <span className="translate-y-[-0.15rem]">
+            <ExternalLink size={15} stroke="var(--color-text-gray)" />
+          </span>
         </Link>
       </div>
     </footer>
