@@ -70,11 +70,13 @@ html {
 
 
   @media (max-width: 1010px) {
-    font-size: 70%;
+
+font-size: 80%;
+    padding-inline: 4rem
   }
 
   @media (max-width: 600px) {
-    font-size: 60%;
+    font-size: 80%;
   }
 }
 
