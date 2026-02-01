@@ -108,7 +108,7 @@ export function Testimonial() {
 
       {/* Testimonials */}
       <div
-        className="overflow-x-auto w-[100rem] scroll-smooth scrollbar-hide"
+        className="overflow-x-auto w-[90rem] scroll-smooth scrollbar-hide"
         onScroll={handleScroll}
         ref={containerRef}
       >
