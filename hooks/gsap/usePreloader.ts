@@ -158,7 +158,7 @@ export function usePreloader(
       )
 
       // Hold the moment
-      .to({}, { duration: 100.5 })
+      .to({}, { duration: 0.5 })
 
       .to(
         portfolio,
