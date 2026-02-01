@@ -131,7 +131,7 @@ export function ContactForm() {
 
           {/* Message */}
           <div className="flex flex-col gap-12">
-            <Title>Message</Title>
+            <Title font={12}>Message</Title>
             <div className="w-full">
               <textarea
                 id="message"

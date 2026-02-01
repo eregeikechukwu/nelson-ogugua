@@ -11,7 +11,7 @@ export function InputField({
 }: InputFieldProps) {
   return (
     <div className="relative flex flex-col gap-12">
-      <Title>{title}</Title>
+      <Title font={12}>{title}</Title>
       <div className="w-full">
         <input
           type={id === "email" ? "email" : "text"}
