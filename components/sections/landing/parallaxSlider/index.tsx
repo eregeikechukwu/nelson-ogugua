@@ -45,14 +45,14 @@ const IconItem = memo(function IconItem({
 });
 
 export function ParallaxSlider() {
-  const { containerRef, trackRef, play, pause } = useParallaxSlider();
+  const { containerRef, trackRef} = useParallaxSlider();
 
   return (
     <div className="py-22 overflow-hidden lg:mx-auto" ref={containerRef}>
       <div
         className="h-134 fadedEdges"
-        onMouseEnter={pause}
-        onMouseLeave={play}
+        // onMouseEnter={pause}
+        // onMouseLeave={play}
       >
         <div ref={trackRef} className="flex w-max h-full !ml-auto">
           {[0, 1].map((_, setIndex) => (

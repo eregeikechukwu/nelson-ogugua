@@ -1,3 +1,6 @@
+@use "../abstracts/functions" as *;
+@use "../base/reusables.scss" as *;
+
 .outliner {
   position: relative;
   z-index: 1;
@@ -74,11 +77,11 @@
     filter: blur(10px);
     height: 100%;
     background-color: var(--color-light-gray);
+    transform: scale(0);
     transition: all 0.3s ease-in-out;
   }
   &:hover::after {
-    transform: scale(2);
-    opacity: 0;
+    transform: scale(1);
   }
 }
 
@@ -99,17 +102,15 @@
 }
 
 .sticky {
-  // position: fixed;
+  position: fixed;
   z-index: 200;
   top: 0;
   left: 0;
   right: 0;
-  transition: transform 0.5s;
-  transform: translateY(calc(-1 * 80));
+  transition: all 0.5s;
 }
 
 .sticky-down {
-  transform: translateY(0);
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(7px);
 }
@@ -156,11 +157,72 @@
   background: var(--color-background);
   transition: all 0.3s;
   &:hover {
+    border-color: #737272;
+    border-width: 3px;
+  }
+}
+
+.input-field {
+  @extend .border-gray !optional;
+  width: 100%;
+  background-color: var(--color-dark-gray);
+  height: toRem(48);
+  outline: none;
+  padding: toRem(16);
+  font-size: toRem(12);
+  line-height: 1.17;
+  color: var(--color-white);
+  transition: all 0.3s ease-in-out;
+
+  &::placeholder {
+    color: #8c8c8c;
+  }
+
+  &:focus {
     border-color: var(--color-light-gray);
-    box-shadow: 0 0 20px #ffffffaf;
-    &::after {
-      transform: scale(1.5);
-      opacity: 0;
-    }
+    box-shadow: 0 0 5px var(--color-yellow);
+  }
+}
+.input-field-error {
+  color: #ff4d4f;
+  font-size: toRem(12);
+  margin-top: toRem(5);
+
+  animation: slideInUp 0.4s ease-in-out forwards;
+}
+
+.message-field {
+  @extend .input-field;
+  height: toRem(154);
+  resize: vertical;
+}
+
+// border 2.4px
+.thick-border {
+  border: solid toRem(2.4) var(--color-medium-gray);
+}
+
+// Flex col 50px gap
+.flex-col-50 {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(50);
+}
+
+// Paeagraph line height 1.75
+.paragraph-175 {
+  line-height: 1.5 !important;
+
+  span {
+    display: inline-block;
+    color: var(--color-text-gray);
+    line-height: 1;
+  }
+}
+
+//add argin to all children except last
+.add-margin-not-last {
+  & > *:not(:last-child) {
+    margin-bottom: toRem(20);
   }
 }

@@ -1,0 +1,109 @@
+.projects__list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding-top: var(--gap-padding);
+}
+@media screen and (max-width: 720px) {
+  .projects__list {
+    flex-direction: column;
+  }
+}
+.projects__list li {
+  display: block;
+  width: 50%;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0%) rotate(0.001deg) scale(1);
+  transition: opacity 0.3s ease-in 0.4s, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media screen and (max-width: 720px) {
+  .projects__list li {
+    width: 100%;
+  }
+}
+.projects__list__container {
+  width: 100%;
+  padding-bottom: calc(var(--section-padding) * 1);
+  padding-left: calc(var(--container-padding) * 0.25);
+  padding-right: calc(var(--container-padding) * 0.25);
+}
+@media screen and (max-width: 720px) {
+  .projects__list__container {
+    padding: 0px 0px 6rem;
+  }
+}
+.projects__list__link {
+  align-items: center;
+  color: unset;
+  text-decoration: unset;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.projects__list__thumbnail {
+  width: 100%;
+  padding-bottom: var(--gap-padding);
+  transition: all 0.5s;
+}
+.projects__list__thumbnail .title__image {
+  width: 100%;
+  position: relative;
+  background: var(--color-lightgray);
+  overflow: hidden;
+}
+.projects__list__thumbnail .title__image .overlay__image {
+  background-color: rgb(241, 241, 241);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1) rotate(0.001deg);
+  transition: var(--animation-primary);
+  will-change: transform;
+}
+.projects__list__thumbnail .title__image .overlay__image::before {
+  display: block;
+  content: "";
+  padding-top: 100%;
+}
+.projects__list__title {
+  width: 100%;
+  padding-bottom: calc(var(--gap-padding) / 2);
+}
+.projects__list__title h4 {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  line-height: 1;
+  transition: var(--animation-fast);
+  transform: translateX(0) rotate(0.001deg);
+  margin: 0;
+}
+@media screen and (max-width: 1024px) {
+  .projects__list__title h4 {
+    font-size: calc(clamp(1.75em, 2.3vw, 2.5em) * 1.125);
+  }
+}
+.projects__list__title span {
+  position: relative;
+  display: block;
+  padding: 0.1em 0;
+}
+.projects__list__title .stripe {
+  margin-top: calc(var(--gap-padding) / 2);
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+}
+.projects__list__stack img {
+  width: 25px;
+}
+@media screen and (max-width: 540px) {
+  .projects__list__stack img {
+    width: 19px;
+  }
+}/*# sourceMappingURL=styles.module.css.map */

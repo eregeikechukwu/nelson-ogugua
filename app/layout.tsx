@@ -1,32 +1,14 @@
-"use client";
-
 import { axiforma } from "@/fonts/fonts";
 import "@/styles/globals.scss";
 import { Nav } from "@/components/sections/nav";
-import { useEffect, useState } from "react";
-import PreLoader from "@/components/pages/preLoader";
-import { useHardScroll } from "@/hooks/gsap/useHardScroll";
 import { Footer } from "@/components/sections/footer";
+import { LayoutLayer } from "@/components/pages/layoutLayer";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useHardScroll({
-    lerp: 0.1,
-    wheelMultiplier: 0.9,
-  });
-
-  useEffect(() => {
-    const screenwidth = window.screen.width;
-
-    if (screenwidth < 700)
-      alert("Please turn on desktop mode and rotate your device");
-  }, []);
-
   return (
     <html lang="en">
       <head>
@@ -36,15 +18,13 @@ export default function RootLayout({
       </head>
 
       <body className={`${axiforma.variable} font-axiforma antialiased`}>
-        {isLoading ? (
-          <PreLoader setIsLoading={setIsLoading} />
-        ) : (
-          <div id="smooth-wrapper">
+        <div id="smooth-wrapper">
+          <LayoutLayer>
             <Nav />
             {children}
             <Footer />
-          </div>
-        )}
+          </LayoutLayer>
+        </div>
       </body>
     </html>
   );

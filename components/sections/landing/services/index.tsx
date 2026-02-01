@@ -29,8 +29,8 @@ export function Services() {
           return (
             <div key={i} className="border-bottom py-40 flex justify-between">
               {/* Writings */}
-              <div className="flex flex-col gap-40 max-w-[34rem]">
-                <div className="flex flex-col gap-20">
+              <div className="flex flex-col gap-28 max-w-[34rem]">
+                <div className="flex flex-col gap-18">
                   <h2 className="text-[2.5rem] font-bold text-white">
                     {service.name}
                   </h2>
@@ -49,11 +49,11 @@ export function Services() {
                 </div>
 
                 {/* Services list */}
-                <div className="flex flex-col gap-28 ">
+                <div className="flex flex-col gap-25 ">
                   <h3 className="uppercase leading-[2] text-12 font-bold tracking-[2px]">
                     {service.name} services
                   </h3>
-                  <div className="flex flex-col gap-27 slide-in-container">
+                  <div className="flex flex-col gap-25 slide-in-container">
                     {service.subServices.map((item, i) => (
                       <p
                         key={i}

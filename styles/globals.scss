@@ -26,7 +26,9 @@
 
   --color-gray-transparent: #ffffff26;
   --color-gray-transparent2: #ffffff33;
+
   --container-width: 1072px;
+  --nav-height: 80px;
 }
 
 @utility text-fill-yellow {
@@ -68,11 +70,9 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-
   @media (max-width: 1010px) {
-
-font-size: 80%;
-    padding-inline: 4rem
+    font-size: 80%;
+    padding-inline: 4rem;
   }
 
   @media (max-width: 600px) {

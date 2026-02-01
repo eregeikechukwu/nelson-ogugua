@@ -56,6 +56,13 @@
   line-height: 1;
 }
 
+.normalText {
+  @extend .shimmerGradient;
+  font-size: toRem(48);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
 .extralargeText {
   @extend .shimmerGradient;
   font-size: toRem(154);
@@ -84,6 +91,7 @@
 
 .container {
   @extend .no-scrollbar;
+  position: relative;
   max-width: var(--container-width);
   padding-block: toRem(100);
   margin: 0 auto;

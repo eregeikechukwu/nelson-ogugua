@@ -1,57 +1,64 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect } from "react";
 
 export function useIntersectionObserver(
   ref: React.RefObject<HTMLElement | null>,
 ) {
-  const previousScrollY = useRef(0);
-
-  // BEcause useEFfect returns a null
   useLayoutEffect(() => {
-    const header = document.getElementById("hero") as HTMLElement;
-    const options = {
-      root: null,
-      threshold: 0,
-        rootMargin: "-64px",
+    if (!ref || !ref.current) return;
+
+    const el = ref.current;
+
+    // Helper to remove both sticky classes (make it "normal")
+    const clearSticky = () => {
+      el.classList.remove("sticky-down");
     };
 
-    if (!ref || !header) return;
-    //for hiding the nav when scrolling down
-    window.addEventListener("scroll", () => {
-      if (
-        window.scrollY > previousScrollY.current + 200 &&
-        ref?.current?.classList.contains("sticky")
-      ) {
-        previousScrollY.current = window.scrollY;
-        ref?.current.classList.remove("sticky-down");
-      }
+    // Top sentinel: when at the very top, clear sticky classes.
+    let topObserver: IntersectionObserver | null = null;
+    let topSentinel: HTMLDivElement | null = null;
+    const existing = document.getElementById("top-sentinel");
+    if (existing && existing instanceof HTMLDivElement) {
+      topSentinel = existing;
+    } else {
+      topSentinel = document.createElement("div");
+      topSentinel.id = "top-sentinel";
+      topSentinel.dataset.createdBy = "useIntersectionObserver";
+      topSentinel.style.position = "absolute";
+      topSentinel.style.top = "0";
+      topSentinel.style.left = "0";
+      topSentinel.style.width = "1px";
+      topSentinel.style.height = "1px";
+      topSentinel.style.pointerEvents = "none";
+      document.body.prepend(topSentinel);
+    }
+    console.log(topSentinel, " sentine");
 
-      if (
-        window.scrollY < previousScrollY.current - 100 &&
-        ref?.current?.classList.contains("sticky")
-      ) {
-        previousScrollY.current = window.scrollY;
-        ref?.current.classList.add("sticky-down");
-      }
-      if (window.scrollY < 100) {
-        ref?.current?.classList.remove("sticky-down");
-        ref?.current?.classList.remove("sticky");
-      }
-    });
+    topObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          clearSticky();
+          console.log("I'm intersectng now");
+        } else {
+          el.classList.add("sticky-down");
+          console.log("I'm  NOT intersectng now");
+        }
+      },
+      { root: null, threshold: 0 },
+    );
 
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        ref?.current?.classList.remove("sticky");
-      } else {
-        ref?.current?.classList.add("sticky");
-      }
-    }, options);
-
-    observer.observe(header);
+    if (topSentinel) topObserver.observe(topSentinel);
 
     return () => {
-      observer.disconnect();
+      if (topObserver) topObserver.disconnect();
+      if (
+        topSentinel &&
+        topSentinel.dataset.createdBy === "useIntersectionObserver" &&
+        document.body.contains(topSentinel)
+      ) {
+        document.body.removeChild(topSentinel);
+      }
     };
   }, [ref]);
 }

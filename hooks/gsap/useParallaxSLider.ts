@@ -36,7 +36,7 @@ export function useParallaxSlider() {
       // Create seamless infinite loop
       tweenRef.current = gsap.to(track, {
         x: -setWidth,
-        duration: 25,
+        duration: 35,
         ease: "none",
         repeat: -1,
         modifiers: {
@@ -81,7 +81,7 @@ export function useParallaxSlider() {
     if (tweenRef.current) {
       gsap.to(tweenRef.current, {
         timeScale: 0,
-        duration: 0.3,
+        duration: 0.5,
         ease: "power2.out",
       });
     }
@@ -91,7 +91,7 @@ export function useParallaxSlider() {
     if (tweenRef.current) {
       gsap.to(tweenRef.current, {
         timeScale: 1,
-        duration: 0.3,
+        duration: 0.5,
         ease: "power2.out",
       });
     }

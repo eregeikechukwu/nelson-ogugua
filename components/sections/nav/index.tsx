@@ -7,9 +7,9 @@ import Link from "next/link";
 import { useRef } from "react";
 
 const navItems = [
-  { name: "ABOUT", link: "#about" },
+  { name: "ABOUT", link: "/about" },
   { name: "WORKS", link: "#works" },
-  { name: "CONTACT", link: "#contact" },
+  { name: "CONTACT", link: "/contact" },
 ];
 
 export function Nav() {
@@ -17,15 +17,17 @@ export function Nav() {
   useIntersectionObserver(navRef);
 
   return (
-    <div ref={navRef} className="py-30 flex justify-center items-center">
+    <div ref={navRef} className="py-30 sticky flex justify-center items-center">
       <div className="max-w-[var(--container-width)] w-full flex justify-between items-center">
-        <Image
-          alt="logo"
-          height={20}
-          width={153}
-          src="/logo.png"
-          className="h-20 w-153"
-        />
+        <Link href={"/#home"}>
+          <Image
+            alt="logo"
+            height={20}
+            width={153}
+            src="/logo.png"
+            className="h-20 w-153"
+          />
+        </Link>
 
         <nav className="flex items-center gap-39 h-[1rem]">
           {navItems.map((item, i) => (

@@ -28,10 +28,7 @@ const FooterList = ({ list }: { list: { name: string; href: string }[] }) => {
 };
 
 export function Footer() {
-  const imageRef = useRef<HTMLDivElement | null>(null);
-  const { containerRef, trackRef, pause, play } = useParallaxSlider();
-
-  useSlowScroll(imageRef, { transformY: 0, duration: 1, initialY: -300 });
+  const { containerRef, trackRef } = useParallaxSlider();
 
   return (
     <footer className=" container pb-30 flex flex-col gap-50">
@@ -39,13 +36,13 @@ export function Footer() {
       <div className="flex flex-col gap-32 ">
         <div className="flex-col flex items-center gap-32">
           {/* Rotating SVG */}
-          <div ref={imageRef} className="w-[11rem] ">
+          <div className="w-[11rem] ">
             <RotatingSVG />
           </div>
 
           {/* SLiding name */}
           <div className="py-22 overflow-hidden lg:mx-auto" ref={containerRef}>
-            <div className="h-auto" onMouseEnter={pause} onMouseLeave={play}>
+            <div className="h-auto">
               <div ref={trackRef} className="flex w-max h-full !ml-auto">
                 {[0, 1].map((_, setIndex) => (
                   <div key={setIndex} className="flex h-full">

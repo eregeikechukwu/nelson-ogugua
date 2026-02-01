@@ -18,7 +18,7 @@ export function Hero() {
   });
 
   return (
-    <section id="hero" className="container flex flex-col gap-34 ">
+    <section id="home" className="container flex flex-col gap-34 ">
       {/* h1's and image */}
       <div className="flex justify-between items-center mb-16">
         <div className="text-left line-reveal-container">

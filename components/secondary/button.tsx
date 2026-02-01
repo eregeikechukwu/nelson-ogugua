@@ -34,3 +34,25 @@ export function Button({
     </Link>
   );
 }
+
+export function SubmitButton({
+  isSubmitting,
+  disabled,
+  variant = "light",
+}: {
+  isSubmitting?: boolean;
+  disabled?: boolean;
+  variant?: "light" | "dark";
+}) {
+  return (
+    <button
+      disabled={isSubmitting || disabled}
+      type="submit"
+      className={`group animated-button center-content rounded-[0.222rem] gap-12 w-[12.3125rem] h-48 font-bold cursor-pointer ${variant === "light" ? "bg-white text-black" : "bg-black text-white border-gray"} ${isSubmitting || disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+    >
+      <span className="text-14 uppercase tracking-[2px] leading-[1.75] pt-4">
+        {isSubmitting ? "Submitting..." : "Submit"}
+      </span>
+    </button>
+  );
+}

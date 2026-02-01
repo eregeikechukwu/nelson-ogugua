@@ -70,7 +70,7 @@ export function Projects() {
                 className="w-full h-full object-cover tilt-element"
               />
 
-              <div className="absolute left-[1.125rem] bottom-[1.125rem] px-12 py-10 bg-[var(--color-gray-transparent2)] text-16 text-black leading-[1.5] border-light backdrop-blur-[3px]">
+              <div className="absolute left-[1.125rem] bottom-[1.125rem] px-12 py-10 bg-[var(--color-gray-transparent2)] text-16 text-white leading-[1.5] border-light backdrop-blur-[3px]">
                 {work.name}
               </div>
             </div>

@@ -21,7 +21,7 @@ export function RotatingSVG() {
 
         <text className="circleText" textAnchor="middle">
           <textPath href="#circlePath" startOffset="50%" lengthAdjust="spacing">
-            BRAND&nbsp;&nbsp;AND&nbsp;&nbsp;PRODUCTS&nbsp;&nbsp;DESIGNER
+            BRAND&nbsp;&nbsp;AND&nbsp;&nbsp;PRODUCT&nbsp;&nbsp;DESIGNER
           </textPath>
         </text>
       </g>

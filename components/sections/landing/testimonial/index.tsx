@@ -4,14 +4,14 @@ import { Title } from "@/components/secondary/title";
 import { PassiveText } from "@/components/typography/passiveText";
 import { testimonials } from "@/utils/testimonials";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 
 export function Testimonial() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const buttonStyles =
-    "group w-48 h-48 p-12 rounded-[4px] cursor-pointer flex items-center justify-center";
+    "group w-48 h-48 p-12 rounded-[4px] cursor-pointer flex items-center justify-center transition-colors";
   const iconStyles = "group-hover:animate-pulse";
 
   const scrollToIndex = (index: number) => {
@@ -20,22 +20,41 @@ export function Testimonial() {
     const clampedIndex = Math.max(0, Math.min(index, testimonials.length - 1));
     setActiveIndex(clampedIndex);
 
-    const cardWidth = containerRef.current.scrollWidth / testimonials.length;
+    // Calculate based on card width (32.5rem) + gap (24px = 2.4rem)
+    const cardWidthRem = 32.5;
+    const gapRem = 2.4;
+    const rootFontSize = parseFloat(
+      getComputedStyle(document.documentElement).fontSize,
+    );
+    const scrollPosition =
+      clampedIndex * (cardWidthRem + gapRem) * rootFontSize;
+
     containerRef.current.scrollTo({
-      left: clampedIndex * cardWidth,
+      left: scrollPosition,
       behavior: "smooth",
     });
   };
 
   const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const container = e.currentTarget;
-    const cardWidth = container.scrollWidth / testimonials.length;
-    const index = Math.round(container.scrollLeft / cardWidth);
-    setActiveIndex(index);
+    const rootFontSize = parseFloat(
+      getComputedStyle(document.documentElement).fontSize,
+    );
+    const cardWidthRem = 32.5;
+    const gapRem = 2.4;
+    const cardPlusGap = (cardWidthRem + gapRem) * rootFontSize;
+
+    // Calculate index based on scroll position
+    const index = Math.round(container.scrollLeft / cardPlusGap);
+    const clampedIndex = Math.max(0, Math.min(index, testimonials.length - 1));
+
+    if (clampedIndex !== activeIndex) {
+      setActiveIndex(clampedIndex);
+    }
   };
 
   return (
-    <section className="container flex flex-col gap-28">
+    <section className="container !overflow-visible flex flex-col gap-28">
       {/* Heading and controls */}
       <div className="flex flex-col gap-20">
         <Title>Testimonial</Title>
@@ -48,20 +67,28 @@ export function Testimonial() {
           <div className="flex gap-18">
             <button
               onClick={() => scrollToIndex(activeIndex - 1)}
-              className={`${buttonStyles}  ${activeIndex === 0 ? "border-gray bg-black" : "bg-white"} `}
+              className={`${buttonStyles} ${
+                activeIndex === 0
+                  ? "border-gray bg-black cursor-not-allowed opacity-50"
+                  : "bg-white hover:bg-gray-100"
+              }`}
               disabled={activeIndex === 0}
             >
               <ArrowLeft
                 width={24}
                 height={24}
                 color={activeIndex === 0 ? "white" : "black"}
-                className={iconStyles}
+                className={activeIndex === 0 ? "" : iconStyles}
               />
             </button>
 
             <button
               onClick={() => scrollToIndex(activeIndex + 1)}
-              className={`${buttonStyles}  ${activeIndex === testimonials.length - 1 ? "border-gray bg-black" : "bg-white"}`}
+              className={`${buttonStyles} ${
+                activeIndex === testimonials.length - 1
+                  ? "border-gray bg-black cursor-not-allowed opacity-50"
+                  : "bg-white hover:bg-gray-100"
+              }`}
               disabled={activeIndex === testimonials.length - 1}
             >
               <ArrowRight
@@ -70,7 +97,9 @@ export function Testimonial() {
                 color={
                   activeIndex === testimonials.length - 1 ? "white" : "black"
                 }
-                className={iconStyles}
+                className={
+                  activeIndex === testimonials.length - 1 ? "" : iconStyles
+                }
               />
             </button>
           </div>
@@ -79,7 +108,7 @@ export function Testimonial() {
 
       {/* Testimonials */}
       <div
-        className="overflow-x-auto scroll-smooth"
+        className="overflow-x-auto w-[100rem] scroll-smooth scrollbar-hide"
         onScroll={handleScroll}
         ref={containerRef}
       >
@@ -87,13 +116,12 @@ export function Testimonial() {
           {testimonials.map((item, i) => (
             <div
               key={i}
-              className={`p-24 border-gray flex flex-col justify-between h-[28.125rem] snap-start transition-transform duration-300 
-              ${i === activeIndex ? "scale-100" : "scale-95 opacity-60"}`}
+              className="p-24 border-gray flex flex-col justify-between h-[28.125rem] snap-start transition-transform duration-300"
             >
               <div className="text-24 stagger-reveal-container">
-                {item.testimony.split(" ").map((item, i) => (
+                {item.testimony.split(" ").map((word, i) => (
                   <span key={i}>
-                    <span className="word">{item}&nbsp;</span>
+                    <span className="word">{word}&nbsp;</span>
                   </span>
                 ))}
               </div>

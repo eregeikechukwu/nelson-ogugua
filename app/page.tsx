@@ -1,5 +1,6 @@
 "use client";
 
+import { PageWrapper } from "@/components/pages/pageWrapper";
 import {
   Testimonial,
   About,
@@ -15,14 +16,16 @@ export default function Home() {
   useReconGsap();
 
   return (
-    <main>
-      <Hero />
-      <ParallaxSlider />
-      <About />
-      <Expertise />
-      <Services />
-      <Projects />
-      <Testimonial />
-    </main>
+    <PageWrapper>
+      <main>
+        <Hero />
+        <ParallaxSlider />
+        <About />
+        <Expertise />
+        <Services />
+        <Projects />
+        <Testimonial />
+      </main>
+    </PageWrapper>
   );
 }
