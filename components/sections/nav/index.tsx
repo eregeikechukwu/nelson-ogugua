@@ -2,13 +2,12 @@
 
 import StaggeredText from "@/hooks/staggeredHover/staggeredHover";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
-import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 
 const navItems = [
   { name: "ABOUT", link: "/about" },
-  { name: "WORKS", link: "#works" },
+  { name: "WORKS", link: "/works" },
   { name: "CONTACT", link: "/contact" },
 ];
 
