@@ -1,8 +1,6 @@
 import { aboutStoryData } from "@/utils/about-data";
 
 export function StorySection() {
-  console.log(aboutStoryData.split("\n\n"));
-
   const paragraphs = aboutStoryData.split("\n\n").map((paragraph, index) => (
     <div key={index} className="stagger-reveal-container ">
       {paragraph.split(" ").map((word, wordIndex) => (
@@ -23,7 +21,7 @@ export function StorySection() {
       </div>
 
       {/* paragraphs */}
-     <div className="add-margin-not-last">{paragraphs}</div>
+      <div className="add-margin-not-last">{paragraphs}</div>
     </div>
   );
 }

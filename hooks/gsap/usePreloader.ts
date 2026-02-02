@@ -59,7 +59,7 @@ export function usePreloader(
         ease: "power3.out",
         duration: 1,
       }).to(pageName, {
-        duration: 0.4,
+        duration: 0.7,
         opacity: 0,
 
         yPercent: -100,

@@ -23,12 +23,12 @@ export function useRevealStaggered() {
             {
               yPercent: 0,
               autoAlpha: 1,
-              ease: "power3.out",
-              stagger: 0.03,
+              ease: "back.out(1.7)",
+              stagger: 0.05,
               duration: 0.8,
               scrollTrigger: {
                 trigger: container,
-                start: "top 80%",
+                start: "top 70%",
               },
             },
           );

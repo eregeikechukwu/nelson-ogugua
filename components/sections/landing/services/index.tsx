@@ -3,7 +3,7 @@
 import { Title } from "@/components/secondary/title";
 import { useTilt } from "@/hooks/gsap/useTilt";
 import { services } from "@/utils/services";
-import Image from "next/image";
+// import Image from "next/image";
 
 export function Services() {
   const tiltRef = useTilt({
@@ -68,11 +68,20 @@ export function Services() {
               </div>
               {/* IMge */}
               <div className="max-w-[29.375rem] h-[-webkit-fill-available] max-h-[30rem] overflow-hidden object-cover">
-                <Image
+                {/* <Image
                   width={470}
                   height={345}
                   src={service.banner}
                   alt={service.name}
+                  className="object-cover h-full tilt-card cursor-pointer"
+                /> */}
+
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={service.banner}
+                  width={470}
+                  height={345}
+                  alt="banner image"
                   className="object-cover h-full tilt-card cursor-pointer"
                 />
               </div>

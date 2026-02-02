@@ -4,11 +4,9 @@ import { NameSVG } from "@/components/secondary/nameSVG";
 import { RotatingSVG } from "@/components/secondary/rotatingSVG";
 import { PassiveText } from "@/components/typography/passiveText";
 import { useParallaxSlider } from "@/hooks/gsap/useParallaxSLider";
-import { useSlowScroll } from "@/hooks/gsap/useSlowScroll";
 import { footerLinksPages, footerLinksSocials } from "@/utils/Links";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
-import { useRef } from "react";
 
 const FooterList = ({ list }: { list: { name: string; href: string }[] }) => {
   return (
@@ -31,9 +29,9 @@ export function Footer() {
   const { containerRef, trackRef } = useParallaxSlider();
 
   return (
-    <footer className=" container pb-30 flex flex-col gap-50">
+    <footer className=" container !max-w-screen pb-30 flex flex-col gap-50 items-center">
       {/* Name */}
-      <div className="flex flex-col gap-32 ">
+      <div className="flex flex-col gap-32 items-center">
         <div className="flex-col flex items-center gap-32">
           {/* Rotating SVG */}
           <div className="w-[11rem] ">
@@ -41,12 +39,15 @@ export function Footer() {
           </div>
 
           {/* SLiding name */}
-          <div className="py-22 overflow-hidden lg:mx-auto" ref={containerRef}>
+          <div
+            className="py-22 w-screen overflow-hidden lg:mx-auto"
+            ref={containerRef}
+          >
             <div className="h-auto">
-              <div ref={trackRef} className="flex w-max h-full !ml-auto">
+              <div ref={trackRef} className="flex w-full h-full !ml-auto">
                 {[0, 1].map((_, setIndex) => (
                   <div key={setIndex} className="flex h-full">
-                    {Array.from({ length: 4 }).map((_, index) => (
+                    {Array.from({ length: 6 }).map((_, index) => (
                       <div
                         key={index}
                         className="h-full center-content flex-shrink-0 text-[14rem]"
@@ -75,14 +76,14 @@ export function Footer() {
 
         {/* Links */}
 
-        <div className="flex gap-88">
+        <div className="flex gap-88 w-full max-w-[var(--container-width)]">
           <FooterList list={footerLinksPages} />
           <FooterList list={footerLinksSocials} />
         </div>
       </div>
 
       {/* Landing */}
-      <div className="p-24 border-gray flex">
+      <div className="p-24 border-gray flex w-full max-w-[var(--container-width)]">
         <PassiveText>
           © 2026 &bull; Designed by NELSON OGUGUA &bull;&nbsp;
         </PassiveText>

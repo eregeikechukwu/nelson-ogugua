@@ -3,7 +3,7 @@ export function RotatingSVG() {
     <svg viewBox="30 30 140 140" className="w-full h-full">
       {/* <!-- Center image --> */}
       <image
-        href="/images/profile.png"
+        href="/svg/profile.svg"
         x="50"
         y="50"
         width="100"

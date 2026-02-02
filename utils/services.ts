@@ -9,7 +9,7 @@ export const services = [
       "Marketing Collateral",
       "Pitch Decks & Presentations",
     ],
-    banner: "/images/brandDesign.png",
+    banner: "/svg/brand-design.svg",
   },
 
   {
@@ -22,6 +22,6 @@ export const services = [
       "UI & Visual Design",
       "Wireframing & Prototyping",
     ],
-    banner: "/images/uiux.png",
+    banner: "/svg/uiux.svg",
   },
 ];

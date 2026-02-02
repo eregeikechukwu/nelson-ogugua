@@ -26,7 +26,7 @@ export function useRevealLine() {
               yPercent: 0,
               opacity: 1,
               autoAlpha: 1,
-              ease: "power3.out",
+              ease: "back.out(1.5)",
               stagger: 0.1,
               duration: 0.8,
               scrollTrigger: {

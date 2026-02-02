@@ -1,9 +1,12 @@
 import { PageWrapper } from "@/components/pages/pageWrapper";
+import { Button } from "@/components/secondary/button";
 import { PassiveName } from "@/components/secondary/passiveName";
 import { RoundImage } from "@/components/secondary/roundImage";
-import { IntroSection } from "@/components/sections/about/intro";
-import { MyProcess } from "@/components/sections/about/myProcess";
-import { StorySection } from "@/components/sections/about/story";
+import {
+  StorySection,
+  IntroSection,
+  MyProcess,
+} from "@/components/sections/about";
 
 export default function AboutPage() {
   return (

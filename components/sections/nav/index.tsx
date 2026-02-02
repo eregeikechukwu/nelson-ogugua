@@ -20,11 +20,12 @@ export function Nav() {
     <div ref={navRef} className="py-30 sticky flex justify-center items-center">
       <div className="max-w-[var(--container-width)] w-full flex justify-between items-center">
         <Link href={"/#home"}>
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             alt="logo"
             height={20}
             width={153}
-            src="/logo.png"
+            src="/svg/logo.svg"
             className="h-20 w-153"
           />
         </Link>
