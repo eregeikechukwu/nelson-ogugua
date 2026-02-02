@@ -51,13 +51,13 @@ export default function PreLoader({
   );
 
   return (
-    <div className="relative w-screen no-scrollbar h-screen !overflow-hidden w-screen">
+    <div className="relative w-screen no-scrollbar h-screen !overflow-hidden w-screen bg-[var(--background)]">
       <div
         ref={containerRef}
-        className={` ${isClientLoaded ? "" : "opacity-0"}  fixed inset-0  z-[9999] bg-black  flex-col will-change-transform hidden`}
+        className={` ${isClientLoaded ? "" : "opacity-0"}  fixed inset-0  z-[9999] bg-black  flex-col will-change-transform  hidden`}
       >
         <div
-          className={` ${displayPage !== "/" ? "hidden" : ""} flex flex-col  h-full w-full`}
+          className={` ${displayPage !== "/" ? "hidden" : ""} flex flex-col  h-full w-full bg-[var(--background)] `}
         >
           <div className={`text-[7rem] ml-20 mt-30 leading-[1]`}>
             <span className="outliner portfolio">
@@ -76,7 +76,7 @@ export default function PreLoader({
         </div>
 
         <div
-          className={`pageName  center-content h-full ${displayPage.trim().length === 1 || displayPage === "/" ? "!hidden" : ""}`}
+          className={`pageName  center-content h-full ${displayPage.trim().length === 1 || displayPage === "/" ? "!hidden" : ""} bg-[var(--background)]`}
         >
           <div ref={displayRef}>
             <h1 className="letter-reveal text-[5rem]">
