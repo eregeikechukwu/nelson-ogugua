@@ -20,8 +20,8 @@ export function Testimonial() {
   });
 
   const buttonStyles =
-    "group w-48 h-48 p-12 rounded-[4px] cursor-pointer flex items-center justify-center transition-colors";
-  const iconStyles = "group-hover:animate-pulse";
+    "group w-48 h-48 p-12 rounded-[4px] cursor-pointer flex items-center active:bg-[var(--color-yellow)] justify-center transition-colors";
+  const iconStyles = "group-hover:animate-pulse group-active:text-white";
 
   const GAP = 24;
   const CARD_WIDTH = 520; // 32.5rem
@@ -154,7 +154,7 @@ export function Testimonial() {
             <button
               onClick={() => scrollToIndex("prev")}
               disabled={isAnimating}
-              className={`${buttonStyles} bg-white hover:bg-gray-100 disabled:opacity-50`}
+              className={`${buttonStyles} bg-white hover:bg-gray-100 disabled:opacity-50 active:bg-[var(--color-yellow)] `}
             >
               <ArrowLeft
                 width={24}
