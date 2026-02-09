@@ -8,13 +8,13 @@ export const processes = [
   {
     name: "Kick off",
     paragraph:
-      "Understanding the problem before jumping to solutions. I ask questions, learn the context, clarify goals, and gather insights about users, business needs, and constraints so I am solving the right problem, not just designing something attractive.",
+      "I try to understand the problem before jumping into solutions. I ask questions, learn the context, clarify goals, and gather insights about users, business needs, and constraints so I am solving the right problem, not just designing something attractive.",
     image: "/svg/kick-off.svg",
   },
   {
     name: "Deep dive",
     paragraph:
-      "Exploring the problem and crafting solutions thoroughly. This is where I research, map flows, sketch ideas, test directions, and refine thinking. I focus on both functionality and aesthetics while iterating until the direction feels solid and defensible.",
+      "Once I clearly understand the problem, I begin shaping the solution with intention. This is where I research, map user flows, sketch ideas, and continuously refine my thinking. I keep iterating until the solution feels clear and strong.",
     image: "/svg/deep-dive.svg",
   },
   {

@@ -1,4 +1,10 @@
 import { PageWrapper } from "@/components/pages/pageWrapper";
+import { SelectedWorksGallery } from "@/components/sections/works/gallery";
+
+export const metadata = {
+  title: "Works",
+  description: "Nelson Ogugua's flagship projects",
+};
 
 const title =
   "A selection of projects that reflect my approach to design, from early thinking to final outcomes across product and brand work.";
@@ -23,6 +29,10 @@ export default function SelectedWorks() {
             </span>
           ))}
         </div>
+      </div>
+
+      <div className="container px-55">
+        <SelectedWorksGallery />
       </div>
     </PageWrapper>
   );

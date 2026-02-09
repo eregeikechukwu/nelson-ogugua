@@ -180,7 +180,7 @@
 
   &:focus {
     border-color: var(--color-light-gray);
-    box-shadow: 0 0 5px var(--color-yellow);
+    border-width: 2px;
   }
 }
 .input-field-error {

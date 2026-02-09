@@ -1,20 +1,26 @@
-import { ArrowRight2 } from "iconsax-react";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export function Button({
   children,
-  link,
-  variant = "light",
+  link = "",
+  takeMeOut = false,
+  variant = "normal",
 }: {
   children: string;
-  link: string;
-  variant?: "light" | "dark";
+  link?: string;
+  takeMeOut?: boolean;
+  variant?: "normal" | "dark";
 }) {
   return (
-    <Link href={link} className="cursor-pointer">
+    <Link
+      href={link}
+      className="cursor-pointer"
+      target={takeMeOut ? "_blank" : ""}
+      rel="noopener noreferrer"
+    >
       <button
-        className={`group animated-button flex items-center rounded-[0.222rem] gap-12 px-12 h-48 font-bold cursor-pointer ${variant === "light" ? "bg-white text-black" : "bg-black text-white border-gray"}`}
+        className={`group animated-button flex items-center rounded-[0.222rem] gap-12 px-12 h-48 font-bold cursor-pointer ${variant === "normal" ? "bg-[var(--color-yellow)] text-black" : "bg-black text-white border-gray"}`}
       >
         <span className="text-14 uppercase tracking-[2px] leading-[1.75] pt-4">
           {children}
@@ -24,7 +30,7 @@ export function Button({
             width={20}
             height={20}
             className={
-              variant === "light"
+              variant === "normal"
                 ? "text-black group-hover:text-white w-full h-full transition-colors"
                 : "text-white group-hover:text-black w-full h-full transition-colore"
             }

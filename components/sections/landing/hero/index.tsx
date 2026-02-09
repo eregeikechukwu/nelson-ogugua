@@ -51,8 +51,8 @@ export function Hero() {
 
       {/* buttons */}
       <div className="flex gap-16">
-        <Button link="/about" variant="light">
-          Hire me
+        <Button link="/contact" variant="normal">
+          Work with me
         </Button>
         <Button link="/about" variant="dark">
           view my works

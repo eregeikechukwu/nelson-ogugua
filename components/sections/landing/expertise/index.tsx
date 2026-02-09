@@ -24,7 +24,7 @@ export function Expertise() {
         <div className={`${containerStyles}`}>
           <div>
             <CountUp
-              end={103}
+              end={59}
               duration={103 * 40}
               styles={numberStyles}
               ref={containerRef as RefObject<HTMLDivElement>}

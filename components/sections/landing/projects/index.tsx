@@ -10,8 +10,11 @@ import { selectedWorks } from "@/utils/selectedWorks";
 import Image from "next/image";
 import { useRef } from "react";
 import { scaleUp } from "./variants";
-import { PassiveText } from "@/components/typography/passiveText";
+import {
+  PassiveTextWithContainer,
+} from "@/components/typography/passiveText";
 import { useTilt } from "@/hooks/gsap/useTilt";
+import { Typewriter } from "@/components/secondary/typeWriter";
 
 export function Projects() {
   const cursor = useRef<HTMLDivElement | null>(null);
@@ -69,16 +72,15 @@ export function Projects() {
                 height={316}
                 className="w-full h-full object-cover tilt-element"
               />
-
-              <div className="absolute left-[1.125rem] bottom-[1.125rem] px-12 py-10 bg-[var(--color-gray-transparent2)] text-16 text-white leading-[1.5] border-light backdrop-blur-[3px]">
-                {work.name}
-              </div>
             </div>
 
             {/* Details */}
-            <div className="flex flex-col gap-44">
-              <h3 className="text-28  font-bold">{work.description}</h3>
-              <PassiveText>brand design | UI/UX design</PassiveText>
+            <div className="flex flex-col gap-42">
+              <h3 className="text-28">{work.name}</h3>
+              <Typewriter className="paragraph-text" speed={30}>{work.description}</Typewriter>
+              <PassiveTextWithContainer>
+                {work.services.join(" | ")}
+              </PassiveTextWithContainer>
             </div>
           </div>
         ))}

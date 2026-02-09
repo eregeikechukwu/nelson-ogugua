@@ -1,8 +1,9 @@
+import { Button } from "@/components/secondary/button";
 import { aboutStoryData } from "@/utils/about-data";
 
 export function StorySection() {
   const paragraphs = aboutStoryData.split("\n\n").map((paragraph, index) => (
-    <div key={index} className="stagger-reveal-container ">
+    <div key={index} className="">
       {paragraph.split(" ").map((word, wordIndex) => (
         <span key={wordIndex} className="paragraph-175">
           <span className="word">{word}&nbsp;</span>
@@ -21,7 +22,13 @@ export function StorySection() {
       </div>
 
       {/* paragraphs */}
-      <div className="add-margin-not-last">{paragraphs}</div>
+      <div className="add-margin-not-last stagger-reveal-container ">
+        {paragraphs}
+      </div>
+
+      <div className="center-content">
+        <Button takeMeOut link="/Nelson_Ogugua CV.pdf">View my CV</Button>
+      </div>
     </div>
   );
 }

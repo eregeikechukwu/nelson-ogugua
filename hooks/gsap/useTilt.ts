@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { useLayoutEffect, useRef } from "react";
 
 type TiltOptions = {
   maxRotate?: number;
@@ -23,96 +24,74 @@ export function useTilt(options: TiltOptions = {}) {
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Skip on touch devices if specified
     if (disableOnTouch && "ontouchstart" in window) {
       return;
     }
 
-    const script = document.createElement("script");
-    script.src =
-      "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js";
-    script.async = true;
+    const container = containerRef.current;
 
-    script.onload = () => {
-      const gsap = window.gsap;
-      const container = containerRef.current;
+    if (!container) {
+      console.error("useTilt: Container not available");
+      return;
+    }
 
-      if (!container || !gsap) {
-        console.error("useTilt: Container or GSAP not available");
-        return;
-      }
+    const elements = container.querySelectorAll<HTMLElement>(`.${className}`);
 
-      const elements = container.querySelectorAll<HTMLElement>(`.${className}`);
+    if (elements.length === 0) {
+      console.warn(`useTilt: No elements found with className "${className}"`);
+      return;
+    }
 
-      if (elements.length === 0) {
-        console.warn(
-          `useTilt: No elements found with className "${className}"`,
-        );
-        return;
-      }
+    console.log(`useTilt: Initialized ${elements.length} elements`);
 
-      console.log(`useTilt: Initialized ${elements.length} elements`);
+    const cleanupFunctions: (() => void)[] = [];
 
-      const cleanupFunctions: (() => void)[] = [];
-
-      elements.forEach((el) => {
-        // Set initial 3D transform properties
-        gsap.set(el, {
-          transformPerspective: perspective,
-          transformStyle: "preserve-3d",
-        });
-
-        const handleMouseMove = (e: MouseEvent) => {
-          const rect = el.getBoundingClientRect();
-          // Normalize to -1 to 1 range
-          const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-          const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
-
-          gsap.to(el, {
-            rotateY: x * maxRotate,
-            rotateX: -y * maxRotate,
-            duration,
-            ease,
-          });
-        };
-
-        const handleMouseLeave = () => {
-          gsap.to(el, {
-            rotateX: 0,
-            rotateY: 0,
-            duration: duration * 1.5,
-            ease,
-          });
-        };
-
-        el.addEventListener("mousemove", handleMouseMove);
-        el.addEventListener("mouseleave", handleMouseLeave);
-
-        // Store cleanup function
-        cleanupFunctions.push(() => {
-          el.removeEventListener("mousemove", handleMouseMove);
-          el.removeEventListener("mouseleave", handleMouseLeave);
-          gsap.killTweensOf(el);
-        });
+    elements.forEach((el) => {
+      // Set initial 3D transform properties
+      gsap.set(el, {
+        transformPerspective: perspective,
+        transformStyle: "preserve-3d",
       });
 
-      // Return cleanup for this effect
-      return () => {
-        cleanupFunctions.forEach((cleanup) => cleanup());
+      const handleMouseMove = (e: MouseEvent) => {
+        const rect = el.getBoundingClientRect();
+        // Normalize to -1 to 1 range
+        const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+        const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+
+        gsap.to(el, {
+          rotateY: x * maxRotate,
+          rotateX: -y * maxRotate,
+          duration,
+          ease,
+        });
       };
-    };
 
-    script.onerror = () => {
-      console.error("useTilt: Failed to load GSAP");
-    };
+      const handleMouseLeave = () => {
+        gsap.to(el, {
+          rotateX: 0,
+          rotateY: 0,
+          duration: duration * 1.5,
+          ease,
+        });
+      };
 
-    document.head.appendChild(script);
+      el.addEventListener("mousemove", handleMouseMove);
+      el.addEventListener("mouseleave", handleMouseLeave);
 
+      // Store cleanup function
+      cleanupFunctions.push(() => {
+        el.removeEventListener("mousemove", handleMouseMove);
+        el.removeEventListener("mouseleave", handleMouseLeave);
+        gsap.killTweensOf(el);
+      });
+    });
+
+    // Return cleanup for this effect
     return () => {
-      if (script.parentNode) {
-        document.head.removeChild(script);
-      }
+      cleanupFunctions.forEach((cleanup) => cleanup());
     };
   }, [maxRotate, perspective, duration, ease, className, disableOnTouch]);
 

@@ -36,6 +36,7 @@ export const footerLinksSocials = [
   },
   {
     name: "My resume",
-    href: "https://instagram.com/palmpay",
+    href: "/Nelson_Ogugua CV.pdf",
+    download: "Nelson_Ogugua CV.pdf",
   },
 ];

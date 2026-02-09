@@ -8,11 +8,15 @@ import { footerLinksPages, footerLinksSocials } from "@/utils/Links";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
-const FooterList = ({ list }: { list: { name: string; href: string }[] }) => {
+const FooterList = ({
+  list,
+}: {
+  list: { name: string; href: string; download?: string }[];
+}) => {
   return (
     <div className=" flex flex-col gap-32">
       {list.map((item, i) => (
-        <Link key={`item-${i}`} href={item.href}>
+        <Link key={`item-${i}`} href={item.href} download={item.download}>
           <h1 className=" text-white uppercase font-bold flex items-center gap-6  animate-hover2">
             <span className=" inline-block w-4 h-[-webkit-fill-available] bg-[var(--color-yellow)]" />
             <span className="translate-y-[3px] text-14 tracking-[2px] leading-[1]">
