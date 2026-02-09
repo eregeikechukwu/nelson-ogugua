@@ -31,7 +31,7 @@ export default function SelectedWorks() {
         </div>
       </div>
 
-      <div className="container px-55">
+      <div className="container ">
         <SelectedWorksGallery />
       </div>
     </PageWrapper>

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 function CountUp({
   ref,
   end,
-  duration = 1500,
+  duration = 1000,
   styles,
 }: {
   ref: React.RefObject<HTMLDivElement>;

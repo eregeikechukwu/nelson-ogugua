@@ -226,3 +226,10 @@
     margin-bottom: toRem(20);
   }
 }
+
+// page wrapper styles
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}

@@ -11,13 +11,15 @@ export function SelectedWorksGallery() {
           {/* Text */}
           <div className="flex-1 flex flex-col justify-between p-40 pr-60">
             <div className="flex flex-col gap-14">
-              <h3 className="text-[2.5rem] leading-[1.2]">{work.name}</h3>
+              <h3 className="text-[2.5rem] font-bold leading-[1.2]">
+                {work.name}
+              </h3>
               <PassiveTextWithContainer>
                 {work.services.join(" | ")}
               </PassiveTextWithContainer>
             </div>
 
-            <div className="flex flex-col gap-40">
+            <div className="flex flex-col gap-43">
               <Typewriter speed={30} className="text-20">
                 {work.description}
               </Typewriter>

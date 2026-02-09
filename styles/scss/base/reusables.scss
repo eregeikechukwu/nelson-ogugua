@@ -176,7 +176,6 @@
     position: absolute;
     border-radius: 0 !important;
     inset: 0;
-    background: currentColor;
     transform: translateX(-105%);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0, 1);
     z-index: -1;
@@ -198,18 +197,8 @@
       transform: translateX(0);
     }
 
-    span {
-      color: var(--color-invert, #fff);
-    }
-
     .arrow {
       transform: translateX(6px);
-    }
-  }
-
-  &:hover.bg-black {
-    span {
-      color: var(--color-invert, #000000);
     }
   }
 

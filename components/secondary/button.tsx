@@ -20,7 +20,7 @@ export function Button({
       rel="noopener noreferrer"
     >
       <button
-        className={`group animated-button flex items-center rounded-[0.222rem] gap-12 px-12 h-48 font-bold cursor-pointer ${variant === "normal" ? "bg-[var(--color-yellow)] text-black" : "bg-black text-white border-gray"}`}
+        className={`group animated-button flex items-center rounded-[0.222rem] gap-12 px-12 h-48 font-bold cursor-pointer ${variant === "normal" ? "bg-[var(--color-yellow)] text-black before:bg-white" : "bg-black text-white border-gray before:bg-[var(--color-medium-gray)]"}`}
       >
         <span className="text-14 uppercase tracking-[2px] leading-[1.75] pt-4">
           {children}
@@ -31,8 +31,8 @@ export function Button({
             height={20}
             className={
               variant === "normal"
-                ? "text-black group-hover:text-white w-full h-full transition-colors"
-                : "text-white group-hover:text-black w-full h-full transition-colore"
+                ? "text-black  w-full h-full"
+                : "text-white  w-full h-full"
             }
           />
         </span>

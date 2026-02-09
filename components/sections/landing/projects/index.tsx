@@ -10,9 +10,7 @@ import { selectedWorks } from "@/utils/selectedWorks";
 import Image from "next/image";
 import { useRef } from "react";
 import { scaleUp } from "./variants";
-import {
-  PassiveTextWithContainer,
-} from "@/components/typography/passiveText";
+import { PassiveTextWithContainer } from "@/components/typography/passiveText";
 import { useTilt } from "@/hooks/gsap/useTilt";
 import { Typewriter } from "@/components/secondary/typeWriter";
 
@@ -76,8 +74,10 @@ export function Projects() {
 
             {/* Details */}
             <div className="flex flex-col gap-42">
-              <h3 className="text-28">{work.name}</h3>
-              <Typewriter className="paragraph-text" speed={30}>{work.description}</Typewriter>
+              <h3 className="text-28 font-bold">{work.name}</h3>
+              <Typewriter className="paragraph-text min-h-[3.3rem]" speed={30}>
+                {work.description}
+              </Typewriter>
               <PassiveTextWithContainer>
                 {work.services.join(" | ")}
               </PassiveTextWithContainer>

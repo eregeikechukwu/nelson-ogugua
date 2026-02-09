@@ -9,9 +9,9 @@ import { useRef } from "react";
 export function MyProcess() {
   const ref = useRef(null);
   useScaleDown(ref);
-  console.log("Unu na emenu eeeh");
+
   return (
-    <div className="container flex flex-col gap-60">
+    <div className="pt-100 flex flex-col gap-60">
       <div className="flex-col-50">
         <div className="line-reveal-container">
           <h2 data-text="My Process" className="normalText line">

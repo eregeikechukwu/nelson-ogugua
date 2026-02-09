@@ -24,11 +24,11 @@ export function useSkewIn() {
             rotationY: 0,
             opacity: 1,
             autoAlpha: 1,
-            ease: "power3.out",
-            duration: 1,
+            ease: "back.inOut(1.4)",
+            duration: 2,
             scrollTrigger: {
               trigger: item, // Each item triggers itself
-              start: "top 10%",
+              start: "top 0%",
               toggleActions: "play none none reverse",
             },
           },

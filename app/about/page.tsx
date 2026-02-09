@@ -16,16 +16,19 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <PageWrapper>
-      <main className="container flex flex-col px-55">
-        <div className="flex-col-50 mb-84">
-          <RoundImage />
-          <IntroSection />
-          <div className="absolute top-0 right-[-5%]">
-            <PassiveName />
+      <main className="relative w-full max-w-[80rem]  my-0 mx-auto center-content">
+        <div className="container  flex flex-col">
+          <div className="flex-col-50 mb-84 px-55">
+            <RoundImage />
+            <IntroSection />
           </div>
+          <StorySection />
+          <MyProcess />
         </div>
-        <StorySection />
-        <MyProcess />
+
+        <div className="absolute top-12 right-0">
+          <PassiveName />
+        </div>
       </main>
     </PageWrapper>
   );

@@ -13,7 +13,7 @@ export function StorySection() {
   ));
 
   return (
-    <div className="flex-col-50">
+    <div className="flex-col-50 px-55">
       {/* heading */}
       <div className="line-reveal-container ">
         <h2 data-text="My Professional Journey" className="normalText line">
@@ -27,7 +27,9 @@ export function StorySection() {
       </div>
 
       <div className="center-content">
-        <Button takeMeOut link="/Nelson_Ogugua CV.pdf">View my CV</Button>
+        <Button takeMeOut link="/Nelson_Ogugua CV.pdf">
+          View my CV
+        </Button>
       </div>
     </div>
   );
