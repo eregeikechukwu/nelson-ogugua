@@ -82,7 +82,7 @@ export function useFastRevealStaggered() {
               autoAlpha: 1,
               ease: "back.out(1.7)",
               duration: 0.3,
-              stagger: 0.015,
+              stagger: 0.01,
               scrollTrigger: {
                 trigger: container,
                 start: "top 70%",
