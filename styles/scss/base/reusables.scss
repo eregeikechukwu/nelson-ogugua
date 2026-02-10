@@ -104,7 +104,7 @@
 }
 
 //stagger reveal text
-.stagger-reveal-container {
+.stagger-reveal-container, .fast-stagger-reveal-container {
   display: inline-block;
   overflow: hidden;
   span {

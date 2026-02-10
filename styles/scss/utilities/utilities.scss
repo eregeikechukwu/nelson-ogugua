@@ -177,7 +177,7 @@
   align-items: center;
 
   &::placeholder {
-    transform: translateY((2px));
+    transform: translateY(3px);
     color: #8c8c8c;
   }
 
@@ -234,5 +234,6 @@
 .page-wrapper {
   display: flex;
   justify-content: center;
+  // align-items: center;
   flex-direction: column;
 }

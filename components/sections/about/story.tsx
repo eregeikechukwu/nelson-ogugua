@@ -6,7 +6,7 @@ export function StorySection() {
     <div key={index} className="">
       {paragraph.split(" ").map((word, wordIndex) => (
         <span key={wordIndex} className="paragraph-175">
-          <span className="word">{word}&nbsp;</span>
+          <span className="fastword">{word}&nbsp;</span>
         </span>
       ))}
     </div>
@@ -22,7 +22,7 @@ export function StorySection() {
       </div>
 
       {/* paragraphs */}
-      <div className="add-margin-not-last stagger-reveal-container ">
+      <div className="add-margin-not-last fast-stagger-reveal-container ">
         {paragraphs}
       </div>
 

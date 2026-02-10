@@ -13,23 +13,20 @@ export function useSkewIn() {
         gsap.fromTo(
           item,
           {
-            xPercent: -130,
-            rotationY: 90,
-            transformPerspective: 1000,
             autoAlpha: 0,
             opacity: 0,
+            scale: 0.8,
           },
           {
-            xPercent: 0,
-            rotationY: 0,
             opacity: 1,
+            scale: 1,
             autoAlpha: 1,
-            ease: "back.inOut(1.4)",
-            duration: 2,
+            ease: "back.inOut(1.3)",
+            duration: 1,
             scrollTrigger: {
               trigger: item, // Each item triggers itself
-              start: "top 0%",
-              toggleActions: "play none none reverse",
+              start: "top 80%",
+              toggleActions: "play none none none",
             },
           },
         );

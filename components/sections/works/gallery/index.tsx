@@ -5,7 +5,7 @@ import { selectedWorks } from "@/utils/selectedWorks";
 
 export function SelectedWorksGallery() {
   return (
-    <div className="flex flex-col gap-40">
+    <div className="w-full flex flex-col gap-40">
       {selectedWorks.map((work, index) => (
         <div key={index} className="flex border-gray skew-in-item">
           {/* Text */}
