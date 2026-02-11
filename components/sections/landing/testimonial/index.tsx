@@ -4,12 +4,14 @@ import { Title } from "@/components/secondary/title";
 import { PassiveText } from "@/components/typography/passiveText";
 import { testimonials } from "@/utils/testimonials";
 import { ArrowLeft, ArrowRight } from "iconsax-react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
+import { useTestimonialContols } from "@/hooks/useTestimonialContols";
 
 export function Testimonial() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const paragraphRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const dragStateRef = useRef({
@@ -32,112 +34,26 @@ export function Testimonial() {
     gsap.set(trackRef.current, { x: 0 });
   }, []);
 
+  useLayoutEffect(() => {
+    console.log(
+      paragraphRef.current?.scrollHeight,
+      paragraphRef.current?.clientHeight,
+      "  height check",
+    );
+  }, []);
+
   // Touch/Mouse drag handlers
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    const handleDragStart = (e: MouseEvent | TouchEvent) => {
-      if (isAnimating) return;
-
-      dragStateRef.current.isDragging = true;
-      dragStateRef.current.startX =
-        "touches" in e ? e.touches[0].clientX : e.clientX;
-
-      // Get current transform value
-      const transform = gsap.getProperty(track, "x") as number;
-      dragStateRef.current.startTranslate = transform;
-
-      track.style.cursor = "grabbing";
-    };
-
-    const handleDragMove = (e: MouseEvent | TouchEvent) => {
-      if (!dragStateRef.current.isDragging) return;
-
-      e.preventDefault();
-      const currentX = "touches" in e ? e.touches[0].clientX : e.clientX;
-      const diff = currentX - dragStateRef.current.startX;
-
-      gsap.set(track, {
-        x: dragStateRef.current.startTranslate + diff,
-      });
-    };
-
-    const handleDragEnd = () => {
-      if (!dragStateRef.current.isDragging) return;
-
-      dragStateRef.current.isDragging = false;
-      track.style.cursor = "grab";
-
-      // Calculate which card to snap to
-      const currentX = gsap.getProperty(track, "x") as number;
-      const movedCards = Math.round(-currentX / (CARD_WIDTH + GAP));
-      const newIndex = Math.max(
-        0,
-        Math.min(movedCards, testimonials.length - 1),
-      );
-
-      setActiveIndex(newIndex);
-      setIsAnimating(true);
-
-      gsap.to(track, {
-        x: -(newIndex * (CARD_WIDTH + GAP)),
-        duration: 0.5,
-        ease: "power2.out",
-        onComplete: () => setIsAnimating(false),
-      });
-    };
-
-    track.addEventListener("mousedown", handleDragStart);
-    track.addEventListener("touchstart", handleDragStart, { passive: true });
-
-    window.addEventListener("mousemove", handleDragMove);
-    window.addEventListener("touchmove", handleDragMove, { passive: false });
-
-    window.addEventListener("mouseup", handleDragEnd);
-    window.addEventListener("touchend", handleDragEnd);
-
-    return () => {
-      track.removeEventListener("mousedown", handleDragStart);
-      track.removeEventListener("touchstart", handleDragStart);
-      window.removeEventListener("mousemove", handleDragMove);
-      window.removeEventListener("touchmove", handleDragMove);
-      window.removeEventListener("mouseup", handleDragEnd);
-      window.removeEventListener("touchend", handleDragEnd);
-    };
-  }, [isAnimating]);
-
-  const scrollToIndex = (direction: "next" | "prev") => {
-    if (!trackRef.current || isAnimating) return;
-
-    setIsAnimating(true);
-
-    let newIndex = activeIndex;
-
-    if (direction === "next") {
-      newIndex = activeIndex + 1;
-      if (newIndex >= testimonials.length) {
-        newIndex = 0;
-      }
-    } else {
-      newIndex = activeIndex - 1;
-      if (newIndex < 0) {
-        newIndex = testimonials.length - 1;
-      }
-    }
-
-    setActiveIndex(newIndex);
-
-    // Calculate position - each card moves by (cardWidth + gap)
-    const moveAmount = -(newIndex * (CARD_WIDTH + GAP));
-
-    gsap.to(trackRef.current, {
-      x: moveAmount,
-      duration: 0.8,
-      ease: "power2.inOut",
-      onComplete: () => setIsAnimating(false),
-    });
-  };
+  const { scrollToIndex } = useTestimonialContols(
+    dragStateRef,
+    testimonials,
+    activeIndex,
+    isAnimating,
+    trackRef,
+    setActiveIndex,
+    setIsAnimating,
+    CARD_WIDTH,
+    GAP,
+  );
 
   return (
     <section className="container !overflow-visible flex flex-col gap-28">
@@ -190,10 +106,13 @@ export function Testimonial() {
           {testimonials.map((item, i) => (
             <div
               key={i}
-              className="p-24 border-gray flex flex-col justify-between h-[28.125rem] flex-shrink-0"
+              className="p-24 border-gray flex flex-col justify-between  min-h-[28.125rem] flex-shrink-0 gap-50"
               style={{ width: "32.5rem" }}
             >
-              <div className="text-24 stagger-reveal-container">
+              <div
+                ref={paragraphRef}
+                className="text-24 stagger-reveal-container clamped"
+              >
                 {item.testimony.split(" ").map((word, j) => (
                   <span key={j}>
                     <span className="word">{word}&nbsp;</span>

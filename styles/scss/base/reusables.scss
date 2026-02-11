@@ -104,7 +104,8 @@
 }
 
 //stagger reveal text
-.stagger-reveal-container, .fast-stagger-reveal-container {
+.stagger-reveal-container,
+.fast-stagger-reveal-container {
   display: inline-block;
   overflow: hidden;
   span {
@@ -131,11 +132,11 @@
 }
 
 .border-bottom {
-  border-bottom: solid 1px var(--color-medium-gray);
+  border-bottom: solid 2px var(--color-medium-gray);
 }
 
 .border-light {
-  border: solid 1px rgba(255, 255, 255, 0.09);
+  border: solid 2px rgba(255, 255, 255, 0.09);
 }
 
 .animate-hover2 {

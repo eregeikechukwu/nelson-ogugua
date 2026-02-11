@@ -16,7 +16,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <PageWrapper>
-      <main className="w-full flex justify-center">
+      <main className="w-full flex justify-center ">
         <div className="relative w-full max-w-[80rem]  my-0 mx-auto center-content">
           <div className="container  flex flex-col">
             <div className="flex-col-50 mb-84 px-55">

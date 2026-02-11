@@ -19,7 +19,7 @@ export function Expertise() {
 
       <div
         ref={containerRef}
-        className="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-px bg-[var(--color-medium-gray)] border-gray"
+        className="grid grid-cols-[repeat(auto-fit,minmax(15rem,1fr))] gap-[2px] bg-[var(--color-medium-gray)] border-gray"
       >
         <div className={`${containerStyles}`}>
           <div>

@@ -34,6 +34,7 @@ export function usePreloader(
     const name2 = container.querySelector(".name2");
     const dot = container.querySelector(".blinking-fill");
     const loaderWrapper = document.querySelector(".loader-wrapper");
+    const whiteLoaderWrapper = document.querySelector(".white-wrapper");
     const pageName = container.querySelector(".pageName");
 
     loaderWrapper?.classList.replace("hidden", "block");
@@ -96,6 +97,9 @@ export function usePreloader(
     gsap.set(loaderWrapper, {
       top: "100vh",
     });
+    gsap.set(whiteLoaderWrapper, {
+      scaleY: 0.3,
+    });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -157,9 +161,6 @@ export function usePreloader(
         "-=1.4",
       )
 
-      // Hold the moment
-      .to({}, { duration: 0.5 })
-
       .to(
         portfolio,
         {
@@ -206,7 +207,17 @@ export function usePreloader(
         top: "-100vh",
         duration: 1.5,
         ease: "0.03,1.19,0,0.97",
-      });
+      })
+      .to(
+        whiteLoaderWrapper,
+        {
+          scaleY: 1,
+          duration: 0.9,
+          ease: "ease.out",
+          transformOrigin: "top",
+        },
+        "<",
+      );
 
     return () => {
       tl.kill();

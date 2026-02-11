@@ -83,3 +83,16 @@
     opacity: 1;
   }
 }
+
+@keyframes shrink-height {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 40%;
+  }
+}
+
+.shrink-height {
+  animation: shrink-height 0.5s ease-out forwards;
+}

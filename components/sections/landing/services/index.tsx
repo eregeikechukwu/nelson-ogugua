@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/secondary/button";
+import { CTA } from "@/components/secondary/cta";
 import { Title } from "@/components/secondary/title";
 import { useTilt } from "@/hooks/gsap/useTilt";
 import { services } from "@/utils/services";
@@ -14,7 +16,7 @@ export function Services() {
 
   return (
     <section id="services" className="container">
-      <div className="flex flex-col gap-20 pb-10 border-bottom">
+      <div className="w-full flex flex-col gap-20 pb-26 border-bottom">
         <Title>Services</Title>
         <div className="line-reveal-container">
           <h1 data-text="What I Can Do For You" className="line mediumText">
@@ -38,9 +40,9 @@ export function Services() {
                     {service.paragrapgh.split(" ").map((word, i) => (
                       <span
                         key={`div-${i}`}
-                        className="text-[var(--color-text-gray)] leading-[1.75] text-16"
+                        className="text-[var(--color-text-gray)] !leading-[1] text-16"
                       >
-                        <span key={`span-${i}`} className="word">
+                        <span key={`span-${i}`} className="word !leading-[1]">
                           {word}&nbsp;
                         </span>
                       </span>
@@ -89,6 +91,10 @@ export function Services() {
           );
         })}
       </div>
+
+      <CTA>
+        <Button link="/contact">Work with Me</Button>
+      </CTA>
     </section>
   );
 }

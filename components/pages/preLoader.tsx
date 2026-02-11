@@ -98,6 +98,7 @@ export default function PreLoader({
       <div
         className={`loader-wrapper absolute inset-0 min-w-screen h-[70vh] bg-yellow-500 will-change-transform ${!isClientLoaded ? "opacity-0" : ""} ${displayPage !== "/" ? "hidden" : ""} `}
       >
+        <div className="bg-white w-full white-wrapper h-[85%]" />
         &nbsp;
       </div>
     </div>

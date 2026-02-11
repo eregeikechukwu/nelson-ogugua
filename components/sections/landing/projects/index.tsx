@@ -13,6 +13,8 @@ import { scaleUp } from "./variants";
 import { PassiveTextWithContainer } from "@/components/typography/passiveText";
 import { useTilt } from "@/hooks/gsap/useTilt";
 import { Typewriter } from "@/components/secondary/typeWriter";
+import { CTA } from "@/components/secondary/cta";
+import { Button } from "@/components/secondary/button";
 
 export function Projects() {
   const cursor = useRef<HTMLDivElement | null>(null);
@@ -85,6 +87,11 @@ export function Projects() {
           </div>
         ))}
       </div>
+
+      {/* CTA */}
+      <CTA>
+        <Button link="/works">View All Works</Button>
+      </CTA>
 
       {/* Cursor and label */}
       <ThumbnailCursorCircle ref={cursor} variants={scaleUp} active={active} />

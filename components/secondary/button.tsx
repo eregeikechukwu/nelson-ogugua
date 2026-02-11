@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+const normalBtn = "bg-[var(--color-yellow)] text-black before:bg-white";
+
 export function Button({
   children,
   link = "",
@@ -20,7 +22,7 @@ export function Button({
       rel="noopener noreferrer"
     >
       <button
-        className={`group animated-button flex items-center rounded-[0.222rem] gap-12 px-12 h-48 font-bold cursor-pointer ${variant === "normal" ? "bg-[var(--color-yellow)] text-black before:bg-white" : "bg-black text-white border-gray before:bg-[var(--color-medium-gray)]"}`}
+        className={`group animated-button flex items-center rounded-[0.222rem] gap-12 px-12 h-48 font-bold cursor-pointer ${variant === "normal" ? `${normalBtn}` : "bg-black text-white border-gray before:bg-[var(--color-medium-gray)]"}`}
       >
         <span className="text-14 uppercase tracking-[2px] leading-[1.75] pt-4">
           {children}
@@ -54,7 +56,7 @@ export function SubmitButton({
     <button
       disabled={isSubmitting || disabled}
       type="submit"
-      className={`group animated-button center-content rounded-[0.222rem] gap-12 w-[12.3125rem] h-48 font-bold cursor-pointer ${variant === "light" ? "bg-white text-black" : "bg-black text-white border-gray"} ${isSubmitting || disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+      className={`group animated-button center-content rounded-[0.222rem] gap-12 w-[12.3125rem] h-48 font-bold cursor-pointer ${variant === "light" ? `${normalBtn}` : "bg-black text-white border-gray"} ${isSubmitting || disabled ? "opacity-50 cursor-not-allowed" : ""}`}
     >
       <span className="text-14 uppercase tracking-[2px] leading-[1.75] pt-4">
         {isSubmitting ? "Submitting..." : "Submit"}

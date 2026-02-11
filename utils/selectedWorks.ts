@@ -10,14 +10,14 @@ export const selectedWorks = [
     name: "Bulvds",
     description:
       "Leveraging AI to make property search intuitive, personal, and effortless.",
-    image: "/svg/brand-design.svg",
+    image: "/svg/uiux.svg",
     services: ["Brand Design", "UI/UX Design"],
   },
   {
     name: "Pitsi AI",
     description:
       "Using AI to make customer loyalty and rewards easier to manage and scale.",
-    image: "/svg/uiux.svg",
+    image: "/svg/brand-design.svg",
     services: ["UI/UX Design"],
   },
   {
