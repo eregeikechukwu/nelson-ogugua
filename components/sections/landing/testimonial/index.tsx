@@ -11,9 +11,12 @@ import { useTestimonialContols } from "@/hooks/useTestimonialContols";
 export function Testimonial() {
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
-  const paragraphRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [overflowMap, setOverflowMap] = useState<Record<number, boolean>>({});
+  const [expandedMap, setExpandedMap] = useState<Record<number, boolean>>({});
+
   const dragStateRef = useRef({
     isDragging: false,
     startX: 0,
@@ -35,12 +38,28 @@ export function Testimonial() {
   }, []);
 
   useLayoutEffect(() => {
-    console.log(
-      paragraphRef.current?.scrollHeight,
-      paragraphRef.current?.clientHeight,
-      "  height check",
-    );
-  }, []);
+    if (!trackRef.current) return;
+
+    const map: Record<number, boolean> = {};
+    const MAX_HEIGHT = 311; // matches .clamped max-height
+
+    trackRef.current.querySelectorAll(".paragraphs").forEach((el) => {
+      const id = Number(el.id.split("-")[0]);
+      // Check if full height exceeds the clamped max-height
+      const isOverflowing = el.scrollHeight > MAX_HEIGHT;
+      map[id] = isOverflowing;
+    });
+    setTimeout(() => {
+    setOverflowMap(map);
+    }, 0)
+  }, [testimonials]);
+
+  const clampClick = (id: number) => {
+    setExpandedMap((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   // Touch/Mouse drag handlers
   const { scrollToIndex } = useTestimonialContols(
@@ -110,15 +129,30 @@ export function Testimonial() {
               style={{ width: "32.5rem" }}
             >
               <div
-                ref={paragraphRef}
-                className="text-24 stagger-reveal-container clamped"
+                id={`${i}-paragraph`}
+                ref={(el: HTMLDivElement | null) => {
+                  if (el) testimonialsRef.current[i] = el;
+                }}
+                className={`${overflowMap[i] && !expandedMap[i] ? "clamped" : ""} text-24 paragraphs stagger-reveal-container  relative`}
               >
                 {item.testimony.split(" ").map((word, j) => (
                   <span key={j}>
                     <span className="word">{word}&nbsp;</span>
                   </span>
-                ))}
+                ))}{" "}
+                {overflowMap[i] && (
+                  <div
+                    onClick={() => clampClick(i)}
+                    className="text-[var(--color-yellow)] text-17 cursor-pointer absolute bottom-5 bg-[var(--background)] right-0"
+                  >
+                    <p className="text-white inline-block text-bottom">
+                      ...&nbsp;
+                    </p>
+                    {expandedMap[i] ? "See less" : "See more"}
+                  </div>
+                )}
               </div>
+
               <div className="flex flex-col gap-12">
                 <p className="text-16 font-[500] leading-[1.5]">{item.name}</p>
                 <PassiveText>{item.role}</PassiveText>
