@@ -244,3 +244,126 @@
   overflow: hidden;
   max-height: toRem(311);
 }
+
+// .hamburger {
+//   cursor: pointer;
+// }
+
+// .hamburger input {
+//   display: none;
+// }
+
+// .hamburger svg {
+//   /* The size of the SVG defines the overall size */
+//   height: 5rem;
+//   /* Define the transition for transforming the SVG */
+//   transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+// }
+
+// .line {
+//   opacity: 1 !important;
+//   fill: none;
+//   stroke: white;
+//   stroke-linecap: round;
+//   stroke-linejoin: round;
+//   stroke-width: 3;
+//   /* Define the transition for transforming the Stroke */
+//   transition:
+//     stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+//     stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+// }
+
+// /* replace .line-top-bottom with two explicit classes */
+// .line-top {
+//   /* no dasharray = fully visible by default */
+//   stroke-dasharray: none;
+//   transition:
+//     stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+//     stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+// }
+
+// .line-bottom {
+//   /* keep the original partial look on the bottom bar */
+//   stroke-dasharray: 12 63;
+//   transition:
+//     stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+//     stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+// }
+
+// /* keep the svg rotation */
+// .hamburger input:checked + svg {
+//   transform: rotate(45deg);
+// }
+
+// /* animate the top bar (for the same effect as the original toggle) */
+// .hamburger input:checked + svg .line-top {
+//   /* these values come from the original — tweak if you change path lengths */
+//   stroke-dasharray: 20 300;
+//   stroke-dashoffset: -32.42;
+// }
+
+// /* if you want the bottom to animate differently, keep or change these */
+// .hamburger input:checked + svg .line-bottom {
+//   /* optional: keep bottom unchanged, or set values to morph */
+//   /* stroke-dasharray: ... ; stroke-dashoffset: ... ; */
+//   // stroke-dasharray: 20 300;
+//   // stroke-dashoffset: -32.42;
+// }
+
+/* From Uiverse.io by JulanDeAlb */
+.hamburger {
+  cursor: pointer;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  position: relative;
+  /* The size of the SVG defines the overall size */
+  height: 2.5rem;
+  /* Define the transition for transforming the SVG */
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  opacity: 1 !important;
+  fill: none;
+  stroke: var(--color-text-gray);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  /* Define the transition for transforming the Stroke */
+  transition:
+    stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    border-radius: 4px !important;
+    height: toRem(5);
+    top: 0;
+    left: 0;
+    width: 3rem;
+    background: white;
+    transform: translateX(-105%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0, 1);
+    z-index: -1;
+  }
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}

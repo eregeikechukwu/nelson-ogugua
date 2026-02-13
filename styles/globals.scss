@@ -69,18 +69,9 @@ html {
   line-height: normal;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-size: 100%; /* 18px */
+  font-size: 100%; /* 16px */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1010px) {
-    font-size: 80%;
-    padding-inline: 4rem;
-  }
-
-  @media (max-width: 600px) {
-    font-size: 80%;
-  }
 }
 
 * {

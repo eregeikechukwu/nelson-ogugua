@@ -50,8 +50,8 @@ export function Testimonial() {
       map[id] = isOverflowing;
     });
     setTimeout(() => {
-    setOverflowMap(map);
-    }, 0)
+      setOverflowMap(map);
+    }, 0);
   }, [testimonials]);
 
   const clampClick = (id: number) => {
@@ -75,7 +75,7 @@ export function Testimonial() {
   );
 
   return (
-    <section className="container !overflow-visible flex flex-col gap-28">
+    <section className="container overflow-hidden !md:overflow-visible flex flex-col gap-28">
       {/* Heading and controls */}
       <div className="flex flex-col gap-20">
         <Title>Testimonial</Title>
@@ -143,11 +143,13 @@ export function Testimonial() {
                 {overflowMap[i] && (
                   <div
                     onClick={() => clampClick(i)}
-                    className="text-[var(--color-yellow)] text-17 cursor-pointer absolute bottom-5 bg-[var(--background)] right-0"
+                    className="text-[var(--color-yellow)] text-17 py-5 cursor-pointer absolute bottom-3 bg-[var(--background)] right-0"
                   >
-                    <p className="text-white inline-block text-bottom">
-                      ...&nbsp;
-                    </p>
+                    {!expandedMap[i] && (
+                      <p className="text-white inline-block text-bottom">
+                        ...&nbsp;
+                      </p>
+                    )}
                     {expandedMap[i] ? "See less" : "See more"}
                   </div>
                 )}

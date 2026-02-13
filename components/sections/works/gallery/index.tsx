@@ -20,7 +20,10 @@ export function SelectedWorksGallery() {
             </div>
 
             <div className="flex flex-col gap-43">
-              <Typewriter speed={30} className="text-20">
+              <Typewriter
+                speed={30}
+                className="text-20 text-[var(--color-text-gray)]"
+              >
                 {work.description}
               </Typewriter>
               <Button variant="dark">View Project</Button>

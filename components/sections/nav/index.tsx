@@ -1,5 +1,6 @@
 "use client";
 
+import { Hamburger } from "@/components/secondary/hamburger";
 import StaggeredText from "@/hooks/staggeredHover/staggeredHover";
 import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
 import Link from "next/link";
@@ -16,7 +17,10 @@ export function Nav() {
   useIntersectionObserver(navRef);
 
   return (
-    <div ref={navRef} className="py-30 sticky flex justify-center items-center">
+    <div
+      ref={navRef}
+      className="md:py-30 py-16 px-16 md:px-0 sticky flex justify-center items-center h-72 md:h-auto"
+    >
       <div className="max-w-[var(--container-width)] w-full flex justify-between items-center">
         <Link href={"/#home"}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -25,11 +29,12 @@ export function Nav() {
             height={20}
             width={153}
             src="/svg/logo.svg"
-            className="h-20 w-153"
+            className="md:h-20 h-17 w-auto"
           />
         </Link>
 
-        <nav className="flex items-center gap-39 h-[1rem]">
+        <Hamburger />
+        <nav className="md:flex items-center gap-39 h-[1rem] hidden ">
           {navItems.map((item, i) => (
             <Link href={item.link} className="link flex" key={`nav-item-${i}`}>
               <StaggeredText

@@ -6,7 +6,7 @@ import { useHardScroll } from "@/hooks/gsap/useHardScroll";
 import { usePathname } from "next/navigation";
 
 export function LayoutLayer({ children }: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
