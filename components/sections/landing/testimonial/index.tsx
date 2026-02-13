@@ -41,7 +41,7 @@ export function Testimonial() {
     if (!trackRef.current) return;
 
     const map: Record<number, boolean> = {};
-    const MAX_HEIGHT = 311; // matches .clamped max-height
+    const MAX_HEIGHT = 320; // matches .clamped max-height
 
     trackRef.current.querySelectorAll(".paragraphs").forEach((el) => {
       const id = Number(el.id.split("-")[0]);
