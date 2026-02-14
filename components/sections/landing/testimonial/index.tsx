@@ -99,7 +99,7 @@ export function Testimonial() {
     setTimeout(() => {
       setOverflowMap(map);
     }, 0);
-  }, [testimonials]);
+  }, [isMobile, isSmall]);
 
   const clampClick = (id: number) => {
     setExpandedMap((prev) => ({
