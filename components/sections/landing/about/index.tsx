@@ -65,7 +65,7 @@ export function About() {
       </div>
 
       {/* Text & CTA */}
-      <div className="max-w-[24.625rem] flex flex-col gap-40">
+      <div className="max-w-full md:!max-w-[24.625rem] flex flex-col gap-40">
         <div className="stagger-reveal-container leading-[1.78] paragraph-text">
           {paragrapgh.split(" ").map((item, i) => {
             return (
