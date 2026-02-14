@@ -1,4 +1,5 @@
 @use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
 
 .gradient {
   background: linear-gradient(
@@ -47,6 +48,9 @@
   font-size: toRem(100);
   font-weight: 600;
   line-height: 1;
+  @include respond-to-abs(medium) {
+    font-size: toRem(60);
+  }
 }
 
 .mediumText {
@@ -54,6 +58,10 @@
   font-size: toRem(60);
   font-weight: 600;
   line-height: 1;
+
+  @include respond-to-abs(medium) {
+    font-size: toRem(40);
+  }
 }
 
 .normalText {
@@ -95,6 +103,11 @@
   max-width: var(--container-width);
   padding-block: toRem(100);
   margin: 0 auto;
+
+  @include respond-to-abs(medium) {
+    padding-inline: toRem(16);
+    padding-block: toRem(56);
+  }
 }
 
 .link,
@@ -217,4 +230,8 @@
   font-size: toRem(18);
   line-height: 1.5;
   color: var(--color-text-gray);
+
+  @include respond-to-abs(medium) {
+    font-size: toRem(14);
+  }
 }

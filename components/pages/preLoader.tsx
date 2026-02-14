@@ -51,20 +51,22 @@ export default function PreLoader({
   );
 
   return (
-    <div className="relative w-screen no-scrollbar h-screen !overflow-hidden w-screen bg-[var(--background)]">
+    <div className="relative w-screen no-scrollbar h-screen !overflow-hidden w-screen bg-[var(--background)] ">
       <div
         ref={containerRef}
         className={` ${isClientLoaded ? "" : "opacity-0"}  fixed inset-0  z-[9999] bg-black  flex-col will-change-transform  hidden`}
       >
         <div
-          className={` ${displayPage !== "/" ? "hidden" : ""} flex flex-col  h-full w-full bg-[var(--background)] `}
+          className={` ${displayPage !== "/" ? "hidden" : ""} flex flex-col  h-full w-full bg-[var(--background)]  px-16 md:!px-5`}
         >
-          <div className={`text-[7rem] ml-20 mt-30 leading-[1]`}>
+          <div
+            className={`lg:text-[7rem] md:text-[5rem] text-[3.6rem] mt-53 md:!mt-[1.875rem] leading-[1]`}
+          >
             <span className="outliner portfolio">
               Portfolio<span className="blinking-fill">.</span>
             </span>
           </div>
-          <div className="text-[13rem] !mt-auto ml-auto text-end leading-[1] w-full">
+          <div className="md:text-[13rem] text-[4.78rem] !mt-auto ml-auto text-end md:!mb-4 mb-55 leading-[1.2] md:leading-[1] w-full">
             <span className="gradient-text inline-block name1 translate-y-[4rem]">
               Nelson
             </span>
@@ -79,7 +81,7 @@ export default function PreLoader({
           className={`pageName  center-content h-full ${displayPage.trim().length === 1 || displayPage === "/" ? "!hidden" : ""} bg-[var(--background)]`}
         >
           <div ref={displayRef}>
-            <h1 className="letter-reveal text-[5rem]">
+            <h1 className="letter-reveal text-[3.6rem] md:text-[5rem]">
               {displayPage.split("").map((char, index) => (
                 <span key={index} className="letter inline-block">
                   {char === " " ? "\u00A0" : char}

@@ -3,7 +3,7 @@
 import { useLayoutEffect } from "react";
 
 export function useIntersectionObserver(
-  ref: React.RefObject<HTMLElement | null>,
+  ref: React.RefObject<HTMLElement | null>, isMenuOpen: boolean
 ) {
   useLayoutEffect(() => {
     if (!ref || !ref.current) return;
@@ -60,5 +60,5 @@ export function useIntersectionObserver(
         document.body.removeChild(topSentinel);
       }
     };
-  }, [ref]);
+  }, [ref, isMenuOpen]);
 }

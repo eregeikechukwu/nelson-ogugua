@@ -4,6 +4,12 @@
   .text-#{$i} {
     font-size: toRem($i);
   }
+
+  .md-text-#{$i} {
+    @media screen and (min-width: 768px) {
+      font-size: toRem($i);
+    }
+  }
 }
 
 // ==============================

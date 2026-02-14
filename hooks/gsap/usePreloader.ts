@@ -171,6 +171,9 @@ export function usePreloader(
         },
         "0.5",
       )
+      .to([portfolio, name1, name2], {
+        duration: 0.1, //hold the moment
+      })
 
       // Everything scales down slightly (anticipation)
       .to([portfolio, name1, name2], {

@@ -1,7 +1,7 @@
-export function Hamburger() {
+export function Hamburger({ onClick }: { onClick: () => void }) {
   return (
-    <label className="hamburger">
-      <input type="checkbox" />
+    <label className="hamburger md:hidden">
+      <input onChange={onClick} type="checkbox" />
       <svg viewBox="0 0 32 32">
         <path
           className="line line-top-bottom"

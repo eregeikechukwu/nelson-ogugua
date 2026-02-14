@@ -18,10 +18,13 @@ export function Hero() {
   });
 
   return (
-    <section id="home" className="container flex flex-col gap-34 ">
+    <section
+      id="home"
+      className="container max-md:!pt-[1.5rem] flex flex-col md:gap-[2.215rem] gap-32 "
+    >
       {/* h1's and image */}
-      <div className="flex justify-between items-center mb-16">
-        <div className="text-left line-reveal-container">
+      <div className="flex md:flex-row flex-col md:gap-0 gap-32 justify-between items-center md:!mb-[1rem] mb-0">
+        <div className="md:text-left text-center line-reveal-container md:order-1 order-2">
           <Greetings />
           <h1 data-text="I'm Nelson" className="largeText  line">
             I&apos;m Nelson
@@ -31,13 +34,13 @@ export function Hero() {
           </h1>
         </div>
 
-        <div className=" w-[17.6875rem] h-auto popOut">
+        <div className="w-[9.2rem] md:w-[17.6875rem]  md:order-2 order-1 h-auto popOut">
           <RotatingSVG />
         </div>
       </div>
 
       {/* Short descrption */}
-      <div className="stagger-reveal-container leading-[1.78] text-18">
+      <div className="stagger-reveal-container md:text-left text-center leading-[1.7] md:!leading-[1.78] text-14 md:!text-[1.125rem]">
         {descrption.split(" ").map((item, i) => {
           return (
             <span key={`div-${i}`} className="text-[var(--color-text-gray)]">
@@ -50,13 +53,17 @@ export function Hero() {
       </div>
 
       {/* buttons */}
-      <div className="flex gap-16">
-        <Button link="/contact" variant="normal">
-          Work with me
-        </Button>
-        <Button link="/about" variant="dark">
-          view my works
-        </Button>
+      <div className="flex md:gap-[1rem] gap-10 md:w-auto w-full md:justify-start justify-center">
+        <div className="basis-1/2 md:basis-auto">
+          <Button link="/contact" variant="normal">
+            Work with me
+          </Button>
+        </div>
+        <div className="basis-1/2 md:basis-auto">
+          <Button link="/about" variant="dark">
+            view my works
+          </Button>
+        </div>
       </div>
     </section>
   );

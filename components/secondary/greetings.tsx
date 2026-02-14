@@ -14,7 +14,7 @@ export default function Greetings() {
   }, 1000);
 
   return (
-    <h1 className="text-[5.556rem] font-bold leading-[1] line !text-white">
+    <h1 className="md:text-[5.556rem] text-[3.75rem] font-bold leading-[1] line !text-white">
       {greetings[curGreeting]}
       <span className="text-[var(--color-yellow)]">.</span>
     </h1>

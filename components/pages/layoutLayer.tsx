@@ -10,14 +10,9 @@ export function LayoutLayer({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Alert to switch to desjtop mode on mobile devices
-    const screenwidth = window.screen.width;
-
-    if (screenwidth < 700)
-      alert("Please turn on desktop mode and rotate your device");
     // Listen to route change and calll preloader
     const timer = setTimeout(() => {
-      setIsLoading(true);
+      // setIsLoading(true);
     }, 0);
     return () => clearTimeout(timer);
   }, [pathname]);

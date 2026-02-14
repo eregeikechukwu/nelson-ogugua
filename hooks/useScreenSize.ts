@@ -2,42 +2,46 @@
 
 import { useEffect, useState } from "react";
 
+type Screen = "mobile" | "small" | "desktop";
+
+function getScreen(): Screen {
+  if (typeof window === "undefined") return "desktop";
+
+  const w = window.innerWidth;
+  if (w < 576) return "mobile";
+  if (w < 768) return "small";
+  return "desktop";
+}
+
 export function useScreenSize() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isSmall, setisSmall] = useState(false);
-  const [isDesktop, setisDesktop] = useState(false);
+  // Initialize with lazy function (only runs once on mount)
+  const [screen, setScreen] = useState<Screen>(getScreen);
 
   useEffect(() => {
-    // Set screen mode
+    // Initial check in case SSR default was wrong
+    setTimeout(() => setScreen(getScreen()), 0);
 
-    if (window.screen.width > 768) {
-      // Large, desktop
-      setTimeout(() => {
-        setIsMobile(false);
-        setisSmall(false);
-        setisDesktop(true);
-      }, 0);
-    } else {
-      //Generally small
-      if (window.screen.width < 576) {
-        //MObile
-        setTimeout(() => {
-          setIsMobile(false);
-          setisSmall(true);
-          setisDesktop(false);
-        }, 0);
-      }
+    let timeout: NodeJS.Timeout;
 
-      if (window.screen.width < 576) {
-        //MObile
-        setTimeout(() => {
-          setIsMobile(true);
-          setisSmall(true);
-          setisDesktop(false);
-        }, 0);
-      }
-    }
+    const handleResize = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        setScreen(getScreen());
+      }, 150);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
-  return { isMobile, isSmall, isDesktop };
+  return {
+    screen,
+    isMobile: screen === "mobile",
+    isSmall: screen === "small",
+    isDesktop: screen === "desktop",
+  };
 }

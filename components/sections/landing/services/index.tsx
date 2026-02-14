@@ -5,6 +5,7 @@ import { CTA } from "@/components/secondary/cta";
 import { Title } from "@/components/secondary/title";
 import { useTilt } from "@/hooks/gsap/useTilt";
 import { services } from "@/utils/services";
+import Image from "next/image";
 // import Image from "next/image";
 
 export function Services() {
@@ -16,7 +17,7 @@ export function Services() {
 
   return (
     <section id="services" className="container">
-      <div className="w-full flex flex-col gap-20 pb-26 border-bottom">
+      <div className="w-full flex flex-col gap-20 pb-24 md:pb-[1.625rem] border-bottom">
         <Title>Services</Title>
         <div className="line-reveal-container">
           <h1 data-text="What I Can Do For You" className="line mediumText">
@@ -29,18 +30,21 @@ export function Services() {
       <div ref={tiltRef}>
         {services.map((service, i) => {
           return (
-            <div key={i} className="border-bottom py-40 flex justify-between">
+            <div
+              key={i}
+              className="border-bottom py-40 flex flex-col gap-24 md:!gap-0 md:flex-row justify-between"
+            >
               {/* Writings */}
-              <div className="flex flex-col gap-28 max-w-[34rem]">
+              <div className="flex order-2 md:order-1 flex-col gap-28 max-w-[34rem]">
                 <div className="flex flex-col gap-18">
-                  <h2 className="text-[2.5rem] font-bold text-white">
+                  <h2 className="text-[1.75rem] md:text-[2.5rem] font-bold text-white">
                     {service.name}
                   </h2>
                   <div className="stagger-reveal-container">
                     {service.paragrapgh.split(" ").map((word, i) => (
                       <span
                         key={`div-${i}`}
-                        className="text-[var(--color-text-gray)] !leading-[1] text-16"
+                        className="text-[var(--color-text-gray)] !leading-[1] md:text-[1rem] text-[0.875rem] "
                       >
                         <span key={`span-${i}`} className="word !leading-[1]">
                           {word}&nbsp;
@@ -51,15 +55,15 @@ export function Services() {
                 </div>
 
                 {/* Services list */}
-                <div className="flex flex-col gap-25 ">
+                <div className="flex flex-col gap-24 ">
                   <h3 className="uppercase leading-[2] text-12 font-bold tracking-[2px]">
                     {service.name} services
                   </h3>
-                  <div className="flex flex-col gap-25 slide-in-container">
+                  <div className="flex flex-col gap-24 slide-in-container">
                     {service.subServices.map((item, i) => (
                       <p
                         key={i}
-                        className="flex items-center gap-15 text-white leading-[1] text-16 slide"
+                        className="flex items-center gap-15 text-white leading-[1] md:text-[1rem] text-[0.875rem] slide"
                       >
                         <span className="inline-block rounded-[2px] h-10 w-10 bg-[var(--color-yellow)] -translate-y-[2px]" />
                         {item}
@@ -68,24 +72,25 @@ export function Services() {
                   </div>
                 </div>
               </div>
-              {/* IMge */}
-              <div className="max-w-[29.375rem] h-[-webkit-fill-available] max-h-[30rem] overflow-hidden object-cover">
-                {/* <Image
+
+              {/* IMage */}
+              <div className="order-1 md:order-2 max-w-[29.375rem] h-[-webkit-fill-available] max-h-[30rem] overflow-hidden object-cover">
+                <Image
                   width={470}
                   height={345}
                   src={service.banner}
                   alt={service.name}
                   className="object-cover h-full tilt-card cursor-pointer"
-                /> */}
+                />
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                {/* <img
                   src={service.banner}
                   width={470}
                   height={345}
                   alt="banner image"
                   className="object-cover h-full tilt-card cursor-pointer"
-                />
+                /> */}
               </div>
             </div>
           );

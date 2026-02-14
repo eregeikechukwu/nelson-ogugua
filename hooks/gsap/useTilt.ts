@@ -2,6 +2,7 @@
 
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
+import { useScreenSize } from "../useScreenSize";
 
 type TiltOptions = {
   maxRotate?: number;
@@ -21,6 +22,8 @@ export function useTilt(options: TiltOptions = {}) {
     className = "tilt-element",
     disableOnTouch = true,
   } = options;
+
+  const { isMobile, isSmall } = useScreenSize();
 
   const containerRef = useRef<HTMLDivElement | null>(null);
 

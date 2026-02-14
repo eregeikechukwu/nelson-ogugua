@@ -36,7 +36,7 @@ export function Projects() {
     <section
       id="works"
       onPointerMove={({ clientX, clientY }) => moveItems(clientX, clientY)}
-      className="container flex flex-col gap-28 relative"
+      className="container flex flex-col gap-40 md:!gap-[1.75rem] relative"
     >
       <div className="flex flex-col gap-20">
         <Title>Works</Title>
@@ -48,7 +48,7 @@ export function Projects() {
       {/* Projects */}
       <div
         ref={tiltRef}
-        className="grid grid-cols-[repeat(auto-fit,minmax(31.25rem,1fr))] gap-32"
+        className="grid grid-cols-1  md:!grid-cols-[repeat(auto-fit,minmax(31.25rem,1fr))] gap-24 md:gap-[2rem]"
       >
         {selectedWorks.map((work, i) => (
           <div
@@ -60,11 +60,11 @@ export function Projects() {
               handlePointerLeave(i);
               moveItems(clientX, clientY);
             }}
-            className="p-24 border-gray flex flex-col gap-28 cursor-pointer projectHover"
+            className="!p-[0.9375rem] md:!p-[1.5rem] border-gray flex flex-col gap-[1.10625rem] md:!gap-[1.75rem] cursor-pointer projectHover"
             key={i}
           >
             {/* Banner */}
-            <div className="relative h-[19.75rem] bg-[var(--color-medium-gray)]">
+            <div className="relative h-[12.5rem] md:!h-[19.75rem] bg-[var(--color-medium-gray)]">
               <Image
                 src={work.image}
                 alt={work.name}
@@ -75,9 +75,14 @@ export function Projects() {
             </div>
 
             {/* Details */}
-            <div className="flex flex-col gap-42">
-              <h3 className="text-28 font-bold">{work.name}</h3>
-              <Typewriter className="paragraph-text min-h-[3.3rem]" speed={30}>
+            <div className="flex flex-col gap-27 md:!gap-[2.625rem]">
+              <h3 className="md:!text-[1.75rem] text-[1.25rem] font-bold">
+                {work.name}
+              </h3>
+              <Typewriter
+                className="paragraph-text min-h-[2rem] md:!min-h-[3.3rem]"
+                speed={30}
+              >
                 {work.description}
               </Typewriter>
               <PassiveTextWithContainer>
@@ -89,7 +94,7 @@ export function Projects() {
       </div>
 
       {/* CTA */}
-      <CTA>
+      <CTA className="md:!mt-[2.375rem] !mt-0">
         <Button link="/works">View All Works</Button>
       </CTA>
 

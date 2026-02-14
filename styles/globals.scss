@@ -20,7 +20,7 @@
   --color-yellow: #fdbd1a;
   --color-text-gray: #c2c2c2;
   --color-light-gray: #858585;
-  --color-medium-gray: #272727;
+  --color-medium-gray: #2f2f2f;
   --color-dark-gray: #151515;
   --color-icon-gray: #616161;
 
@@ -30,6 +30,7 @@
 
   --container-width: 1072px;
   --nav-height: 80px;
+  --nav-height-sm: 72px;
 
   --container-padding: toRem(100);
 }
@@ -62,7 +63,7 @@ body {
   //Main defaults
   margin: 0 auto;
   // line-height: 1;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 html {
@@ -70,6 +71,7 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth;
   font-size: 100%; /* 16px */
+  overflow-x: hidden !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

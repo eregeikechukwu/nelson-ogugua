@@ -40,3 +40,9 @@ export const footerLinksSocials = [
     download: "Nelson_Ogugua CV.pdf",
   },
 ];
+
+export const navItems = [
+  { name: "ABOUT", link: "/about" },
+  { name: "WORKS", link: "/works" },
+  { name: "CONTACT", link: "/contact" },
+];

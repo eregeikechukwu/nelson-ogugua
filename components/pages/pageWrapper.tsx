@@ -20,5 +20,9 @@ export function PageWrapper({ children }: { children: React.ReactNode }) {
     return <div className="page-wrapper opacity-0">{children}</div>;
   }
 
-  return <div className="page-wrapper !mt-[var(--nav-height)]">{children}</div>;
+  return (
+    <div className="page-wrapper !mt-[var(--nav-height-sm)] md:!mt-[var(--nav-height)]">
+      {children}
+    </div>
+  );
 }
