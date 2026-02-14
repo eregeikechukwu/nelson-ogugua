@@ -6,13 +6,13 @@ import { useHardScroll } from "@/hooks/gsap/useHardScroll";
 import { usePathname } from "next/navigation";
 
 export function LayoutLayer({ children }: { children: React.ReactNode }) {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const pathname = usePathname();
 
   useEffect(() => {
     // Listen to route change and calll preloader
     const timer = setTimeout(() => {
-      // setIsLoading(true);
+      setIsLoading(true);
     }, 0);
     return () => clearTimeout(timer);
   }, [pathname]);
