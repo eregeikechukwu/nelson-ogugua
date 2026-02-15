@@ -55,7 +55,7 @@ const IconItem = memo(function IconItem({
 });
 
 export function ParallaxSlider() {
-  const { containerRef, trackRef } = useParallaxSlider();
+  const { containerRef, trackRef } = useParallaxSlider(10);
 
   return (
     <div

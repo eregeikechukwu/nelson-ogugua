@@ -88,7 +88,7 @@ export function Testimonial() {
     if (!trackRef.current) return;
 
     const map: Record<number, boolean> = {};
-    const MAX_HEIGHT = isMobile || isSmall ? 200 : 320; // matches .clamped max-height
+    const MAX_HEIGHT = isMobile || isSmall ? 200 : 330; // matches .clamped max-height
 
     trackRef.current.querySelectorAll(".paragraphs").forEach((el) => {
       const id = Number(el.id.split("-")[0]);
@@ -122,7 +122,7 @@ export function Testimonial() {
   );
 
   return (
-    <section className="container !overflow-hidden !md:overflow-visible flex flex-col gap-28">
+    <section className="container !overflow-hidden md:!overflow-visible flex flex-col gap-28">
       {/* Heading and controls */}
       <div className="flex flex-col gap-20">
         <Title>Testimonial</Title>
@@ -173,7 +173,7 @@ export function Testimonial() {
                 {overflowMap[i] && (
                   <div
                     onClick={() => clampClick(i)}
-                    className="text-[var(--color-yellow)] text-14 md:!text-[1.062rem] py-5 cursor-pointer absolute md:bottom-[12px] bottom-0 bg-[var(--background)] right-0"
+                    className="text-[var(--color-yellow)] text-14 md:!text-[1.062rem] py-5 cursor-pointer absolute md:bottom-[12px] -bottom-2 bg-[var(--background)] right-0"
                   >
                     {!expandedMap[i] && (
                       <p className="text-white inline-block text-bottom">

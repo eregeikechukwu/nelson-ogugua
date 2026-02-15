@@ -3,7 +3,7 @@
 import gsap from "gsap";
 import { useRef, useCallback, useEffect } from "react";
 
-export function useParallaxSlider() {
+export function useParallaxSlider(duration = 45) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
@@ -36,7 +36,7 @@ export function useParallaxSlider() {
       // Create seamless infinite loop
       tweenRef.current = gsap.to(track, {
         x: -setWidth,
-        duration: 45,
+        duration: duration,
         ease: "none",
         repeat: -1,
         modifiers: {
@@ -46,7 +46,7 @@ export function useParallaxSlider() {
 
       isInitializedRef.current = true;
     });
-  }, []);
+  }, [duration]);
 
   useEffect(() => {
     initAnimation();
