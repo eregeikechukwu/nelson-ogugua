@@ -18,7 +18,7 @@ const FooterList = ({
       {list.map((item, i) => (
         <Link key={`item-${i}`} href={item.href} download={item.download}>
           <h1 className=" text-white uppercase font-bold flex items-center gap-6  animate-hover2">
-            <span className=" inline-block w-4 h-[bg-] self-center bg-[var(--color-yellow)]" />
+            <span className=" inline-block w-4 h-[1em] self-center bg-[var(--color-yellow)]" />
             <span className="translate-y-[3px] md:!text-[0.875rem] text-[0.75rem] tracking-[2px] leading-[1]">
               {item.name}
             </span>
