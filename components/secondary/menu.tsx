@@ -31,7 +31,7 @@ function Menu({
             <StaggeredText
               id={`nav-item-${i}-large`}
               size="1.25rem"
-              className="tracking-[1] uppercase  text-[var(--color-white)] overflow-hidden"
+              className="tracking-[2.6px] md:!tracking-[1] uppercase  text-[var(--color-white)] overflow-hidden"
             >
               {item.name}
             </StaggeredText>
