@@ -74,7 +74,7 @@ export function Services() {
               </div>
 
               {/* IMage */}
-              <div className="order-1 md:order-2 max-w-[29.375rem] h-[-webkit-fill-available] max-h-[30rem] overflow-hidden object-cover">
+              <div className="order-1 md:order-2 max-w-[29.375rem] h-[21.56rem] md:!max-h-[30rem] overflow-hidden object-cover">
                 <Image
                   width={470}
                   height={345}
