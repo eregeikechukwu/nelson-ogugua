@@ -11,9 +11,9 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <PageWrapper>
-      <main className="container flex gap-[7.25rem] justify-between">
+      <main className="container max-md:!pt-[1.5rem] flex flex-col md:flex-row gap-[2rem] md:gap-[7.25rem] justify-between">
         {/* WRitings */}
-        <div className="max-w-[22.625rem] w-auto flex flex-col gap-40">
+        <div className="max-w-[22.625rem] w-auto flex flex-col gap-[1.75rem] md:gap-[2.5rem]">
           <div className="line-reveal-container">
             <h1
               data-text="Let's Work Together"

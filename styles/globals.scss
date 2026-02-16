@@ -32,7 +32,9 @@
   --nav-height: 80px;
   --nav-height-sm: 72px;
 
-  --container-padding: toRem(100);
+  --container-padding: 100px;
+  --container-padding-mobile: 56px;
+  --container-inline-padding-mobile: 16px;
 }
 
 @utility text-fill-yellow {

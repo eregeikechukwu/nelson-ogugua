@@ -69,6 +69,10 @@
   font-size: toRem(48);
   font-weight: 600;
   line-height: 1.25;
+
+  @include respond-to-abs(medium) {
+    font-size: toRem(40);
+  }
 }
 
 .extralargeText {
@@ -101,12 +105,12 @@
   @extend .no-scrollbar;
   position: relative;
   max-width: var(--container-width);
-  padding-block: toRem(100);
+  padding-block: var(--container-padding);
   margin: 0 auto;
 
   @include respond-to-abs(medium) {
-    padding-inline: toRem(16);
-    padding-block: toRem(56);
+    padding-inline: var(--container-inline-padding-mobile);
+    padding-block: var(--container-padding-mobile);
   }
 }
 

@@ -5,7 +5,7 @@ export function StorySection() {
   const paragraphs = aboutStoryData.split("\n\n").map((paragraph, index) => (
     <div key={index} className="">
       {paragraph.split(" ").map((word, wordIndex) => (
-        <span key={wordIndex} className="paragraph-175">
+        <span key={wordIndex} className="paragraph-text">
           <span className="fastword">{word}&nbsp;</span>
         </span>
       ))}
@@ -13,7 +13,7 @@ export function StorySection() {
   ));
 
   return (
-    <div className="flex-col-50 px-55">
+    <div className="flex-col-50">
       {/* heading */}
       <div className="line-reveal-container ">
         <h2 data-text="My Professional Journey" className="normalText line">
@@ -26,8 +26,13 @@ export function StorySection() {
         {paragraphs}
       </div>
 
-      <div className="center-content">
-        <Button takeMeOut link="/Nelson_Ogugua CV.pdf">
+      <div className="center-content md:!mt-0 mt-20">
+        <Button
+          width="w-auto"
+          padding="!px-[1.25rem]"
+          takeMeOut
+          link="/Nelson_Ogugua CV.pdf"
+        >
           View my CV
         </Button>
       </div>

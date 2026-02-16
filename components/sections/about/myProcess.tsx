@@ -11,7 +11,7 @@ export function MyProcess() {
   useScaleDown(ref);
 
   return (
-    <div className="pt-100 flex flex-col gap-60">
+    <div className="md:!pt-[var(--container-padding)] !pt-[var(--container-padding-mobile)] flex flex-col gap-60">
       <div className="flex-col-50">
         <div className="line-reveal-container">
           <h2 data-text="My Process" className="normalText line">
@@ -21,8 +21,11 @@ export function MyProcess() {
 
         <div ref={ref} className="flex flex-col gap-16">
           {processes.map((process, i) => (
-            <div key={i} className="h-auto  border-gray p-18 flex gap-21">
-              <div className="h-auto basis-[21.875rem]">
+            <div
+              key={i}
+              className="h-auto border-gray p-18 flex md:flex-row flex-col gap-21"
+            >
+              <div className="h-[13.1875rem] md:h-auto  md:basis-[21.875rem]">
                 <Image
                   src={process.image}
                   height={211}
@@ -32,8 +35,10 @@ export function MyProcess() {
                 />
               </div>
 
-              <div className="flex-1 flex flex-col  gap-13">
-                <h3 className="text-[2rem] font-bold">{process.name}</h3>
+              <div className="flex-1 flex flex-col gap-13">
+                <h3 className="text-[1.75rem] md:text-[2rem] font-bold">
+                  {process.name}
+                </h3>
                 <p className="paragraph-text">{process.paragraph}</p>
               </div>
             </div>

@@ -7,7 +7,7 @@ export function Title({ children, font }: { children: string; font?: number }) {
 
   return (
     <h1 className=" text-white uppercase font-bold flex items-center gap-6  ">
-      <span className=" inline-block w-4  h-[1em] self-center bg-[var(--color-yellow)]" />
+      <span className=" inline-block w-4  h-[0.9em] self-center bg-[var(--color-yellow)]" />
       <span
         className={`translate-y-[1px] text-${font || defaultSize} tracking-[2px] leading-[1]`}
       >

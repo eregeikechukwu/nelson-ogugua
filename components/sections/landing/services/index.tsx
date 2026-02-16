@@ -80,7 +80,7 @@ export function Services() {
                   height={345}
                   src={service.banner}
                   alt={service.name}
-                  className="md:!object-cover h- h-full tilt-card cursor-pointer"
+                  className="object-cover h- h-full tilt-card cursor-pointer"
                 />
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}

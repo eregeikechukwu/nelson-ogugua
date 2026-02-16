@@ -214,7 +214,7 @@ export function Testimonial() {
             }}
             className={`h-8 rounded-full transition-all ${
               i === activeIndex
-                ? "bg-black w-[1.2rem] md:!w-[1.5rem]"
+                ? "bg-[var(--color-yellow)] w-[1rem] md:!w-[1.5rem]"
                 : "bg-gray-300 hover:bg-gray-400 w-8"
             }`}
             aria-label={`Go to testimonial ${i + 1}`}

@@ -96,7 +96,7 @@ export function ContactForm() {
     <div className="flex-1">
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col gap-32 mb-24">
-          <div className="flex gap-18">
+          <div className="flex flex-col md:flex-row gap-[2rem] md:gap-[1.125rem]">
             <div className="flex-1">
               <InputField
                 title="First Name"

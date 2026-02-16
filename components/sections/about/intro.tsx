@@ -11,7 +11,7 @@ export function IntroSection() {
 
       <div className="stagger-reveal-container">
         {aboutIntroData.split(" ").map((word, index) => (
-          <span key={index} className="paragraph-175">
+          <span key={index} className="paragraph-text">
             <span className="word">{word}&nbsp;</span>
           </span>
         ))}

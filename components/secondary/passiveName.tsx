@@ -42,10 +42,12 @@ export function PassiveName() {
   return (
     <div
       ref={containerRef}
-      className="text-[rgba(255,255,255,0.09)] leading-2 text-[11rem] font-bold"
+      className="text-[rgba(255,255,255,0.09)] leading-2 text-[4.573rem] md:!text-[11rem] font-bold"
     >
       <h1 className="leading-[0.9]">Nelson</h1>
-      <h1 className="leading-[0.9] pl-40">&nbsp;&nbsp;Ogugua</h1>
+      <h1 className="leading-[0.9] md:!pl-[2.5rem] !pl-[1.1rem]">
+        &nbsp;&nbsp;Ogugua
+      </h1>
     </div>
   );
 }

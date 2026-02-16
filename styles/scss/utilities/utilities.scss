@@ -220,11 +220,19 @@
   display: flex;
   flex-direction: column;
   gap: toRem(50);
+
+  @include respond-to-abs(medium) {
+    gap: toRem(28);
+  }
 }
 
 // Paeagraph line height 1.75
 .paragraph-175 {
   line-height: 1.5 !important;
+
+  @include respond-to-abs(medium) {
+    font-size: 14px;
+  }
 
   span {
     display: inline-block;

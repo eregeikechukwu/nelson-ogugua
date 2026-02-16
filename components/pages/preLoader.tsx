@@ -81,7 +81,7 @@ export default function PreLoader({
           className={`pageName  center-content h-full ${displayPage.trim().length === 1 || displayPage === "/" ? "!hidden" : ""} bg-[var(--background)]`}
         >
           <div ref={displayRef}>
-            <h1 className="letter-reveal text-[3.6rem] md:text-[5rem]">
+            <h1 className="letter-reveal text-[3rem] md:text-[5rem]">
               {displayPage.split("").map((char, index) => (
                 <span key={index} className="letter inline-block">
                   {char === " " ? "\u00A0" : char}
@@ -90,7 +90,7 @@ export default function PreLoader({
             </h1>
             &nbsp;
           </div>
-          <span className="blinking-fill translate-y-[-1.5rem] !text-[8rem]">
+          <span className="blinking-fill translate-y-[-1.4rem] md:translate-y-[-1.5rem] text-[5rem] md:!text-[8rem]">
             .
           </span>
         </div>
