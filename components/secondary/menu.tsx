@@ -3,6 +3,7 @@
 import StaggeredText from "@/hooks/staggeredHover/staggeredHover";
 import { navItems } from "@/utils/Links";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { memo, useCallback } from "react";
 
 function Menu({
@@ -18,6 +19,8 @@ function Menu({
     }, 400);
   }, [toggleModal]);
 
+  const url = usePathname();
+
   return (
     <div
       className={`${isModalOpen ? "translate-x-0" : "translate-x-[105%]"} fixed inset-0 transition-transform duration-[0.5s] ease-[cubic-bezier(.65,.16,.82,.92)] z-50 top-[72px] h-[calc(100vh-72px)] w-screen bg-[var(--color-background)]`}
@@ -32,7 +35,7 @@ function Menu({
               transitionDelay: `${i * 0.15}s`,
             }}
             href={item.link}
-            className="link flex"
+            className="link flex justify-between items-center"
             key={`nav-item-${i}`}
           >
             <StaggeredText
@@ -42,6 +45,10 @@ function Menu({
             >
               {item.name}
             </StaggeredText>
+
+            {url === item.link && (
+              <div className="w-12 h-12 rounded-full bg-[var(--color-yellow)]" />
+            )}
           </Link>
         ))}
       </nav>
