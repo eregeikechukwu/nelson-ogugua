@@ -67,8 +67,8 @@ export function Projects() {
               <Image
                 src={work.image}
                 alt={work.name}
-                width={473}
-                height={316}
+                width={946}
+                height={632}
                 className="w-full h-full object-cover tilt-element"
               />
             </div>
