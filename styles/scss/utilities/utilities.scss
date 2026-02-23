@@ -166,9 +166,22 @@
   z-index: 2;
   background: var(--color-background);
   transition: all 0.3s;
-  &:hover {
+  &:active {
     border-color: #737272;
     border-width: 3px;
+  }
+
+  @include respond-to(extra-large) {
+    &:hover {
+      border-color: #737272;
+      border-width: 3px;
+    }
+  }
+  @include respond-to(large) {
+    &:hover {
+      border-color: #737272;
+      border-width: 3px;
+    }
   }
 }
 
@@ -179,7 +192,7 @@
   height: toRem(48);
   outline: none;
   padding: toRem(16);
-  font-size: toRem(12);
+  font-size: toRem(14);
   line-height: 1.17;
   color: var(--color-white);
   transition: all 0.3s ease-in-out;
@@ -195,13 +208,14 @@
     border-color: var(--color-light-gray);
     border-width: 2px;
   }
-}
-.input-field-error {
-  color: #ff4d4f;
-  font-size: toRem(12);
-  margin-top: toRem(5);
 
-  animation: slideInUp 0.4s ease-in-out forwards;
+  &-error {
+    color: #ff4d4f;
+    font-size: toRem(13);
+    margin-top: toRem(5);
+
+    animation: slideInUp 0.4s ease-in-out forwards;
+  }
 }
 
 .message-field {

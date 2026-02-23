@@ -22,7 +22,7 @@ const Controls = ({
   iconStyles: string;
 }) => {
   return (
-    <div className="flex gap-18">
+    <div className="flex gap-18 md:order-2 order-1">
       <button
         onClick={() => scrollToIndex("prev")}
         disabled={isAnimating}
@@ -39,7 +39,7 @@ const Controls = ({
       <button
         onClick={() => scrollToIndex("next")}
         disabled={isAnimating}
-        className={`${buttonStyles} bg-transaparent hover:bg-gray-100 disabled:opacity-50`}
+        className={`${buttonStyles} bg-[var(--background)] hover:bg-gray-100 disabled:opacity-50`}
       >
         <ArrowRight
           width={24}
@@ -73,7 +73,8 @@ export function Testimonial() {
 
   const buttonStyles =
     "group w-48 h-48 p-12 rounded-[4px] cursor-pointer flex items-center active:bg-[var(--color-yellow)] justify-center transition-colors border-gray";
-  const iconStyles = "group-hover:animate-pulse group-active:text-white";
+  const iconStyles =
+    "group-hover:animate-pulse group-active:text-black text-white";
 
   const GAP = isMobile || isSmall ? 14 : 24;
   const CARD_WIDTH = isMobile || isSmall ? 297 : 520; // 32.5rem //18.5625rem
@@ -197,40 +198,42 @@ export function Testimonial() {
       </div>
 
       {/* Dots indicator */}
-      <div className="flex gap-[0.5rem] md:gap-[0.75rem] justify-center">
-        {testimonials.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => {
-              if (isAnimating) return;
-              setIsAnimating(true);
-              setActiveIndex(i);
-              gsap.to(trackRef.current, {
-                x: -(i * (CARD_WIDTH + GAP)),
-                duration: 0.8,
-                ease: "power2.inOut",
-                onComplete: () => setIsAnimating(false),
-              });
-            }}
-            className={`h-8 rounded-full transition-all ${
-              i === activeIndex
-                ? "bg-[var(--color-yellow)] w-[1rem] md:!w-[1.5rem]"
-                : "bg-gray-300 hover:bg-gray-400 w-8"
-            }`}
-            aria-label={`Go to testimonial ${i + 1}`}
-          />
-        ))}
-      </div>
+      <div className="flex flex-row md:justify-center justify-between items-center ">
+        <div className="flex gap-[0.5rem] md:gap-[0.75rem] justify-center order-2">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                if (isAnimating) return;
+                setIsAnimating(true);
+                setActiveIndex(i);
+                gsap.to(trackRef.current, {
+                  x: -(i * (CARD_WIDTH + GAP)),
+                  duration: 0.8,
+                  ease: "power2.inOut",
+                  onComplete: () => setIsAnimating(false),
+                });
+              }}
+              className={`h-8 rounded-full transition-all ${
+                i === activeIndex
+                  ? "bg-[var(--color-yellow)] w-[1rem] md:!w-[1.5rem]"
+                  : "bg-gray-300 hover:bg-gray-400 w-8"
+              }`}
+              aria-label={`Go to testimonial ${i + 1}`}
+            />
+          ))}
+        </div>
 
-      {/* Controls for mobile */}
-      {(isSmall || isMobile) && (
-        <Controls
-          scrollToIndex={scrollToIndex}
-          isAnimating={isAnimating}
-          buttonStyles={buttonStyles}
-          iconStyles={iconStyles}
-        />
-      )}
+        {/* Controls for mobile */}
+        {(isSmall || isMobile) && (
+          <Controls
+            scrollToIndex={scrollToIndex}
+            isAnimating={isAnimating}
+            buttonStyles={buttonStyles}
+            iconStyles={iconStyles}
+          />
+        )}
+      </div>
     </section>
   );
 }

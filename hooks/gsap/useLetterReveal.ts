@@ -18,7 +18,6 @@ export function useLetterReveal(
 
         containers.forEach((container) => {
           const items = container.querySelectorAll<HTMLElement>(".letter");
-          console.log("Letter items found:", items.length);
           if (!items.length) return;
 
           const tl = gsap.timeline();

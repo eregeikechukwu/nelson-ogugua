@@ -42,14 +42,6 @@ export default function PreLoader({
     }, 0);
   }, [page]);
 
-  console.log(
-    "PreLoader rendering for page:",
-    displayPage
-      .trim()
-      .split("")
-      .map((char) => char),
-  );
-
   return (
     <div className="relative w-screen no-scrollbar h-screen !overflow-hidden w-screen bg-[var(--background)] ">
       <div

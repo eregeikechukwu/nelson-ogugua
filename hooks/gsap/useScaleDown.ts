@@ -12,7 +12,6 @@ export function useScaleDown(ref: React.RefObject<HTMLElement | null>) {
 
     const ctx = gsap.context(() => {
       const items = Array.from(ref.current!.children);
-      console.log("Scale Down items:", items);
       if (!items.length) return;
 
       const tl = gsap.timeline({

@@ -3,7 +3,8 @@
 import { useLayoutEffect } from "react";
 
 export function useIntersectionObserver(
-  ref: React.RefObject<HTMLElement | null>, isMenuOpen: boolean
+  ref: React.RefObject<HTMLElement | null>,
+  isMenuOpen: boolean,
 ) {
   useLayoutEffect(() => {
     if (!ref || !ref.current) return;
@@ -33,16 +34,16 @@ export function useIntersectionObserver(
       topSentinel.style.pointerEvents = "none";
       document.body.prepend(topSentinel);
     }
-    console.log(topSentinel, " sentine");
+    // console.log(topSentinel, " sentine");
 
     topObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           clearSticky();
-          console.log("I'm intersectng now");
+          // console.log("I'm intersectng now");
         } else {
           el.classList.add("sticky-down");
-          console.log("I'm  NOT intersectng now");
+          // console.log("I'm  NOT intersectng now");
         }
       },
       { root: null, threshold: 0 },

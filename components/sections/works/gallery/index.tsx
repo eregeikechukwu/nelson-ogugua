@@ -23,12 +23,9 @@ export function SelectedWorksGallery() {
             </div>
 
             <div className="flex flex-col  gap-0 md:gap-[2.6875rem]">
-              <Typewriter
-                speed={30}
-                className="text-[0.875rem] md:text-[1.25rem] text-[var(--color-text-gray)]"
-              >
+              <p className="text-[0.875rem] md:text-[1.25rem] text-[var(--color-text-gray)]">
                 {work.description}
-              </Typewriter>
+              </p>
               <Button className="hidden  md:flex" variant="dark">
                 View Project
               </Button>

@@ -29,8 +29,6 @@ export function useSlowScroll<T extends HTMLElement>(
 
     gsap.registerPlugin(ScrollTrigger);
 
-    console.log("I survived");
-
     gsap.set(el, { y: initialY });
 
     const tween = gsap.to(el, {

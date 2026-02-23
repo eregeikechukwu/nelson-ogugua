@@ -38,13 +38,12 @@ function Menu({
             className="link flex justify-between items-center"
             key={`nav-item-${i}`}
           >
-            <StaggeredText
+            <p
               id={`nav-item-${i}-large`}
-              size="1.25rem"
-              className="tracking-[2.6px] md:!tracking-[1] uppercase  text-[var(--color-white)] overflow-hidden"
+              className="text-[1.25rem] tracking-[2.6px] md:!tracking-[1] uppercase  text-[var(--color-white)] overflow-hidden active:opacity-[60%]"
             >
               {item.name}
-            </StaggeredText>
+            </p>
 
             {url === item.link && (
               <div className="w-12 h-12 rounded-full bg-[var(--color-yellow)]" />

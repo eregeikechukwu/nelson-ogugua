@@ -74,10 +74,10 @@ export function Services() {
               </div>
 
               {/* IMage */}
-              <div className="order-1 md:order-2 max-w-[29.375rem] max-md:!h-[15rem] md:!max-h-[30rem] overflow-hidden object-cover">
+              <div className="order-1 md:order-2 max-w-[29.375rem] max-md:!h-auto md:!max-h-[30rem] overflow-hidden object-cover">
                 <Image
-                  width={470}
-                  height={345}
+                  width={980}
+                  height={690}
                   src={service.banner}
                   alt={service.name}
                   className="object-cover h- h-full tilt-card cursor-pointer"

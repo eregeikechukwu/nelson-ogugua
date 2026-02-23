@@ -63,12 +63,12 @@ export function ParallaxSlider() {
       ref={containerRef}
     >
       <div
-        className="md:!h-[8.375rem] h-80 fadedEdges"
+        className="md:!h-[8.375rem] h-82 fadedEdges"
         // onMouseEnter={pause}
         // onMouseLeave={play}
       >
         <div ref={trackRef} className="flex w-max h-full !ml-auto">
-          {[0, 1].map((_, setIndex) => (
+          {[0, 1, 2].map((_, setIndex) => (
             <div key={setIndex} className="flex h-full">
               {/* {icons.map((Icon, index) => (
                 <IconItem
@@ -87,7 +87,7 @@ export function ParallaxSlider() {
                     alt="logo"
                     width={140}
                     height={37}
-                    className="h-auto md:!max-h-[3rem] max-h-[1.5rem] w-full object-contain"
+                    className="h-auto md:!max-h-[3rem] max-h-[1.8rem] w-full object-contain"
                   />
                 </div>
               ))}

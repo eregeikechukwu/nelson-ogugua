@@ -47,8 +47,6 @@ export function useTilt(options: TiltOptions = {}) {
       return;
     }
 
-    console.log(`useTilt: Initialized ${elements.length} elements`);
-
     const cleanupFunctions: (() => void)[] = [];
 
     elements.forEach((el) => {

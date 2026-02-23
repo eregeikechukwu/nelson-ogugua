@@ -37,8 +37,6 @@ const Socials = () => {
 export function About() {
   const { isSmall, isMobile } = useScreenSize();
 
-  console.log(isMobile);
-
   return (
     <section
       id="about"

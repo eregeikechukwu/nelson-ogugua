@@ -39,8 +39,6 @@ export function usePreloader(
 
     loaderWrapper?.classList.replace("hidden", "block");
 
-    console.log("usePreloader current page:", pageName);
-
     // Animations for in page transition
     if (page.current !== "/") {
       gsap.set(pageName, {

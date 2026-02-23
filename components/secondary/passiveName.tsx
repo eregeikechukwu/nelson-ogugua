@@ -13,7 +13,6 @@ export function PassiveName() {
         .forEach((container) => {
           const items = container.children;
 
-          console.log(items);
           if (!items.length) return;
 
           gsap.set(items, { autoAlpha: 0 });

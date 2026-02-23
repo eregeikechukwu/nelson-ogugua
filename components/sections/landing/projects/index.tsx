@@ -12,7 +12,6 @@ import { useRef } from "react";
 import { scaleUp } from "./variants";
 import { PassiveTextWithContainer } from "@/components/typography/passiveText";
 import { useTilt } from "@/hooks/gsap/useTilt";
-import { Typewriter } from "@/components/secondary/typeWriter";
 import { CTA } from "@/components/secondary/cta";
 import { Button } from "@/components/secondary/button";
 
@@ -79,12 +78,9 @@ export function Projects() {
               <h3 className="md:!text-[1.75rem] text-[1.25rem] font-bold">
                 {work.name}
               </h3>
-              <Typewriter
-                className="paragraph-text min-h-[2rem] md:!min-h-[3.3rem]"
-                speed={30}
-              >
+              <p className="paragraph-text min-h-[2rem] md:!min-h-[3.3rem]">
                 {work.description}
-              </Typewriter>
+              </p>
               <PassiveTextWithContainer>
                 {work.services.join(" | ")}
               </PassiveTextWithContainer>
