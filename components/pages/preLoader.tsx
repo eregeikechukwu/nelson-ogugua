@@ -63,7 +63,7 @@ export default function PreLoader({
               Nelson
             </span>
             <br />
-            <span className="gradient-text inline-block name2 mr-40">
+            <span className="gradient-text inline-block name2 mr-[2.2rem] md:!mr-[2.5rem]">
               Ogugua
             </span>
           </div>

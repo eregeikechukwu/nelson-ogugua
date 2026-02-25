@@ -68,7 +68,7 @@ export function ParallaxSlider() {
         // onMouseLeave={play}
       >
         <div ref={trackRef} className="flex w-max h-full !ml-auto">
-          {[0, 1, 2].map((_, setIndex) => (
+          {Array.from({ length: 5 }).map((_, setIndex) => (
             <div key={setIndex} className="flex h-full">
               {/* {icons.map((Icon, index) => (
                 <IconItem

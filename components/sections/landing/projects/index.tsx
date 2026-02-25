@@ -14,6 +14,7 @@ import { PassiveTextWithContainer } from "@/components/typography/passiveText";
 import { useTilt } from "@/hooks/gsap/useTilt";
 import { CTA } from "@/components/secondary/cta";
 import { Button } from "@/components/secondary/button";
+import { useScreenSize } from "@/hooks/useScreenSize";
 
 export function Projects() {
   const cursor = useRef<HTMLDivElement | null>(null);
@@ -29,6 +30,7 @@ export function Projects() {
     label,
   });
 
+  const { isSmall, isMobile } = useScreenSize();
   const tiltRef = useTilt();
 
   return (
@@ -67,9 +69,10 @@ export function Projects() {
               <Image
                 src={work.image}
                 alt={work.name}
-                width={946}
-                height={632}
-                className="w-full h-full object-cover tilt-element"
+                // fill
+                width={1656}
+                height={1106}
+                className={`object-cover ${!isSmall && !isMobile && "tilt-element"} w-full h-full`}
               />
             </div>
 

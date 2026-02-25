@@ -4,6 +4,7 @@ import { Button } from "@/components/secondary/button";
 import { CTA } from "@/components/secondary/cta";
 import { Title } from "@/components/secondary/title";
 import { useTilt } from "@/hooks/gsap/useTilt";
+import { useScreenSize } from "@/hooks/useScreenSize";
 import { services } from "@/utils/services";
 import Image from "next/image";
 // import Image from "next/image";
@@ -14,6 +15,8 @@ export function Services() {
     perspective: 1200,
     className: "tilt-card",
   });
+
+  const { isMobile, isSmall } = useScreenSize();
 
   return (
     <section id="services" className="container">
@@ -74,13 +77,15 @@ export function Services() {
               </div>
 
               {/* IMage */}
-              <div className="order-1 md:order-2 max-w-[29.375rem] max-md:!h-auto md:!max-h-[30rem] overflow-hidden object-cover">
+              <div className="relative order-1 md:order-2  md:!w-[29.375rem] h-auto md:!max-h-[30rem] overflow-hidden object-cover">
                 <Image
-                  width={980}
-                  height={690}
+                  width={1715}
+                  height={1208}
+                  // fill
+                  // sizes="(max-width: 768px) 100vw, 40vw"
                   src={service.banner}
                   alt={service.name}
-                  className="object-cover h- h-full tilt-card cursor-pointer"
+                  className={`${!isSmall && !isMobile && "tilt-card"} w-full h-auto object-cover   cursor-pointer`}
                 />
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}
