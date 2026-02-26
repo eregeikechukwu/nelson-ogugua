@@ -77,15 +77,16 @@ export function Services() {
               </div>
 
               {/* IMage */}
-              <div className="relative order-1 md:order-2  md:!w-[29.375rem] h-auto md:!max-h-[30rem] overflow-hidden object-cover">
+              <div className="relative order-1 md:order-2  md:!w-[29.375rem] h-auto md:!h-full md:!max-h-[30rem] overflow-hidden object-cover">
                 <Image
-                  width={1715}
-                  height={1208}
+                  width={940}
+                  height={690}
                   // fill
-                  // sizes="(max-width: 768px) 100vw, 40vw"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  quality={90}
                   src={service.banner}
                   alt={service.name}
-                  className={`${!isSmall && !isMobile && "tilt-card"} w-full h-auto object-cover   cursor-pointer`}
+                  className={`${!isSmall && !isMobile && "tilt-card"} w-full h-auto md:!h-full object-cover   cursor-pointer`}
                 />
 
                 {/* eslint-disable-next-line @next/next/no-img-element */}

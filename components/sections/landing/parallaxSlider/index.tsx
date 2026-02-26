@@ -1,29 +1,6 @@
 /* eslint-disable react/jsx-key */
-import { memo } from "react";
-import {
-  Airplane,
-  Instagram,
-  Facebook,
-  Wallet,
-  Wallet2,
-  Send,
-  Heart,
-  Star,
-  IconProps,
-} from "iconsax-react";
 import { useParallaxSlider } from "@/hooks/gsap/useParallaxSLider";
 import Image from "next/image";
-
-const icons = [
-  Facebook,
-  Airplane,
-  Instagram,
-  Wallet2,
-  Wallet,
-  Heart,
-  Star,
-  Send,
-];
 
 const logos = [
   "/svg/pineapple.svg",
@@ -33,26 +10,6 @@ const logos = [
   "/svg/binkey.svg",
   "/svg/dotcampus.svg",
 ];
-
-const IconItem = memo(function IconItem({
-  Icon,
-  index,
-}: {
-  Icon: React.FC<IconProps>;
-  index: number;
-}) {
-  return (
-    <div className="px-65 h-full center-content flex-shrink-0 border-gray !border-r-0">
-      <Icon
-        size="32"
-        strokeWidth={2}
-        stroke="var(--color-icon-gray)"
-        className="font-[700]"
-        fill={index % 2 === 0 ? "var(--color-icon-gray)" : "white"}
-      />
-    </div>
-  );
-});
 
 export function ParallaxSlider() {
   const { containerRef, trackRef } = useParallaxSlider(10);

@@ -14,56 +14,62 @@ export function useParallaxSlider(duration = 45) {
     if (!trackRef.current || isInitializedRef.current) return;
 
     const track = trackRef.current;
-    const firstSet = track.children[0] as HTMLElement;
 
-    // Wait for layout to settle
-    rafRef.current = requestAnimationFrame(() => {
-      const setWidth = firstSet.offsetWidth;
+    const measure = () => {
+      const setWidth = track.scrollWidth / 2;
 
-      if (setWidth === 0) {
-        isInitializedRef.current = false;
-        return;
-      }
+      if (setWidth === 0) return;
 
-      // Kill existing animation
       if (tweenRef.current) {
         tweenRef.current.kill();
       }
 
-      // Reset position
       gsap.set(track, { x: 0 });
 
-      console.log(setWidth, "set qidth");
-
-      // Create seamless infinite loop
       tweenRef.current = gsap.to(track, {
-        x: -setWidth * 2,
+        x: -setWidth,
         duration: duration,
         ease: "none",
         repeat: -1,
-        modifiers: {
-          x: gsap.utils.unitize((x) => parseFloat(x) % setWidth),
-        },
+        onRepeat: () => void gsap.set(track, { x: 0 }),
       });
 
       isInitializedRef.current = true;
+    };
+
+    rafRef.current = requestAnimationFrame(() => {
+      const images = Array.from(track.querySelectorAll("img"));
+      const unloaded = images.filter((img) => !img.complete);
+
+      if (unloaded.length === 0) {
+        measure();
+      } else {
+        Promise.all(
+          unloaded.map(
+            (img) =>
+              new Promise((r) => {
+                img.onload = r;
+                img.onerror = r;
+              }),
+          ),
+        ).then(measure);
+      }
     });
   }, [duration]);
 
   useEffect(() => {
     initAnimation();
 
+    let resizeTimeout: NodeJS.Timeout;
+
     const handleResize = () => {
       isInitializedRef.current = false;
       initAnimation();
     };
 
-    // Debounced resize handler
-    let resizeTimeout: NodeJS.Timeout;
     const debouncedResize = () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(handleResize, 150);
-      console.log(window.innerWidth, "window  width");
     };
 
     window.addEventListener("resize", debouncedResize);

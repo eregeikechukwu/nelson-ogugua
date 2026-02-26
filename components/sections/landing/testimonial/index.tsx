@@ -26,7 +26,7 @@ const Controls = ({
       <button
         onClick={() => scrollToIndex("prev")}
         disabled={isAnimating}
-        className={`${buttonStyles} bg-transparent hover:bg-gray-100 disabled:opacity-50 active:bg-[var(--color-yellow)] `}
+        className={`${buttonStyles}`}
       >
         <ArrowLeft
           width={24}
@@ -39,14 +39,9 @@ const Controls = ({
       <button
         onClick={() => scrollToIndex("next")}
         disabled={isAnimating}
-        className={`${buttonStyles} bg-[var(--background)] hover:bg-gray-100 disabled:opacity-50`}
+        className={`${buttonStyles}`}
       >
-        <ArrowRight
-          width={24}
-          height={24}
-          color="white"
-          className={iconStyles}
-        />
+        <ArrowRight width={24} height={24} className={iconStyles} />
       </button>
     </div>
   );
@@ -72,9 +67,9 @@ export function Testimonial() {
   });
 
   const buttonStyles =
-    "group w-48 h-48 p-12 rounded-[4px] cursor-pointer flex items-center active:bg-[var(--color-yellow)] justify-center transition-colors border-gray";
+    "group w-48 h-48 p-12 rounded-[4px] hover:bg-gray-100 disabled:opacity-50 bg-[var(--background)] cursor-pointer flex items-center active:bg-[var(--color-yellow)] justify-center transition-colors border-gray";
   const iconStyles =
-    "group-hover:animate-pulse group-active:text-black text-white";
+    "group-hover:animate-pulse group-active:stroke-black stroke-white";
 
   const GAP = isMobile || isSmall ? 14 : 24;
   const CARD_WIDTH = isMobile || isSmall ? 297 : 520; // 32.5rem //18.5625rem

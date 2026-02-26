@@ -8,9 +8,9 @@ export function Expertise() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const containerStyles =
-    "px-40 py-54 flex flex-col gap-25 bg-[var(--background)]";
+    "px-35 py-40 md:px-[2.5rem] md:py-[3.375rem] flex flex-col gap-20 md:gap-[1.5625rem] bg-[var(--background)]";
   const numberStyles =
-    "text-[4.444rem] font-bold text-left text-white leading-[1.13] inline-block";
+    " text-[3.5rem] md:text-[4.444rem] font-bold text-left text-white leading-[1.13] inline-block";
   const textStyles = "text-[var(--color-text-gray)] leading-[1.56]";
 
   return (
@@ -25,7 +25,7 @@ export function Expertise() {
           <div>
             <CountUp
               end={59}
-              duration={103 * 40}
+              duration={59 * 30}
               styles={numberStyles}
               ref={containerRef as RefObject<HTMLDivElement>}
             />
@@ -41,7 +41,7 @@ export function Expertise() {
             <CountUp
               end={58}
               styles={numberStyles}
-              duration={58 * 40}
+              duration={58 * 30}
               ref={containerRef as RefObject<HTMLDivElement>}
             />
             <span className={numberStyles}>+</span>
@@ -54,7 +54,7 @@ export function Expertise() {
           <div>
             <CountUp
               end={98}
-              duration={98 * 40}
+              duration={60 * 30}
               styles={numberStyles}
               ref={containerRef as RefObject<HTMLDivElement>}
             />
