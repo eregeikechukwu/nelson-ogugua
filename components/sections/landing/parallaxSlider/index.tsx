@@ -68,7 +68,7 @@ export function ParallaxSlider() {
         // onMouseLeave={play}
       >
         <div ref={trackRef} className="flex w-max h-full !ml-auto">
-          {Array.from({ length: 5 }).map((_, setIndex) => (
+          {Array.from({ length: 2 }).map((_, setIndex) => (
             <div key={setIndex} className="flex h-full">
               {/* {icons.map((Icon, index) => (
                 <IconItem
@@ -77,10 +77,11 @@ export function ParallaxSlider() {
                   index={index}
                 />
               ))} */}
+              {/* className={`${logo.includes("dbn") || logo.includes("pineapple") ? "py-20" : " md:!py-[2.125rem] py-33 "} */}
               {logos.map((logo, index) => (
                 <div
                   key={index}
-                  className="md:!px-[4.375rem] md:!py-[2.125rem] py-33 px-40 h-full center-content flex-shrink-0 border-gray !border-r-0"
+                  className={`md:!py-[2.125rem] py-33 md:!px-[4.375rem]  px-40 h-full center-content flex-shrink-0 border-gray !border-r-0`}
                 >
                   <Image
                     src={logo}

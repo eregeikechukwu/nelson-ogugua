@@ -33,9 +33,11 @@ export function useParallaxSlider(duration = 45) {
       // Reset position
       gsap.set(track, { x: 0 });
 
+      console.log(setWidth, "set qidth");
+
       // Create seamless infinite loop
       tweenRef.current = gsap.to(track, {
-        x: -setWidth,
+        x: -setWidth * 2,
         duration: duration,
         ease: "none",
         repeat: -1,
@@ -61,6 +63,7 @@ export function useParallaxSlider(duration = 45) {
     const debouncedResize = () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(handleResize, 150);
+      console.log(window.innerWidth, "window  width");
     };
 
     window.addEventListener("resize", debouncedResize);
