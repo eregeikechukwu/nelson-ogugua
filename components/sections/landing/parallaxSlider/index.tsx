@@ -27,13 +27,6 @@ export function ParallaxSlider() {
         <div ref={trackRef} className="flex w-max h-full !ml-auto">
           {Array.from({ length: 2 }).map((_, setIndex) => (
             <div key={setIndex} className="flex h-full">
-              {/* {icons.map((Icon, index) => (
-                <IconItem
-                  key={`${setIndex}-${index}`}
-                  Icon={Icon}
-                  index={index}
-                />
-              ))} */}
               {/* className={`${logo.includes("dbn") || logo.includes("pineapple") ? "py-20" : " md:!py-[2.125rem] py-33 "} */}
               {logos.map((logo, index) => (
                 <div
@@ -49,16 +42,6 @@ export function ParallaxSlider() {
                   />
                 </div>
               ))}
-              {/* {Array.from({ length: 10 }).map((_, index) => (
-                <div
-                  key={index}
-                  className="md:!px-[4.06rem] px-38 h-full center-content flex-shrink-0 border-gray !border-r-0"
-                >
-                  <p className="text-[#616161] leading-[1.71] text-[1.1875rem] md:text-[1.9rem] font-[900]">
-                    LOGO
-                  </p>
-                </div>
-              ))} */}
             </div>
           ))}
         </div>

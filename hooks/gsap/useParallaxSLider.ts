@@ -7,18 +7,12 @@ export function useParallaxSlider(duration = 45) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const trackRef = useRef<HTMLDivElement | null>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
-  const rafRef = useRef<number | null>(null);
   const isInitializedRef = useRef(false);
 
-  const initAnimation = useCallback(() => {
-    if (!trackRef.current || isInitializedRef.current) return;
-
-    const track = trackRef.current;
-
-    const measure = () => {
-      const setWidth = track.scrollWidth / 2;
-
-      if (setWidth === 0) return;
+  const startAnimation = useCallback(
+    (setWidth: number) => {
+      if (!trackRef.current) return;
+      const track = trackRef.current;
 
       if (tweenRef.current) {
         tweenRef.current.kill();
@@ -35,52 +29,64 @@ export function useParallaxSlider(duration = 45) {
       });
 
       isInitializedRef.current = true;
+    },
+    [duration],
+  );
+
+  const initAnimation = useCallback(() => {
+    if (!trackRef.current) return;
+
+    isInitializedRef.current = false;
+
+    const track = trackRef.current;
+    let lastWidth = 0;
+    let stableFrames = 0;
+    const requiredStableFrames = 10; // ~160ms at 60fps
+    let rafId: number;
+
+    const pollWidth = () => {
+      const currentWidth = track.scrollWidth;
+
+      if (currentWidth > 0 && currentWidth === lastWidth) {
+        stableFrames++;
+      } else {
+        stableFrames = 0;
+        lastWidth = currentWidth;
+      }
+
+      if (stableFrames >= requiredStableFrames) {
+        const setWidth = track.scrollWidth / 2;
+        if (setWidth > 0) {
+          startAnimation(setWidth);
+        }
+        return; // stop polling
+      }
+
+      rafId = requestAnimationFrame(pollWidth);
     };
 
-    rafRef.current = requestAnimationFrame(() => {
-      const images = Array.from(track.querySelectorAll("img"));
-      const unloaded = images.filter((img) => !img.complete);
+    rafId = requestAnimationFrame(pollWidth);
 
-      if (unloaded.length === 0) {
-        measure();
-      } else {
-        Promise.all(
-          unloaded.map(
-            (img) =>
-              new Promise((r) => {
-                img.onload = r;
-                img.onerror = r;
-              }),
-          ),
-        ).then(measure);
-      }
-    });
-  }, [duration]);
+    return () => cancelAnimationFrame(rafId);
+  }, [startAnimation]);
 
   useEffect(() => {
-    initAnimation();
+    const cleanup = initAnimation();
 
     let resizeTimeout: NodeJS.Timeout;
 
-    const handleResize = () => {
-      isInitializedRef.current = false;
-      initAnimation();
-    };
-
     const debouncedResize = () => {
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(handleResize, 150);
+      resizeTimeout = setTimeout(() => {
+        initAnimation();
+      }, 150);
     };
 
     window.addEventListener("resize", debouncedResize);
 
     return () => {
-      if (tweenRef.current) {
-        tweenRef.current.kill();
-      }
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
+      cleanup?.();
+      if (tweenRef.current) tweenRef.current.kill();
       window.removeEventListener("resize", debouncedResize);
       clearTimeout(resizeTimeout);
     };
