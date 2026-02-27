@@ -78,25 +78,29 @@ export function Services() {
 
               {/* IMage */}
               <div className="relative order-1 md:order-2  md:!w-[29.375rem] h-auto md:!h-full md:!max-h-[30rem] overflow-hidden object-cover">
-                <Image
-                  width={940}
-                  height={690}
-                  // fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  quality={90}
-                  src={service.banner}
-                  alt={service.name}
-                  className={`${!isSmall && !isMobile && "tilt-card"} w-full h-auto md:!h-full object-cover   cursor-pointer`}
-                />
-
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                {/* <img
-                  src={service.banner}
-                  width={470}
-                  height={345}
-                  alt="banner image"
-                  className="object-cover h-full tilt-card cursor-pointer"
-                /> */}
+                {isSmall || isMobile ? (
+                  <Image
+                    width={656}
+                    height={481.6}
+                    // fill
+                    sizes="80vw"
+                    quality={90}
+                    src={service.banner}
+                    alt={service.name}
+                    className={`w-full h-auto md:!h-full object-cover   cursor-pointer`}
+                  />
+                ) : (
+                  <Image
+                    width={940}
+                    height={690}
+                    // fill
+                    sizes="40vw"
+                    quality={90}
+                    src={service.banner}
+                    alt={service.name}
+                    className={`tilt-card w-full h-auto md:!h-full object-cover   cursor-pointer`}
+                  />
+                )}
               </div>
             </div>
           );

@@ -31,7 +31,7 @@ const Controls = ({
         <ArrowLeft
           width={24}
           height={24}
-          color="white"
+          stroke="var(--icon-stroke)"
           className={iconStyles}
         />
       </button>
@@ -41,7 +41,12 @@ const Controls = ({
         disabled={isAnimating}
         className={`${buttonStyles}`}
       >
-        <ArrowRight width={24} height={24} className={iconStyles} />
+        <ArrowRight
+          width={24}
+          stroke="var(--icon-stroke)"
+          height={24}
+          className={iconStyles}
+        />
       </button>
     </div>
   );
@@ -67,9 +72,8 @@ export function Testimonial() {
   });
 
   const buttonStyles =
-    "group w-48 h-48 p-12 rounded-[4px] hover:bg-gray-100 disabled:opacity-50 bg-[var(--background)] cursor-pointer flex items-center active:bg-[var(--color-yellow)] justify-center transition-colors border-gray";
-  const iconStyles =
-    "group-hover:animate-pulse group-active:stroke-black stroke-white";
+    "group w-48 h-48 p-12 rounded-[4px] hover:bg-gray-100 disabled:opacity-50 bg-[var(--background)] cursor-pointer flex items-center active:bg-[var(--color-yellow)] justify-center transition-colors border-gray [--icon-stroke:white] active:[--icon-stroke:black]";
+  const iconStyles = "group-hover:animate-pulse";
 
   const GAP = isMobile || isSmall ? 14 : 24;
   const CARD_WIDTH = isMobile || isSmall ? 297 : 520; // 32.5rem //18.5625rem
