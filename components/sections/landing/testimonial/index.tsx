@@ -3,7 +3,7 @@
 import { Title } from "@/components/secondary/title";
 import { PassiveText } from "@/components/typography/passiveText";
 import { testimonials } from "@/utils/testimonials";
-import { ArrowLeft, ArrowRight } from "iconsax-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { useTestimonialContols } from "@/hooks/useTestimonialContols";
@@ -72,7 +72,7 @@ export function Testimonial() {
   });
 
   const buttonStyles =
-    "group w-48 h-48 p-12 rounded-[4px] hover:bg-gray-100 disabled:opacity-50 bg-[var(--background)] cursor-pointer flex items-center active:bg-[var(--color-yellow)] justify-center transition-colors border-gray [--icon-stroke:white] active:[--icon-stroke:black]";
+    "group w-48 h-48 p-12 rounded-[4px] hover:bg-gray-100 disabled:opacity-50 bg-[var(--background)] cursor-pointer flex items-center active:bg-[var(--color-yellow)] justify-center transition-colors border-gray [--icon-stroke:white] hover:[--icon-stroke:black] active:[--icon-stroke:black]";
   const iconStyles = "group-hover:animate-pulse";
 
   const GAP = isMobile || isSmall ? 14 : 24;

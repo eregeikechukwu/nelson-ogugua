@@ -83,7 +83,7 @@ export function Services() {
                     width={656}
                     height={481.6}
                     // fill
-                    sizes="80vw"
+                    sizes="91vw"
                     quality={90}
                     src={service.banner}
                     alt={service.name}
