@@ -31,7 +31,7 @@ const FooterList = ({
 };
 
 export function Footer() {
-  const { containerRef, trackRef, x } = useParallaxSlider(3);
+  const { containerRef, trackRef, x } = useParallaxSlider(1);
 
   return (
     <footer className=" container !max-w-screen pb-30 flex flex-col gap-40 md:!gap-[3.125rem] items-center">

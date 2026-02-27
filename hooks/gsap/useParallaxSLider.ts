@@ -122,7 +122,6 @@ import {
   useMotionValue,
   useTransform,
   useAnimationFrame,
-  useVelocity,
   useSpring,
   useScroll,
 } from "framer-motion";
@@ -140,14 +139,13 @@ export function useParallaxSlider(baseVelocity = 80) {
 
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400,
-  });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
-    clamp: false,
-  });
+  // const smoothVelocity = useSpring(scrollVelocity, {
+  //   damping: 50,
+  //   stiffness: 400,
+  // });
+  // const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+  //   clamp: false,
+  // });
 
   // Since we always have exactly 2 duplicate sets, one set = 50% of total
   // No measurement needed — percentage is always accurate regardless of content
@@ -158,13 +156,13 @@ export function useParallaxSlider(baseVelocity = 80) {
 
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
-    if (velocityFactor.get() < 0) {
-      directionFactor.current = -1;
-    } else if (velocityFactor.get() > 0) {
-      directionFactor.current = 1;
-    }
+    // if (velocityFactor.get() < 0) {
+    //   directionFactor.current = -1;
+    // } else if (velocityFactor.get() > 0) {
+    //   directionFactor.current = 1;
+    // }
 
-    moveBy += directionFactor.current * moveBy * velocityFactor.get();
+    moveBy += directionFactor.current * moveBy;
     baseX.set(baseX.get() + moveBy);
   });
 
