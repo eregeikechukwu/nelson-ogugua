@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-key */
+import { motion } from "framer-motion";
 import { useParallaxSlider } from "@/hooks/gsap/useParallaxSLider";
 import Image from "next/image";
 
@@ -12,7 +12,7 @@ const logos = [
 ];
 
 export function ParallaxSlider() {
-  const { containerRef, trackRef } = useParallaxSlider(10);
+  const { containerRef, trackRef, x} = useParallaxSlider(6);
 
   return (
     <div
@@ -24,7 +24,11 @@ export function ParallaxSlider() {
         // onMouseEnter={pause}
         // onMouseLeave={play}
       >
-        <div ref={trackRef} className="flex w-max h-full !ml-auto">
+        <motion.div
+          ref={trackRef}
+          style={{ x }}
+          className="flex w-max h-full !ml-auto"
+        >
           {Array.from({ length: 2 }).map((_, setIndex) => (
             <div key={setIndex} className="flex h-full">
               {/* className={`${logo.includes("dbn") || logo.includes("pineapple") ? "py-20" : " md:!py-[2.125rem] py-33 "} */}
@@ -44,7 +48,7 @@ export function ParallaxSlider() {
               ))}
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

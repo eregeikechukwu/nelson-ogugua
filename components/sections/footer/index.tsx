@@ -7,6 +7,7 @@ import { useParallaxSlider } from "@/hooks/gsap/useParallaxSLider";
 import { footerLinksPages, footerLinksSocials } from "@/utils/Links";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const FooterList = ({
   list,
@@ -30,7 +31,7 @@ const FooterList = ({
 };
 
 export function Footer() {
-  const { containerRef, trackRef } = useParallaxSlider();
+  const { containerRef, trackRef, x } = useParallaxSlider(3);
 
   return (
     <footer className=" container !max-w-screen pb-30 flex flex-col gap-40 md:!gap-[3.125rem] items-center">
@@ -48,10 +49,14 @@ export function Footer() {
             ref={containerRef}
           >
             <div className="h-auto">
-              <div ref={trackRef} className="flex w-full h-full !ml-auto">
-                {[0, 1].map((_, setIndex) => (
+              <motion.div
+                style={{ x }}
+                ref={trackRef}
+                className="flex w-max h-full "
+              >
+                {Array.from({ length: 2 }).map((_, setIndex) => (
                   <div key={setIndex} className="flex h-full">
-                    {Array.from({ length: 6 }).map((_, index) => (
+                    {Array.from({ length: 3 }).map((_, index) => (
                       <div
                         key={index}
                         className="h-full center-content flex-shrink-0 text-[5.56rem] md:!text-[14rem]"
@@ -64,7 +69,7 @@ export function Footer() {
                     ))}
                   </div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
