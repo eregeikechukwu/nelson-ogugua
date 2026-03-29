@@ -2,6 +2,7 @@
 
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
+import { PassiveText } from "../typography/passiveText";
 
 export function PassiveName() {
   const containerRef = useRef(null);
@@ -47,6 +48,7 @@ export function PassiveName() {
       <h1 className="leading-[0.9] md:!pl-[2.5rem] !pl-[1.1rem]">
         &nbsp;&nbsp;Ogugua
       </h1>
+
     </div>
   );
 }

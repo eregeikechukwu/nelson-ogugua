@@ -1,6 +1,12 @@
 import { useScreenSize } from "@/hooks/useScreenSize";
 
-export function Title({ children, font }: { children: string; font?: number }) {
+export function Title({
+  children,
+  font,
+}: {
+  children: React.ReactNode;
+  font?: number;
+}) {
   const { isMobile, isSmall } = useScreenSize();
 
   const defaultSize = !(isMobile || isSmall) ? 14 : 12;

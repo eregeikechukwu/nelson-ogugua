@@ -257,8 +257,14 @@
 
 //add argin to all children except last
 .add-margin-not-last {
-  & > *:not(:last-child) {
+  & > div:not(:last-child) {
     margin-bottom: toRem(20);
+  }
+}
+
+.add-24-margin-not-last {
+  & > *:not(:last-child) {
+    margin-bottom: toRem(24);
   }
 }
 
@@ -336,4 +342,25 @@
 .hamburger input:checked + svg .line-top-bottom {
   stroke-dasharray: 20 300;
   stroke-dashoffset: -32.42;
+}
+
+.table-heading {
+  color: #000000;
+  opacity: 0.6;
+  font-size: toRem(20);
+  font-weight: 500;
+}
+
+.add-border-not-last {
+  & > div:not(:last-child) {
+    border-bottom: solid 1.5px #00000014;
+  }
+}
+
+.table-head {
+  flex-basis: 19.75rem;
+
+  & > img {
+    flex-basis: 50%;
+  }
 }

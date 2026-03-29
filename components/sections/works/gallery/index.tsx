@@ -26,7 +26,11 @@ export function SelectedWorksGallery() {
               <p className="text-[0.875rem] md:text-[1.25rem] text-[var(--color-text-gray)]">
                 {work.description}
               </p>
-              <Button className="hidden  md:flex" variant="dark">
+              <Button
+                link={work.link}
+                className="hidden  md:flex"
+                variant="dark"
+              >
                 View Project
               </Button>
             </div>

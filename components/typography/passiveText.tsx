@@ -34,3 +34,10 @@ export function PassiveTextWithContainer({
     </div>
   );
 }
+
+export function BigPassiveText({
+  children = "Passive Text",
+  color = "opacity-[60%]",
+}) {
+  return <p className={`${color} text-[1.46rem] font-[500]`}>{children}</p>;
+}

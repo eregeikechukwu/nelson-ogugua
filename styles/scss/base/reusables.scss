@@ -64,6 +64,16 @@
   }
 }
 
+.mediumNormalText {
+  font-size: toRem(60);
+  font-weight: 600;
+  line-height: 1;
+
+  @include respond-to-abs(medium) {
+    font-size: toRem(40);
+  }
+}
+
 .normalText {
   @extend .shimmerGradient;
   font-size: toRem(48);
@@ -237,5 +247,21 @@
 
   @include respond-to-abs(medium) {
     font-size: toRem(14);
+  }
+}
+
+.flex-col-40 {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(40);
+}
+.flex-row-tocol-40 {
+  display: flex;
+  flex-direction: row;
+  gap: toRem(40);
+
+  @include respond-to-abs(medium) {
+    flex-direction: column;
+    gap: toRem(40);
   }
 }
