@@ -15,6 +15,7 @@ import { useTilt } from "@/hooks/gsap/useTilt";
 import { CTA } from "@/components/secondary/cta";
 import { Button } from "@/components/secondary/button";
 import { useScreenSize } from "@/hooks/useScreenSize";
+import Link from "next/link";
 
 export function Projects() {
   const cursor = useRef<HTMLDivElement | null>(null);
@@ -52,43 +53,44 @@ export function Projects() {
         className="grid grid-cols-1  md:!grid-cols-[repeat(auto-fit,minmax(31.25rem,1fr))] gap-24 md:gap-[2rem]"
       >
         {selectedWorks.map((work, i) => (
-          <div
-            onPointerEnter={({ clientX, clientY }) => {
-              handlePointerEnter(i);
-              moveItems(clientX, clientY);
-            }}
-            onPointerLeave={({ clientX, clientY }) => {
-              handlePointerLeave(i);
-              moveItems(clientX, clientY);
-            }}
-            className="!p-[0.9375rem] md:!p-[1.5rem] border-gray flex flex-col gap-[1.10625rem] md:!gap-[1.75rem] cursor-pointer projectHover"
-            key={i}
-          >
-            {/* Banner */}
-            <div className="relative h-[12.5rem] md:!h-[19.75rem] bg-[var(--color-medium-gray)]">
-              <Image
-                src={work.image}
-                alt={work.name}
-                // fill
-                width={1656}
-                height={1106}
-                className={`object-cover ${!isSmall && !isMobile && "tilt-element"} w-full h-full`}
-              />
-            </div>
+          <Link href={work.link} key={i}>
+            <div
+              onPointerEnter={({ clientX, clientY }) => {
+                handlePointerEnter(i);
+                moveItems(clientX, clientY);
+              }}
+              onPointerLeave={({ clientX, clientY }) => {
+                handlePointerLeave(i);
+                moveItems(clientX, clientY);
+              }}
+              className="!p-[0.9375rem] md:!p-[1.5rem] border-gray flex flex-col gap-[1.10625rem] md:!gap-[1.75rem] cursor-pointer projectHover"
+            >
+              {/* Banner */}
+              <div className="relative h-[12.5rem] md:!h-[19.75rem] bg-[var(--color-medium-gray)]">
+                <Image
+                  src={work.image}
+                  alt={work.name}
+                  // fill
+                  width={1656}
+                  height={1106}
+                  className={`object-cover ${!isSmall && !isMobile && "tilt-element"} w-full h-full`}
+                />
+              </div>
 
-            {/* Details */}
-            <div className="flex flex-col gap-27 md:!gap-[2.625rem]">
-              <h3 className="md:!text-[1.75rem] text-[1.25rem] font-bold">
-                {work.name}
-              </h3>
-              <p className="paragraph-text min-h-[2rem] md:!min-h-[3.3rem]">
-                {work.description}
-              </p>
-              <PassiveTextWithContainer>
-                {work.services.join(" | ")}
-              </PassiveTextWithContainer>
+              {/* Details */}
+              <div className="flex flex-col gap-27 md:!gap-[2.625rem]">
+                <h3 className="md:!text-[1.75rem] text-[1.25rem] font-bold">
+                  {work.name}
+                </h3>
+                <p className="paragraph-text min-h-[2rem] md:!min-h-[3.3rem]">
+                  {work.description}
+                </p>
+                <PassiveTextWithContainer>
+                  {work.services.join(" | ")}
+                </PassiveTextWithContainer>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

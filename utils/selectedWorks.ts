@@ -27,7 +27,7 @@ export const selectedWorks = [
     name: "DotCampus",
     description:
       "Closing the gap between learning and earning by turning tech curiosity into real, job-ready skills.",
-    image: "/svg/uiux.svg",
+    image: "/svg/dotCampus/dotCampusBannerTall.svg",
     services: ["Brand Design", "UI/UX Design"],
     link: "/dotcampus",
   },

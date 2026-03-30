@@ -2,6 +2,7 @@ import { Button } from "@/components/secondary/button";
 import { Typewriter } from "@/components/secondary/typeWriter";
 import { PassiveTextWithContainer } from "@/components/typography/passiveText";
 import { selectedWorks } from "@/utils/selectedWorks";
+import Image from "next/image";
 
 export function SelectedWorksGallery() {
   return (
@@ -37,7 +38,10 @@ export function SelectedWorksGallery() {
           </div>
 
           {/* Image */}
-          <div className="order-1 md:order-2 md:basis-[49.44%] bg-[#151515] h-[23.5rem] md:h-[36.4rem]"></div>
+          <div className="order-1 md:order-2 md:basis-[49.44%] bg-[#151515] h-[23.5rem] md:h-[36.4rem]">
+            <Image 
+            src={work.image} alt={work.name} width={530} height={584} className="w-full h-full object-cover" />
+          </div>
         </div>
       ))}
     </div>

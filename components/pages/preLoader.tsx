@@ -82,7 +82,7 @@ export default function PreLoader({
             </h1>
             &nbsp;
           </div>
-          <span className="blinking-fill translate-y-[-1.4rem] md:translate-y-[-1.5rem] text-[5rem] md:!text-[8rem]">
+          <span className="blinking-fill translate-y-[-1.4rem] md:translate-y-[-1.9rem] text-[5rem] md:!text-[8rem]">
             .
           </span>
         </div>
