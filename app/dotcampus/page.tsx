@@ -29,7 +29,7 @@ export default function DotCampus() {
         paragraph={dotCampusIntro}
       />
       {/* Big Banner */}
-      <BigBanner imgUrl="/svg/dotCampus/dotCampusBanner.svg" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampusBanner.webp" />
       {/* The challenge */}
       <div className="container flex flex-col md:gap-[3.5rem]">
         <div className="flex-col-40">
@@ -38,7 +38,10 @@ export default function DotCampus() {
         </div>
 
         {/* banner */}
-        <Banner imgUrl="/svg/dotCampus/dotCampusChallenge.svg" />
+        <Banner
+          className="md:rounded-[1rem] rounded-[0.5rem]"
+          imgUrl="/webps/dotCampus/dotCampusChallenge.webp"
+        />
 
         {/* The solution */}
         <div className="flex-col-40">
@@ -73,8 +76,8 @@ export default function DotCampus() {
         </div>
       </section>
       {/* Big banner2 & 3 */}
-      <BigBanner imgUrl="/svg/dotCampus/dotCampus_Bigbanner2.svg" />
-      <BigBanner imgUrl="/svg/dotCampus/dotCampus_Bigbanner3.svg" />
+      <BigBanner imgUrl="/webps/dotCampus/dotCampus_Bigbanner2.webp" />
+      <BigBanner imgUrl="/webps/dotCampus/dotCampus_Bigbanner3.webp" />
       {/* WHat other thought */}
       <div className="container flex flex-col md:gap-[3.4rem]">
         {whatOthersThought.map((item) => (
@@ -95,8 +98,8 @@ export default function DotCampus() {
         ))}
       </div>
       {/* Banner 5 & 6 */}
-      <BigBanner imgUrl="/svg/dotCampus/dotCampus_Bigbanner4.svg" />
-      <BigBanner imgUrl="/svg/dotCampus/dotCampus_Bigbanner5.svg" />
+      <BigBanner imgUrl="/webps/dotCampus/dotCampus_Bigbanner4.webp" />
+      <BigBanner imgUrl="/webps/dotCampus/dotCampus_Bigbanner5.webp" />
       {/* Visual Identity */}
       <section className="container flex-col-40">
         {/* Write-up */}
@@ -112,8 +115,11 @@ export default function DotCampus() {
         </div>
 
         {/* Images grid */}
-        <div className="flex-col-40">
-          <Banner imgUrl="/svg/dotCampus/dotCampus_gris1.svg" />
+        <div className="flex flex-col md:gap-[2.5rem] gap-[0.8rem] ">
+          <Banner
+            className="md:rounded-[1rem] rounded-[0.8rem]"
+            imgUrl="/webps/dotCampus/dotCampus_grid1.webp"
+          />
           <Banner imgUrl="/svg/dotCampus/dotCampus_gris2.svg" />
 
           <div className="flex-row-tocol-40 ">

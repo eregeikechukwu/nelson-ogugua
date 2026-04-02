@@ -6,7 +6,7 @@ import {
   ThumbnailCursorCircle,
   ThumbnailCursorLabel,
 } from "@/components/secondary/magnetic";
-import { selectedWorks } from "@/utils/selectedWorks";
+import { landingPageelectedWorks, selectedWorks } from "@/utils/selectedWorks";
 import Image from "next/image";
 import { useRef } from "react";
 import { scaleUp } from "./variants";
@@ -52,7 +52,7 @@ export function Projects() {
         ref={tiltRef}
         className="grid grid-cols-1  md:!grid-cols-[repeat(auto-fit,minmax(31.25rem,1fr))] gap-24 md:gap-[2rem]"
       >
-        {selectedWorks.map((work, i) => (
+        {landingPageelectedWorks.map((work, i) => (
           <Link href={work.link} key={i}>
             <div
               onPointerEnter={({ clientX, clientY }) => {

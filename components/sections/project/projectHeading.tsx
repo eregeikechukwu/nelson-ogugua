@@ -11,9 +11,9 @@ export function ProjectHeading({
   paragraph: string;
 }) {
   return (
-    <div className="container flex justify-between">
+    <div className="container flex md:!gap-0 gap-[2.5rem] md:flex-row flex-col  justify-between">
       {/* Head and list */}
-      <div className="md:max-w-[25.56rem] md:gap-[2.5rem] flex flex-col gap-[1.5rem]">
+      <div className="md:max-w-[25.56rem] md:gap-[2.5rem] flex flex-col gap-[3.5rem]">
         <div className="line-reveal-container">
           <h1 data-text="Dot Campus" className="line mediumNormalText">
             {title}
@@ -21,7 +21,7 @@ export function ProjectHeading({
         </div>
 
         {/* Roles list */}
-        <ul className="slide-in-container flex flex-col md:gap-[1rem]">
+        <ul className="slide-in-container flex flex-col md:gap-[1rem] gap-[0.7rem]">
           {descriptionList.map((item) => (
             <li key={item.title} className="slide uppercase">
               <Title>

@@ -262,6 +262,6 @@
 
   @include respond-to-abs(medium) {
     flex-direction: column;
-    gap: toRem(40);
+    gap: toRem(15);
   }
 }

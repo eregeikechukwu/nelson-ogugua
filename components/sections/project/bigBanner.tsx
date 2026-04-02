@@ -14,9 +14,15 @@ export function BigBanner({ imgUrl }: { imgUrl: string }) {
   );
 }
 
-export function Banner({ imgUrl }: { imgUrl: string }) {
+export function Banner({
+  imgUrl,
+  className,
+}: {
+  imgUrl: string;
+  className?: string;
+}) {
   return (
-    <div className="center-content">
+    <div className={`center-content overflow-hidden ${className || ""}`}>
       <Image
         src={imgUrl}
         alt="banner"
