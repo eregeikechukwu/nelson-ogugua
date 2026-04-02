@@ -29,7 +29,7 @@ export default function DotCampus() {
         paragraph={dotCampusIntro}
       />
       {/* Big Banner */}
-      <BigBanner imgUrl="/webps/dotCampus/dotCampusBanner.webp" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampusBanner.webp" />
       {/* The challenge */}
       <div className="container flex flex-col md:gap-[3.5rem]">
         <div className="flex-col-40">
@@ -40,7 +40,7 @@ export default function DotCampus() {
         {/* banner */}
         <Banner
           className="md:rounded-[1rem] rounded-[0.5rem]"
-          imgUrl="/webps/dotCampus/dotCampusChallenge.webp"
+          imgUrl="/webps/dotcampus/dotCampusChallenge.webp"
         />
 
         {/* The solution */}
@@ -76,8 +76,8 @@ export default function DotCampus() {
         </div>
       </section>
       {/* Big banner2 & 3 */}
-      <BigBanner imgUrl="/webps/dotCampus/dotCampus_Bigbanner2.webp" />
-      <BigBanner imgUrl="/webps/dotCampus/dotCampus_Bigbanner3.webp" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner2.webp" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner3.webp" />
       {/* WHat other thought */}
       <div className="container flex flex-col md:gap-[3.4rem]">
         {whatOthersThought.map((item) => (
@@ -98,8 +98,8 @@ export default function DotCampus() {
         ))}
       </div>
       {/* Banner 5 & 6 */}
-      <BigBanner imgUrl="/webps/dotCampus/dotCampus_Bigbanner4.webp" />
-      <BigBanner imgUrl="/webps/dotCampus/dotCampus_Bigbanner5.webp" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner4.webp" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner5.webp" />
       {/* Visual Identity */}
       <section className="container flex-col-40">
         {/* Write-up */}
@@ -118,7 +118,7 @@ export default function DotCampus() {
         <div className="flex flex-col md:gap-[2.5rem] gap-[0.8rem] ">
           <Banner
             className="md:rounded-[1rem] rounded-[0.8rem]"
-            imgUrl="/webps/dotCampus/dotCampus_grid1.webp"
+            imgUrl="/webps/dotcampus/dotCampus_grid1.webp"
           />
           <Banner imgUrl="/svg/dotCampus/dotCampus_gris2.svg" />
 
@@ -147,11 +147,12 @@ export default function DotCampus() {
           </div>
         </div>
       </section>
+
       {/* NExt page CTA */}
-      <section className="w-screen bg-[var(--color-cta-gray)]">
-        <div className="w-full max-w-[var(--container-width)] overflow-x-auto !mx-auto flex justify-between items-center !py-[1.5rem]">
+      <section className="w-screen bg-[var(--color-cta-gray)] ">
+        <div className="w-full max-w-[var(--container-width)] overflow-x-auto !mx-auto flex md:flex-row  flex-col  gap-[1rem]  justify-between items-center !py-[1.5rem] !px-[1rem] md:!px-0">
           {/* content */}
-          <div className="md:gap-[0.875rem] max-w-[45rem]">
+          <div className="flex flex-col gap-[0.875rem] max-w-[45rem]">
             <PassiveTextWithContainer>Next project</PassiveTextWithContainer>
             <H2>Bulvds</H2>
             <p className="paragraph-text">
