@@ -29,7 +29,7 @@ export default function DotCampus() {
         paragraph={dotCampusIntro}
       />
       {/* Big Banner */}
-      <BigBanner imgUrl="/webps/dotcampus/dotCampusBanner.webp" />
+      <BigBanner imgUrl="/webps/dotCampus/dotCampusBanner.webp" />
       {/* The challenge */}
       <div className="container flex flex-col md:gap-[3.5rem]">
         <div className="flex-col-40">
@@ -48,7 +48,7 @@ export default function DotCampus() {
           <H2>The Solution</H2>
           <FormattedText text={dotCampusSolution} />
         </div>
-      </div>{" "}
+      </div>
       {/* Table */}
       <section className="w-screen center-content  !py-[var(--container-padding)] bg-[#ffc218]">
         <div className="w-full max-w-[var(--container-width)] overflow-x-auto !mx-auto flex flex-col md:gap-[3rem]">
