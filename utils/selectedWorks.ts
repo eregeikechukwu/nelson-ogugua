@@ -27,7 +27,7 @@ export const selectedWorks = [
     name: "DotCampus",
     description:
       "Closing the gap between learning and earning by turning tech curiosity into real, job-ready skills.",
-    image: "/webps/dotCampus/works_page.webp",
+    image: "/webps/dotcampus/works_page.webp",
     services: ["Brand Design", "UI/UX Design"],
     link: "/dotcampus",
   },
