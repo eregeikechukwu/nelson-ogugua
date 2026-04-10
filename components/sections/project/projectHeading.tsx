@@ -5,10 +5,12 @@ export function ProjectHeading({
   title,
   descriptionList,
   paragraph,
+  livelink,
 }: {
   title: string;
   descriptionList: { title: string; text: string }[];
   paragraph: string;
+  livelink?: string;
 }) {
   return (
     <div className="container flex md:!gap-0 gap-[2.5rem] md:flex-row flex-col  justify-between">
@@ -58,7 +60,9 @@ export function ProjectHeading({
         </div>
 
         {/* Button */}
-        <Button variant="dark">View live site</Button>
+        <Button takeMeOut link={livelink} variant="dark">
+          View live site
+        </Button>
       </div>
     </div>
   );

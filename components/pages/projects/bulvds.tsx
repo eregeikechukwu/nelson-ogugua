@@ -26,6 +26,7 @@ export function BulvdsPageContent() {
         title="Bulvds"
         paragraph={bulvdsIntro}
         descriptionList={descriptionList}
+        livelink="https://bulvds.com/"
       />
       {/* Big banner */}
       <BigBanner imgUrl="/webps/bulvds/bulvdsBigBanner.webp" />

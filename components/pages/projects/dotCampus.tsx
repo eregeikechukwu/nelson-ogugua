@@ -29,6 +29,7 @@ export function DotCampusPageContent() {
         title="DotCampus"
         descriptionList={descriptionList}
         paragraph={dotCampusIntro}
+        livelink="https://dotcampus.co"
       />
       {/* Big Banner */}
       <BigBanner imgUrl="/webps/dotcampus/dotCampusBanner.webp" />
