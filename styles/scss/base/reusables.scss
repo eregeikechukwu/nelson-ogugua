@@ -1,6 +1,8 @@
 @use "../abstracts/functions" as *;
 @use "../abstracts/mixins" as *;
 
+@use "../utilities/spaces.scss" as *;
+
 .gradient {
   background: linear-gradient(
     179deg,
@@ -250,18 +252,17 @@
   }
 }
 
-.flex-col-40 {
+.image-gallery-flex {
   display: flex;
   flex-direction: column;
   gap: toRem(40);
-}
-.flex-row-tocol-40 {
-  display: flex;
-  flex-direction: row;
-  gap: toRem(40);
+
+  & >div {
+    @extend .flex-row-tocol-40;
+  }
 
   @include respond-to-abs(medium) {
     flex-direction: column;
-    gap: toRem(15);
+    gap: toRem(12.8);
   }
 }

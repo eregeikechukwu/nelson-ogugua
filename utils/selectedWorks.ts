@@ -11,9 +11,9 @@ export const selectedWorks = [
     name: "Bulvds",
     description:
       "Leveraging AI to make property search intuitive, personal, and effortless.",
-    image: "/svg/uiux.svg",
+    image: "/webps/bulvds/works_page.webp",
     services: ["Brand Design", "UI/UX Design"],
-    link: "/works/bulvds",
+    link: "/bulvds",
   },
   {
     name: "Pitsi AI",
@@ -46,9 +46,9 @@ export const landingPageelectedWorks = [
     name: "Bulvds",
     description:
       "Leveraging AI to make property search intuitive, personal, and effortless.",
-    image: "/svg/uiux.svg",
+    image: "/webps/bulvds/landing_page.webp",
     services: ["Brand Design", "UI/UX Design"],
-    link: "/works/bulvds",
+    link: "/bulvds",
   },
   {
     name: "Pitsi AI",

@@ -12,13 +12,15 @@ import {
   descriptionList,
   tableItems,
   whatOthersThought,
-} from "@/utils/projects-info";
+} from "@/utils/projects-info/dotcampus-info";
 import {
   BigPassiveText,
   PassiveTextWithContainer,
 } from "@/components/typography/passiveText";
 import { StaggerRevealText } from "@/components/typography/text-reveal";
 import { Button } from "@/components/secondary/button";
+import { Table } from "@/components/secondary/table";
+import { NextProjectCTA, WhatOthersThought } from "./secondary";
 
 export function DotCampusPageContent() {
   return (
@@ -39,7 +41,7 @@ export function DotCampusPageContent() {
 
         {/* banner */}
         <Banner
-          className="md:rounded-[1rem] rounded-[0.5rem]"
+          className="md:rounded-[1rem] rounded-[0.5rem] md:!my-0 my-[1.5rem]"
           imgUrl="/webps/dotcampus/dotCampusChallenge.webp"
         />
 
@@ -50,53 +52,12 @@ export function DotCampusPageContent() {
         </div>
       </div>
       {/* Table */}
-      <section className="w-screen center-content  !py-[var(--container-padding)] bg-[#ffc218]">
-        <div className="w-full max-w-[var(--container-width)] overflow-x-auto !mx-auto flex flex-col md:gap-[3rem]">
-          <H2 className="text-black">User goals and features</H2>
-
-          {/* Table */}
-          <div className="add-border-not-last">
-            {/* heading */}
-            <div className="flex table-heading">
-              <div className="table-head !pb-[1.556rem]">User Persona</div>
-              <div className="flex-1">Needs & Priorities</div>
-            </div>
-            {/* Table proper */}
-            {tableItems.map((item, index) => (
-              <div key={item.head} className="flex items-center !py-[1.556rem]">
-                <div className="table-head md:text-[1.5rem] font-bold text-black">
-                  {item.head}
-                </div>
-                <div className="flex-1 md:text-[1.25rem] text-black leading-[1.6]">
-                  {item.content}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Table items={tableItems} className="bg-[#ffc218]" />
       {/* Big banner2 & 3 */}
-      <BigBanner imgUrl="/svg/dotcampus/dotCampus_Bigbanner2.svg" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner2.webp" />
       <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner3.webp" />
       {/* WHat other thought */}
-      <div className="container flex flex-col md:gap-[3.4rem]">
-        {whatOthersThought.map((item) => (
-          <div key={item.head} className="flex flex-col md:gap-[1.22rem]">
-            <BigPassiveText>{item.head}</BigPassiveText>
-            <div className="stagger-reveal-container">
-              {item.content.split(" ").map((item, i) => {
-                return (
-                  <span key={`div-${i}`}>
-                    <H2 key={`span-${i}`} className="word">
-                      {item}&nbsp;
-                    </H2>
-                  </span>
-                );
-              })}
-            </div>
-          </div>
-        ))}
-      </div>
+      <WhatOthersThought whatOthersThought={whatOthersThought} />
       {/* Banner 5 & 6 */}
       <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner4.webp" />
       <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner5.webp" />
@@ -115,19 +76,19 @@ export function DotCampusPageContent() {
         </div>
 
         {/* Images grid */}
-        <div className="flex flex-col md:gap-[2.5rem] gap-[0.8rem] ">
+        <div className="image-gallery-flex">
           <Banner
             className="md:rounded-[1rem] rounded-[0.8rem]"
             imgUrl="/webps/dotcampus/dotCampus_grid1.webp"
           />
           <Banner imgUrl="/svg/dotCampus/dotCampus_gris2.svg" />
 
-          <div className="flex-row-tocol-40 ">
+          <div>
             <Banner imgUrl="/svg/dotCampus/dotCampus_gris3.svg" />
             <Banner imgUrl="/svg/dotCampus/dotCampus_gris4.svg" />
           </div>
 
-          <div className="flex-row-tocol-40 ">
+          <div>
             <Banner imgUrl="/svg/dotCampus/dotCampus_gris5.svg" />
             <Banner imgUrl="/svg/dotCampus/dotCampus_gris6.svg" />
           </div>
@@ -136,12 +97,12 @@ export function DotCampusPageContent() {
           <Banner imgUrl="/svg/dotCampus/dotCampus_gris8.svg" />
           <Banner imgUrl="/svg/dotCampus/dotCampus_gris9.svg" />
 
-          <div className="flex-row-tocol-40 ">
+          <div>
             <Banner imgUrl="/svg/dotCampus/dotCampus_gris13.svg" />
             <Banner imgUrl="/svg/dotCampus/dotCampus_gris10.svg" />
           </div>
 
-          <div className="flex-row-tocol-40 ">
+          <div>
             <Banner imgUrl="/svg/dotCampus/dotCampus_gris11.svg" />
             <Banner imgUrl="/svg/dotCampus/dotCampus_gris12.svg" />
           </div>
@@ -149,22 +110,12 @@ export function DotCampusPageContent() {
       </section>
 
       {/* NExt page CTA */}
-      <section className="w-screen bg-[var(--color-cta-gray)] ">
-        <div className="w-full max-w-[var(--container-width)] overflow-x-auto !mx-auto flex md:flex-row  flex-col  gap-[1rem]  justify-between items-center !py-[1.5rem] !px-[1rem] md:!px-0">
-          {/* content */}
-          <div className="flex flex-col gap-[0.875rem] max-w-[45rem]">
-            <PassiveTextWithContainer>Next project</PassiveTextWithContainer>
-            <H2>Bulvds</H2>
-            <p className="paragraph-text">
-              Making property search more conversational, personal, and
-              effortless with AI.
-            </p>
-          </div>
-
-          {/* Button */}
-          <Button>View project</Button>
-        </div>
-      </section>
+      <NextProjectCTA
+        nextLink="/bulvds"
+        name="Bulvds"
+        description="Making property search more conversational, personal, and
+              effortless with AI."
+      />
     </PageWrapper>
   );
 }

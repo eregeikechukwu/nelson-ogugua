@@ -7,6 +7,24 @@ interface FormattedTextProps {
   containerClassName?: string;
 }
 
+/**
+ * FormattedText
+ *
+ * A simple component for rendering paragraphs and bullet lists with
+ * per-word reveal effects and Markdown-style bold formatting.
+ *
+ * Usage:
+ * <FormattedText
+ *   text="This is a paragraph with **bold** text.\n\n&bull; First item\n&bull; Second item"
+ *   containerClassName="custom-wrapper"
+ * />
+ *
+ * Notes:
+ * - Pass plain text in the `text` prop.
+ * - Use `**bold**` to wrap text that should render in a `<strong>` tag.
+ * - Use `&bull;` at the start of each line to render a bullet list.
+ * - Separate paragraphs with a blank line (`\n\n`).
+ */
 export function FormattedText({
   text,
   containerClassName = "add-24-margin-not-last fast-stagger-reveal-container",

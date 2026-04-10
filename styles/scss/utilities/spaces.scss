@@ -1,4 +1,5 @@
 @use "../abstracts/functions" as *;
+@use "../abstracts/mixins" as *;
 
 // 1️⃣ Padding
 @for $i from 1 through 200 {
@@ -78,4 +79,62 @@
   }
 }
 
-// ✅ Now you can write in HTML/JSX:
+// flex reusable classes
+.flex-col-32 {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(32);
+
+  @include respond-to-abs(medium) {
+    flex-direction: column;
+    gap: toRem(14);
+  }
+}
+.flex-row-tocol-32 {
+  display: flex;
+  flex-direction: row;
+  gap: toRem(32);
+
+  @include respond-to-abs(medium) {
+    flex-direction: column;
+    gap: toRem(13);
+  }
+}
+
+.flex-col-40 {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(40);
+}
+.flex-row-tocol-40 {
+  display: flex;
+  flex-direction: row;
+  gap: toRem(40);
+
+  @include respond-to-abs(medium) {
+    flex-direction: column;
+    gap: toRem(15);
+  }
+}
+
+.flex-col-50 {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(50);
+
+  @include respond-to-abs(medium) {
+    flex-direction: column;
+    gap: toRem(14);
+  }
+}
+
+.flex-col-60 {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(60);
+
+  @include respond-to-abs(medium) {
+    flex-direction: column;
+    gap: toRem(15);
+  }
+}

@@ -19,20 +19,20 @@ export const descriptionList = [
 
 export const tableItems = [
   {
-    head: "Tech Beginners",
-    content:
-      "Need clear guidance, structure, and encouragement. When designing, it will be necessary to prioritize ease of navigation, helpful tooltips, and beginner-friendly content.",
+    label: "Tech Beginners",
+    value:
+      "Need clear guidance, structure, and encouragement. When designing, it will be necessary to prioritize ease of navigation, helpful tooltips, and beginner-friendly value.",
   },
 
   {
-    head: "Career Switches",
-    content:
+    label: "Career Switches",
+    value:
       "Looking for credibility and a clear pathway to employment. When designing, it will be necessary to showcase program outcomes, mentorship access, and alumni success stories.",
   },
 
   {
-    head: "Active Learners",
-    content:
+    label: "Active Learners",
+    value:
       "Already in tech but want to grow. Expect in-depth learning content and access to mentors.",
   },
 ];
