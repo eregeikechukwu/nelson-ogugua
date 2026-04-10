@@ -105,6 +105,11 @@
   display: flex;
   flex-direction: column;
   gap: toRem(40);
+
+   @include respond-to-abs(medium) {
+    flex-direction: column;
+    gap: toRem(15);
+  }
 }
 .flex-row-tocol-40 {
   display: flex;
