@@ -29,7 +29,7 @@ export function BulvdsPageContent() {
         livelink="https://bulvds.com/"
       />
       {/* Big banner */}
-      <BigBanner imgUrl="/webps/bulvds/bulvdsBigBanner.webp" />
+      <BigBanner imgUrl="/webps/bulvds/bulvdsBigBanner.jpg" />
 
       {/* The challenge */}
       <section className="container flex-col-60">
@@ -45,7 +45,7 @@ export function BulvdsPageContent() {
         </div>
 
         {/* Challenge banner */}
-        <Banner imgUrl="/webps/bulvds/bulvdsChallenge.webp" />
+        <Banner rounded imgUrl="/webps/bulvds/bulvdsChallenge.jpg" />
 
         {/* Core challenges */}
         <div className="flex-col-40">
@@ -68,7 +68,7 @@ export function BulvdsPageContent() {
         </div>
 
         {/* Every step banner */}
-        <Banner imgUrl="/webps/bulvds/bulvdsteps.webp" />
+        <Banner rounded imgUrl="/webps/bulvds/bulvdsteps.jpg" />
       </section>
 
       {/* Table */}
@@ -92,17 +92,17 @@ export function BulvdsPageContent() {
         </div>
 
         {/* Solution images */}
-        <Banner imgUrl="/webps/bulvds/bulvdSolution1.webp" />
-        <Banner imgUrl="/webps/bulvds/bulvdSolution2.webp" />
-        <Banner imgUrl="/webps/bulvds/bulvdSolution3.webp" />
-        <Banner imgUrl="/webps/bulvds/bulvdSolution4.webp" />
-        <Banner imgUrl="/webps/bulvds/bulvdSolution5.webp" />
-        <Banner imgUrl="/webps/bulvds/bulvdSolution6.webp" />
+        <Banner imgUrl="/webps/bulvds/bulvdSolution1.jpg" />
+        <Banner imgUrl="/webps/bulvds/bulvdSolution2.jpg" />
+        <Banner imgUrl="/webps/bulvds/bulvdSolution3.jpg" />
+        <Banner imgUrl="/webps/bulvds/bulvdSolution4.jpg" />
+        <Banner imgUrl="/webps/bulvds/bulvdSolution5.jpg" />
+        <Banner imgUrl="/webps/bulvds/bulvdSolution6.jpg" />
       </section>
 
       {/* Solution big banners */}
-      <BigBanner imgUrl="/webps/bulvds/bulvdSolutionBanner1.webp" />
-      <BigBanner imgUrl="/webps/bulvds/bulvdSolutionBanner2.webp" />
+      <BigBanner imgUrl="/webps/bulvds/bulvdSolutionBanner1.jpg" />
+      <BigBanner imgUrl="/webps/bulvds/bulvdSolutionBanner2.jpg" />
 
       {/* WHat others thought */}
       <WhatOthersThought whatOthersThought={whatOthersThought} />
@@ -120,15 +120,15 @@ export function BulvdsPageContent() {
             <Banner imgUrl="/svg/bulvds/bulvdsgrid1.svg" />
             <div className="flex-row-tocol-40">
               <Banner
-                imgUrl="/webps/bulvds/bulvdsgrid2.webp"
+                imgUrl="/webps/bulvds/bulvdsgrid2.jpg"
                 className="basis-[54.29%]"
               />
               <Banner
-                imgUrl="/webps/bulvds/bulvdsgrid3.webp"
+                imgUrl="/webps/bulvds/bulvdsgrid3.jpg"
                 className="flex-1"
               />
             </div>
-            <Banner imgUrl="/webps/bulvds/bulvdsgrid4.webp" />
+            <Banner imgUrl="/webps/bulvds/bulvdsgrid4.jpg" />
           </div>
         </div>
 
@@ -145,7 +145,7 @@ export function BulvdsPageContent() {
             </StaggerRevealText>
           </div>
 
-          <Banner imgUrl="/webps/bulvds/bulvdsDesign.webp" />
+          <Banner imgUrl="/webps/bulvds/bulvdsDesign.jpg" />
         </div>
 
         {/*Social Identity */}
@@ -159,7 +159,7 @@ export function BulvdsPageContent() {
             </StaggerRevealText>
           </div>
 
-          <Banner imgUrl="/webps/bulvds/bulvdsSocialIdentity.webp" />
+          <Banner imgUrl="/webps/bulvds/bulvdsSocialIdentity.jpg" />
         </div>
 
         {/* Design brand */}
@@ -174,15 +174,15 @@ export function BulvdsPageContent() {
           </div>
 
           <div className="image-gallery-flex">
-            <Banner imgUrl="/webps/bulvds/bulvdsbrandgrid1.webp" />
+            <Banner imgUrl="/webps/bulvds/bulvdsbrandgrid1.jpg" />
 
             <div>
               <Banner
-                imgUrl="/webps/bulvds/bulvdsbrandgrid2.webp"
+                imgUrl="/webps/bulvds/bulvdsbrandgrid2.jpg"
                 className="flex-1"
               />
               <Banner
-                imgUrl="/webps/bulvds/bulvdsbrandgrid3.webp"
+                imgUrl="/webps/bulvds/bulvdsbrandgrid3.jpg"
                 className="flex-1"
               />
             </div>

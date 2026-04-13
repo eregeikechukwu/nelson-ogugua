@@ -13,12 +13,7 @@ import {
   tableItems,
   whatOthersThought,
 } from "@/utils/projects-info/dotcampus-info";
-import {
-  BigPassiveText,
-  PassiveTextWithContainer,
-} from "@/components/typography/passiveText";
 import { StaggerRevealText } from "@/components/typography/text-reveal";
-import { Button } from "@/components/secondary/button";
 import { Table } from "@/components/secondary/table";
 import { NextProjectCTA, WhatOthersThought } from "./secondary";
 
@@ -32,7 +27,7 @@ export function DotCampusPageContent() {
         livelink="https://dotcampus.co"
       />
       {/* Big Banner */}
-      <BigBanner imgUrl="/webps/dotcampus/dotCampusBanner.webp" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampusBanner.jpg" />
       {/* The challenge */}
       <div className="container flex flex-col md:gap-[3.5rem]">
         <div className="flex-col-40">
@@ -42,8 +37,9 @@ export function DotCampusPageContent() {
 
         {/* banner */}
         <Banner
-          className="md:rounded-[1rem] rounded-[0.5rem] md:!my-0 my-[1.5rem]"
-          imgUrl="/webps/dotcampus/dotCampusChallenge.webp"
+          className="md:!my-0 my-[1.5rem]"
+          rounded
+          imgUrl="/webps/dotcampus/dotCampusChallenge.jpg"
         />
 
         {/* The solution */}
@@ -55,13 +51,13 @@ export function DotCampusPageContent() {
       {/* Table */}
       <Table items={tableItems} className="bg-[#ffc218]" />
       {/* Big banner2 & 3 */}
-      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner2.webp" />
-      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner3.webp" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner2.jpg" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner3.jpg" />
       {/* WHat other thought */}
       <WhatOthersThought whatOthersThought={whatOthersThought} />
       {/* Banner 5 & 6 */}
-      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner4.webp" />
-      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner5.webp" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner4.jpg" />
+      <BigBanner imgUrl="/webps/dotcampus/dotCampus_Bigbanner5.jpg" />
       {/* Visual Identity */}
       <section className="container flex-col-40">
         {/* Write-up */}
@@ -78,10 +74,7 @@ export function DotCampusPageContent() {
 
         {/* Images grid */}
         <div className="image-gallery-flex">
-          <Banner
-            className="md:rounded-[1rem] rounded-[0.8rem]"
-            imgUrl="/webps/dotcampus/dotCampus_grid1.webp"
-          />
+          <Banner rounded imgUrl="/webps/dotcampus/dotCampus_grid1.webp" />
           <Banner imgUrl="/svg/dotCampus/dotCampus_gris2.svg" />
 
           <div>

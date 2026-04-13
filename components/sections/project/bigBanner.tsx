@@ -16,13 +16,17 @@ export function BigBanner({ imgUrl }: { imgUrl: string }) {
 
 export function Banner({
   imgUrl,
+  rounded = true,
   className,
 }: {
   imgUrl: string;
+  rounded?: boolean;
   className?: string;
 }) {
   return (
-    <div className={`center-content overflow-hidden ${className || ""}`}>
+    <div
+      className={`center-content overflow-hidden ${rounded ? "md:rounded-[1rem] rounded-[0.5rem] " : ""}  ${className || ""}`}
+    >
       <Image
         src={imgUrl}
         alt="banner"
