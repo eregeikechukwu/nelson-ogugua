@@ -74,7 +74,7 @@ export function DotCampusPageContent() {
 
         {/* Images grid */}
         <div className="image-gallery-flex">
-          <Banner rounded imgUrl="/webps/dotcampus/dotCampus_grid1.webp" />
+          <Banner rounded imgUrl="/webps/dotcampus/dotCampus_grid1.jpg" />
           <Banner imgUrl="/svg/dotCampus/dotCampus_gris2.svg" />
 
           <div>

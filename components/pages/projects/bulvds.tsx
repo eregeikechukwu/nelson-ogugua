@@ -18,6 +18,7 @@ import {
   whatOthersThought,
   visualIdentityText,
 } from "@/utils/projects-info/bulvds-info";
+import { AnimationVideo } from "@/components/secondary/animationVideo";
 
 export function BulvdsPageContent() {
   return (
@@ -102,7 +103,7 @@ export function BulvdsPageContent() {
 
       {/* Solution big banners */}
       <BigBanner imgUrl="/webps/bulvds/bulvdSolutionBanner1.jpg" />
-      <BigBanner imgUrl="/webps/bulvds/bulvdSolutionBanner2.jpg" />
+      <AnimationVideo url="/vid/bulvdslanding.webm" />
 
       {/* WHat others thought */}
       <WhatOthersThought whatOthersThought={whatOthersThought} />
