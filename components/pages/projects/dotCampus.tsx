@@ -105,8 +105,8 @@ export function DotCampusPageContent() {
 
       {/* NExt page CTA */}
       <NextProjectCTA
-        nextLink="/bulvds"
-        name="Bulvds"
+        nextLink="/pixiai"
+        name="Pixi AI"
         description="Making property search more conversational, personal, and
               effortless with AI."
       />
