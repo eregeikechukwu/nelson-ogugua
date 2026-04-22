@@ -8,7 +8,7 @@ import { RotatingSVG } from "@/components/secondary/rotatingSVG";
 export function ComingSoon({ projectName }: { projectName: string }) {
   return (
     <PageWrapper>
-      <section className="container flex flex-col items-center justify-center min-h-[80vh] relative">
+      <section className="w-screen py-[1.5rem] md:!py-[4rem] flex flex-col items-center justify-center min-h-[80vh] relative">
         {/* Background accent */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute right-0 top-0 h-[24rem] w-[24rem] rounded-full bg-[var(--color-yellow)] opacity-10 blur-3xl" />
@@ -23,9 +23,9 @@ export function ComingSoon({ projectName }: { projectName: string }) {
           </div>
 
           {/* Status indicator */}
-          <div className="inline-flex items-center gap-[0.5rem] rounded-full bg-[var(--background)] !px-[1rem] !py-[0.5rem] border border-[var(--color-gray-transparent)] shadow-lg">
+          <div className=" justify-center inline-flex items-center gap-[0.5rem] rounded-full bg-[var(--background)] !px-[1rem] !py-[0.5rem] border border-[var(--color-gray-transparent)] shadow-lg">
             <span className="inline-block h-[0.5rem] w-[0.5rem] rounded-full bg-[var(--color-yellow)] animate-pulse" />
-            <span className="text-[0.75rem] font-medium text-[var(--foreground)]">
+            <span className="text-[0.75rem] font-medium translate-y-[2px] text-[var(--foreground)]">
               Details Coming Soon
             </span>
           </div>
