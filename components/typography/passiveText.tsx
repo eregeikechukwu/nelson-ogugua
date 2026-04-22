@@ -27,9 +27,12 @@ export function PassiveTextWithContainer({
 }) {
   return (
     <div
-      className={`${scaleDown ? "!py-[0.39375rem] !px-[0.475rem] md:!px-[0.75rem] md:!py-[0.625rem]" : "!px-[0.75rem] !py-[0.625rem]"} w-max  bg-[var(--color-gray-transparent3)] backdrop-blur-[20px] ${className}`}
+      className={`${scaleDown ? "!py-[0.39375rem] !px-[0.475rem] md:!px-[0.75rem] md:!py-[0.525rem]" : "!px-[0.75rem] !py-[0.625rem]"} w-max  bg-[var(--color-gray-transparent3)] backdrop-blur-[20px] ${className}`}
     >
-      <PassiveText scaleDown={scaleDown} className={` text-white !leading-[1]`}>
+      <PassiveText
+        scaleDown={scaleDown}
+        className={` text-white !leading-[1] ${className}`}
+      >
         {children}
       </PassiveText>
     </div>
