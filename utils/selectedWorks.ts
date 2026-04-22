@@ -16,20 +16,20 @@ export const selectedWorks = [
     link: "/dotcampus",
   },
   {
-    name: "Pitsi AI",
+    name: "Bewtiq",
     description:
-      "Using AI to make customer loyalty and rewards easier to manage and scale.",
-    image: "/svg/brand-design.svg",
+      "Blending a social feed and a booking system to make finding & scheduling beauty services seamless.",
+    image: "/images/bewtiq_works.jpg",
     services: ["UI/UX Design"],
-    link: "/pitsi-ai",
+    link: "/bewtiq",
   },
   {
-    name: "Decksense",
+    name: "Petraflo",
     description:
-      "Making deck creation more conversational, structured, and on-brand with AI.",
-    image: "/svg/brand-design.svg",
+      "One platform for managing fuel logistics with visibility and control.",
+    image: "/images/petraflo_works.jpg",
     services: ["UI/UX Design"],
-    link: "/works/decksense",
+    link: "/petraflo",
   },
 ];
 
@@ -52,19 +52,19 @@ export const landingPageelectedWorks = [
   },
 
   {
-    name: "Pitsi AI",
+    name: "Bewtiq",
     description:
-      "Using AI to make customer loyalty and rewards easier to manage and scale.",
-    image: "/svg/brand-design.svg",
-    services: ["UI/UX Design"],
-    link: "/pitsi-ai",
+      "Blending a social feed and a booking system to make finding & scheduling beauty services seamless.",
+    image: "/images/bewtiq_landing.jpg",
+    services: ["case study in progress"],
+    link: "/bewtiq",
   },
   {
-    name: "Decksense",
+    name: "Petraflo",
     description:
-      "Making deck creation more conversational, structured, and on-brand with AI.",
-    image: "/svg/brand-design.svg",
-    services: ["UI/UX Design"],
-    link: "/works/decksense",
+      "One platform for managing fuel logistics with visibility and control.",
+    image: "/images/petraflo_landing.jpg",
+    services: ["case study in progress"],
+    link: "/petraflo",
   },
 ];
