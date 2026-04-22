@@ -8,7 +8,7 @@ import { RotatingSVG } from "@/components/secondary/rotatingSVG";
 export function ComingSoon({ projectName }: { projectName: string }) {
   return (
     <PageWrapper>
-      <section className="w-screen px-[0.6rem] md:!px-0 py-[3rem] md:!py-[4rem] flex flex-col items-center justify-center min-h-[80vh] relative">
+      <section className="w-screen !px-[0.5rem] md:!px-0 py-[3rem] md:!py-[4rem] flex flex-col items-center justify-center min-h-[80vh] relative">
         {/* Background accent */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute right-0 top-0 h-[24rem] w-[24rem] rounded-full bg-[var(--color-yellow)] opacity-10 blur-3xl" />
