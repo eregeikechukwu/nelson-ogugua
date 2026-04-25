@@ -56,7 +56,7 @@ export function ComingSoon({ projectName }: { projectName: string }) {
           </div>
 
           {/* Call to action */}
-          <div className=" center-content flex-col gap-[0.75rem]">
+          <div className=" center-content flex-col gap-[0.75rem] border-t-[1px] border-[var(--color-gray-transparent)] md:!pt-[1.5rem] !pt-[0.8rem]">
             <StaggerRevealText className="text-[var(--color-light-gray)] text-[0.875rem]">
               In the meantime, explore other projects in my portfolio.
             </StaggerRevealText>
