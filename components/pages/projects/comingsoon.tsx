@@ -4,6 +4,7 @@ import { PageWrapper } from "@/components/pages/pageWrapper";
 import { H2 } from "@/components/typography/h2";
 import { StaggerRevealText } from "@/components/typography/text-reveal";
 import { RotatingSVG } from "@/components/secondary/rotatingSVG";
+import { Button } from "@/components/secondary/button";
 
 export function ComingSoon({ projectName }: { projectName: string }) {
   return (
@@ -16,7 +17,7 @@ export function ComingSoon({ projectName }: { projectName: string }) {
           <div className="absolute left-[50%] top-[50%] transform -translate-x-[50%] -translate-y-[50%] h-[32rem] w-[32rem] rounded-full bg-[var(--color-yellow)] opacity-5 blur-3xl" />
         </div>
 
-        <div className="flex flex-col items-center gap-[3rem] text-center max-w-[40rem] z-10">
+        <div className="flex flex-col items-center gap-[1.5rem] md:gap-[3rem] text-center max-w-[40rem] z-10">
           {/* Rotating SVG */}
           <div className="w-[6rem] h-auto md:w-[11.375rem] popOut">
             <RotatingSVG />
@@ -55,10 +56,12 @@ export function ComingSoon({ projectName }: { projectName: string }) {
           </div>
 
           {/* Call to action */}
-          <div className="pt-[1rem]">
+          <div className=" center-content flex-col gap-[0.75rem]">
             <StaggerRevealText className="text-[var(--color-light-gray)] text-[0.875rem]">
               In the meantime, explore other projects in my portfolio.
             </StaggerRevealText>
+
+            <Button link="/works">View other projects</Button>
           </div>
         </div>
       </section>

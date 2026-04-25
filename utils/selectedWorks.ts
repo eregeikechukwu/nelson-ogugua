@@ -22,6 +22,7 @@ export const selectedWorks = [
     image: "/images/bewtiq_works.jpg",
     services: ["UI/UX Design"],
     link: "/bewtiq",
+    comingsoon: true,
   },
   {
     name: "Petraflo",
@@ -30,6 +31,7 @@ export const selectedWorks = [
     image: "/images/petraflo_works.jpg",
     services: ["UI/UX Design"],
     link: "/petraflo",
+    comingsoon: true,
   },
 ];
 
@@ -66,5 +68,6 @@ export const landingPageelectedWorks = [
     image: "/images/petraflo_landing.jpg",
     services: ["case study in progress"],
     link: "/petraflo",
+    comingsoon: true,
   },
 ];

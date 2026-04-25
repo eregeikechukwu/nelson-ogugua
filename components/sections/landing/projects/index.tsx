@@ -85,13 +85,15 @@ export function Projects() {
                 <p className="paragraph-text min-h-[2rem] md:!min-h-[3.3rem]">
                   {work.description}
                 </p>
-                {work.services[0] !== "case study in progress" ? (<PassiveTextWithContainer>
-                  {work.services.join(" | ")}
-                </PassiveTextWithContainer>) : 
-                
-                <PassiveTextWithContainer className="!bg-white !text-black">
-                  {work.services.join(" | ")}
-                </PassiveTextWithContainer>}
+                {work.services[0] !== "case study in progress" ? (
+                  <PassiveTextWithContainer>
+                    {work.services.join(" | ")}
+                  </PassiveTextWithContainer>
+                ) : (
+                  <PassiveTextWithContainer className="!bg-white !text-black">
+                    {work.services.join(" | ")}
+                  </PassiveTextWithContainer>
+                )}
               </div>
             </div>
           </Link>
