@@ -61,7 +61,7 @@ export function Expertise() {
             <span className={numberStyles}>%</span>
           </div>
           <p className={`${textStyles}`}>
-            Projects completion rate across branding and product design
+            Project completion rate across branding and product design
           </p>
         </div>
       </div>
