@@ -12,7 +12,7 @@ const logos = [
 ];
 
 export function ParallaxSlider() {
-  const { containerRef, trackRef, x} = useParallaxSlider(4);
+  const { containerRef, trackRef, x} = useParallaxSlider(2.5);
 
   return (
     <div
