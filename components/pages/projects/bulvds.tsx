@@ -194,7 +194,7 @@ export function BulvdsPageContent() {
       {/* Next Project CTA */}
       <NextProjectCTA
         nextLink="/dotcampus"
-        name="Bulvds"
+        name="Dotcampus"
         description="Making property search more conversational, personal, and
               effortless with AI."
       />

@@ -1,7 +1,6 @@
 "use client";
 
 import { PageWrapper } from "@/components/pages/pageWrapper";
-import { H2 } from "@/components/typography/h2";
 import { StaggerRevealText } from "@/components/typography/text-reveal";
 import { RotatingSVG } from "@/components/secondary/rotatingSVG";
 import { Button } from "@/components/secondary/button";
