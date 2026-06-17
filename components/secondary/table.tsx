@@ -9,7 +9,7 @@ export function Table({
 }) {
   return (
     <section
-      className={`w-screen center-content  !py-[var(--container-padding)] ${className || ""}`}
+      className={`w-screen center-content hidden md:block !py-[var(--container-padding)] ${className || ""}`}
     >
       <div className="w-full max-w-[var(--container-width)] overflow-x-auto !mx-auto flex flex-col md:gap-[3rem]">
         <H2 className="text-black">User goals and features</H2>
