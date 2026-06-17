@@ -31,6 +31,10 @@ export const footerLinksSocials = [
     href: "https://facebook.com/nelson.obiefuna/",
   },
   {
+    name: "WhatsApp",
+    link: "https://wa.me/2348131136907/",
+  },
+  {
     name: "My resume",
     href: "/Nelson_Ogugua CV.pdf",
     download: "Nelson_Ogugua CV.pdf",

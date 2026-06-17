@@ -1,5 +1,5 @@
 import { Call, Instagram, Whatsapp, Windows } from "iconsax-react";
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin, Twitter, Facebook } from "lucide-react";
 
 export const socials = [
   {
@@ -15,6 +15,11 @@ export const socials = [
   {
     name: "Facebook",
     link: "https://facebook.com/nelson.obiefuna/",
+    icon: Facebook,
+  },
+  {
+    name: "WhatsApp",
+    link: "https://wa.me/2348131136907/",
     icon: Whatsapp,
   },
   {
