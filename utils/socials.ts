@@ -3,28 +3,23 @@ import { Linkedin, Twitter } from "lucide-react";
 
 export const socials = [
   {
-    name: "LinkdIn",
-    link: "https://t.me/palmpay",
+    name: "LinkedIn",
+    link: "https://www.linkedin.com/in/nelson-ogugua/",
     icon: Linkedin,
   },
   {
-    name: "Instagram",
-    link: "https://instagram.com/palmpay",
-    icon: Instagram,
-  },
-  {
     name: "Twitter",
-    link: "https://twitter.com/palmpay",
+    link: "https://x.com/nelson_ogugua/",
     icon: Twitter,
   },
   {
     name: "Facebook",
-    link: "https://facebook.com/palmpay",
+    link: "https://facebook.com/nelson.obiefuna/",
     icon: Whatsapp,
   },
   {
-    name: "Bessence",
-    link: "https://facebook.com/palmpay",
+    name: "Phone",
+    link: "tel:+2348131136907",
     icon: Call,
   },
 ];

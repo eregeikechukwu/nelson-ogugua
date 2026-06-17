@@ -20,19 +20,15 @@ export const footerLinksPages = [
 export const footerLinksSocials = [
   {
     name: "Linkedin",
-    href: "https://t.me/palmpay",
-  },
-  {
-    name: "Behance",
-    href: "https://facebook.com/palmpay",
+    href: "https://www.linkedin.com/in/nelson-ogugua/",
   },
   {
     name: "Twitter",
-    href: "https://twitter.com/palmpay",
+    href: "https://x.com/nelson_ogugua/",
   },
   {
     name: "Facebook",
-    href: "https://facebook.com/palmpay",
+    href: "https://facebook.com/nelson.obiefuna/",
   },
   {
     name: "My resume",
