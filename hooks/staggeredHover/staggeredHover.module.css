@@ -1,0 +1,24 @@
+.staggeredText {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  cursor: pointer;
+}
+.staggeredText__container {
+  position: relative;
+  display: inline-block;
+}
+.staggeredText__line {
+  white-space: nowrap;
+  display: flex;
+}
+.staggeredText__line:nth-child(2) {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.staggeredText__letter {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: top;
+}/*# sourceMappingURL=staggeredHover.module.css.map */
