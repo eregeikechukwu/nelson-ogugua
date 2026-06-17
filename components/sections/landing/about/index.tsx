@@ -17,7 +17,7 @@ const Socials = () => {
       {/* social icons */}
       <div className="flex justify-between gap-[0.8375rem] md:gap-[0.74444rem]">
         {socials.map((item, i) => (
-          <Link href={item.link} key={i} className="animate-hover">
+          <Link target="_blank" rel="noopener noreferrer" href={item.link} key={i} className="animate-hover">
             <div className="bg-[var(--color-gray-transparent)] h-32 w-32 center-content rounded-[0.5556rem] ">
               <item.icon
                 width={18.9}

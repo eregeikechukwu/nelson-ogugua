@@ -11,13 +11,15 @@ import { motion } from "framer-motion";
 
 const FooterList = ({
   list,
+  takeMeOut = false
 }: {
   list: { name: string; href: string; download?: string }[];
+  takeMeOut?: boolean;
 }) => {
   return (
     <div className=" flex flex-col gap-32">
       {list.map((item, i) => (
-        <Link key={`item-${i}`} href={item.href} download={item.download}>
+        <Link key={`item-${i}`} target={`${takeMeOut ? "_blank": "_self"}`} href={item.href} download={item.download}>
           <h1 className=" text-white uppercase font-bold flex items-center gap-6  animate-hover2">
             <span className=" inline-block w-4 h-[0.75em] self-center bg-[var(--color-yellow)]" />
             <span className="translate-y-[2px] md:!text-[0.875rem] text-[0.75rem] tracking-[2px] leading-[1]">
@@ -86,8 +88,8 @@ export function Footer() {
         {/* Links */}
 
         <div className="flex px-16 md:!px-0 gap-40 md:gap-[5.5rem] w-full max-w-[var(--container-width)]">
-          <FooterList list={footerLinksPages} />
-          <FooterList list={footerLinksSocials} />
+          <FooterList list={footerLinksPages}  />
+          <FooterList list={footerLinksSocials} takeMeOut={true}/>
         </div>
       </div>
 
