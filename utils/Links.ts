@@ -1,11 +1,11 @@
 export const footerLinksPages = [
   {
     name: "About",
-    href: "#about",
+    href: "/about",
   },
   {
     name: "Works",
-    href: "#works",
+    href: "/works",
   },
   {
     name: "Services",
@@ -13,7 +13,7 @@ export const footerLinksPages = [
   },
   {
     name: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 
