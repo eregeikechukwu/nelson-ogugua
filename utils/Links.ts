@@ -32,7 +32,7 @@ export const footerLinksSocials = [
   },
   {
     name: "WhatsApp",
-    link: "https://wa.me/2348131136907/",
+    href: "https://wa.me/2348131136907/",
   },
   {
     name: "My resume",
