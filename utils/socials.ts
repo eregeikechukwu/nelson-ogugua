@@ -1,4 +1,4 @@
-import { Call, Instagram, Whatsapp, Windows } from "iconsax-react";
+import { Call, Whatsapp } from "iconsax-react";
 import { Linkedin, Twitter, Facebook } from "lucide-react";
 
 export const socials = [

@@ -10,6 +10,7 @@ export function useRevealStaggered() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.utils
+        // .toArray<HTMLElement>(".stagger-reveal-mute")
         .toArray<HTMLElement>(".stagger-reveal-container")
         .forEach((container) => {
           const items = container.querySelectorAll<HTMLElement>(".word");
@@ -19,16 +20,17 @@ export function useRevealStaggered() {
 
           gsap.set(items, { autoAlpha: 0 });
           gsap.set(fasterItems, { autoAlpha: 0 });
-
+          // Remeber to change these to the original to get bacik the reveal aniamtion when needed
           gsap.fromTo(
             items,
-            { yPercent: 130, autoAlpha: 0, opacity: 1 },
+            { yPercent: 0, autoAlpha: 0, opacity: 0 },
             {
               yPercent: 0,
               autoAlpha: 1,
+              opacity: 1,
               ease: "back.out(1.7)",
-              stagger: 0.05,
-              duration: 0.8,
+              stagger: 0.015,
+              duration: 1,
               scrollTrigger: {
                 trigger: container,
                 start: "top 70%",
@@ -39,13 +41,14 @@ export function useRevealStaggered() {
           // For fsater reveal
           gsap.fromTo(
             fasterItems,
-            { yPercent: 130, autoAlpha: 0, opacity: 1 },
+            { yPercent: 0, autoAlpha: 0, opacity: 0 },
             {
               yPercent: 0,
               autoAlpha: 1,
+              opacity: 1,
               ease: "back.out(1.7)",
               duration: 0.5,
-              stagger: 0.09,
+              stagger: 0.015,
               scrollTrigger: {
                 trigger: container,
                 start: "top 70%",
@@ -76,10 +79,11 @@ export function useFastRevealStaggered() {
           // For fsater reveal
           gsap.fromTo(
             fasterItems,
-            { yPercent: 130, autoAlpha: 0, opacity: 1 },
+            { yPercent: 0, autoAlpha: 0, opacity: 0 },
             {
               yPercent: 0,
               autoAlpha: 1,
+              opacity: 1,
               ease: "back.out(1.7)",
               duration: 0.3,
               stagger: 0.01,

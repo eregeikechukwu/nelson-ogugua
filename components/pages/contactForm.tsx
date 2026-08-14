@@ -159,7 +159,8 @@ export function ContactForm() {
         {error && error.message && (
           <div className="bg-red-500 bg-opacity-20 border border-red-500 rounded-[0.5556rem] p-16 mb-24">
             <p className="text-red-100 text-16">
-              Please fix validation Errors before submitting.
+              {/* Please fix validation Errors before submitting. */}
+              {error.message}
             </p>
           </div>
         )}
