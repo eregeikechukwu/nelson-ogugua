@@ -43,16 +43,7 @@ export function ComingSoon({ projectName }: { projectName: string }) {
           </div>
 
           {/* Description */}
-          <div className="space-y-[1rem]  py-[2.5rem] w-full">
-            <StaggerRevealText className="text-[var(--color-text-gray)] text-[0.875rem]">
-              Details, case study, and process are being organized with
-              meticulous care.
-            </StaggerRevealText>
-            <StaggerRevealText className="text-[var(--color-light-gray)] text-[0.75rem]">
-              Check back soon to see the full story behind this exciting
-              project.
-            </StaggerRevealText>
-          </div>
+  
 
           {/* Call to action */}
           <div className=" center-content flex-col gap-[0.75rem] border-t-[1px] border-[var(--color-gray-transparent)] md:!pt-[1.5rem] !pt-[0.8rem]">

@@ -10,6 +10,7 @@ export type FormError = {
   lastName?: string | null;
   email?: string | null;
   message?: string | null;
+  errorMessage?: string | null;
 };
 
 export type InputFieldProps = {

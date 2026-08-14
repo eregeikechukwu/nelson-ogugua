@@ -46,12 +46,15 @@ export function ContactForm() {
       isValid = false;
     }
 
-    setError(isValid ? {} : newErrors);
+    setError(
+      isValid ? {} : { ...newErrors, errorMessage: "Fix validation errors." },
+    );
     return isValid;
   }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    setError({}); // Clear previous errors
 
     if (!validateData(formData)) {
       return;
@@ -70,19 +73,20 @@ export function ContactForm() {
         body: JSON.stringify(formData),
       });
 
-      if (!response.ok) throw new Error("Failed to send message");
+      if (!response.ok) throw new Error(response.statusText);
 
       // Activate  success
       if (response.ok) {
         setSubmitSuccess(true);
         setFormData({ firstName: "", lastName: "", email: "", message: "" });
       }
+      console.log(response);
 
       // Clear success message after 5 seconds
       setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (err) {
       setError({
-        message:
+        errorMessage:
           err instanceof Error
             ? err.message
             : "Failed to send message. Please try again.",
@@ -156,11 +160,12 @@ export function ContactForm() {
         </div>
 
         {/* Error Message */}
-        {error && error.message && (
+        {error && error.errorMessage && (
           <div className="bg-red-500 bg-opacity-20 border border-red-500 rounded-[0.5556rem] p-16 mb-24">
             <p className="text-red-100 text-16">
               {/* Please fix validation Errors before submitting. */}
-              {error.message}
+              Message failed to send
+              {error.errorMessage ? ` :${error.errorMessage}` : ""}
             </p>
           </div>
         )}
