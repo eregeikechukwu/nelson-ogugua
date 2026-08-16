@@ -23,14 +23,13 @@ export function useRevealStaggered() {
           // Remeber to change these to the original to get bacik the reveal aniamtion when needed
           gsap.fromTo(
             items,
-            { yPercent: 0, autoAlpha: 0, opacity: 0 },
+            { yPercent: 130, autoAlpha: 0, opacity: 1 },
             {
               yPercent: 0,
               autoAlpha: 1,
-              opacity: 1,
               ease: "back.out(1.7)",
-              stagger: 0.015,
-              duration: 1,
+              stagger: 0.05,
+              duration: 0.8,
               scrollTrigger: {
                 trigger: container,
                 start: "top 70%",
@@ -41,14 +40,13 @@ export function useRevealStaggered() {
           // For fsater reveal
           gsap.fromTo(
             fasterItems,
-            { yPercent: 0, autoAlpha: 0, opacity: 0 },
+            { yPercent: 130, autoAlpha: 0, opacity: 1 },
             {
               yPercent: 0,
               autoAlpha: 1,
-              opacity: 1,
               ease: "back.out(1.7)",
               duration: 0.5,
-              stagger: 0.015,
+              stagger: 0.09,
               scrollTrigger: {
                 trigger: container,
                 start: "top 70%",
@@ -79,11 +77,10 @@ export function useFastRevealStaggered() {
           // For fsater reveal
           gsap.fromTo(
             fasterItems,
-            { yPercent: 0, autoAlpha: 0, opacity: 0 },
+            { yPercent: 130, autoAlpha: 0, opacity: 1 },
             {
               yPercent: 0,
               autoAlpha: 1,
-              opacity: 1,
               ease: "back.out(1.7)",
               duration: 0.3,
               stagger: 0.01,

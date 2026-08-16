@@ -33,7 +33,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
     console.error("Error sending email: ", error);
-    alert(error);
     return res.status(500).json({ message: error.message.includes("failed to fetch")? "Check your internet connection" : "Internal servedr error" });
   }
 }
