@@ -11,6 +11,15 @@ export const metadata = {
   },
   description:
     "Nelson Ogugua, a designer who enjoys turning complex ideas into products that are functional, intuitive and easy to use.",
+
+  openGraph: {
+    title: "Nelson Ogugua",
+    description:
+      "Nelson Ogugua, a designer who enjoys turning complex ideas into products that are functional, intuitive and easy to use.",
+    images: [
+      { url: "/og-image.png", height: 150, width: 150, alt: "Nelson Ogugua" },
+    ],
+  },
 };
 
 export default function RootLayout({
